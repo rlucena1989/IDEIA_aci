@@ -1,0 +1,24 @@
+#!/usr/bin/env sh
+set -eu
+
+zero_oid="0000000000000000000000000000000000000000"
+
+while read -r local_ref local_oid remote_ref remote_oid; do
+  if [ "$remote_ref" != "refs/heads/main" ]; then
+    continue
+  fi
+
+  if [ "$local_oid" = "$zero_oid" ]; then
+    echo "Push bloqueado: a branch main nao pode ser excluida." >&2
+    exit 1
+  fi
+
+  if [ "$remote_oid" != "$zero_oid" ] && \
+     ! git merge-base --is-ancestor "$remote_oid" "$local_oid"; then
+    echo "Push bloqueado: atualizacao nao fast-forward da branch main." >&2
+    echo "Integre o historico remoto sem reescreve-lo antes de tentar novamente." >&2
+    exit 1
+  fi
+done
+
+exit 0
