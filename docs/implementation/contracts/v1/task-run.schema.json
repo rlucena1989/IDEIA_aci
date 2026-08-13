@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.ideia.invalid/p0/v1/task-run.schema.json",
+  "title": "IDEIA P0 TaskRun v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "contract", "task_id", "project_id", "workspace_id", "principal_id",
+    "manifest_id", "manifest_fingerprint", "governance_bundle_id",
+    "governance_bundle_fingerprint", "budget_set_id", "budget_fingerprint",
+    "sandbox_profile_fingerprint", "correlation_id", "created_at"
+  ],
+  "properties": {
+    "contract": { "const": "ideia.task-run/1" },
+    "task_id": { "$ref": "_defs.schema.json#/$defs/taskId" },
+    "project_id": { "$ref": "_defs.schema.json#/$defs/projectId" },
+    "workspace_id": { "$ref": "_defs.schema.json#/$defs/workspaceId" },
+    "principal_id": { "$ref": "_defs.schema.json#/$defs/principalId" },
+    "manifest_id": { "$ref": "_defs.schema.json#/$defs/manifestId" },
+    "manifest_fingerprint": { "$ref": "_defs.schema.json#/$defs/digest" },
+    "governance_bundle_id": { "$ref": "_defs.schema.json#/$defs/stableName" },
+    "governance_bundle_fingerprint": { "$ref": "_defs.schema.json#/$defs/digest" },
+    "budget_set_id": { "$ref": "_defs.schema.json#/$defs/budgetSetId" },
+    "budget_fingerprint": { "$ref": "_defs.schema.json#/$defs/digest" },
+    "sandbox_profile_fingerprint": { "$ref": "_defs.schema.json#/$defs/digest" },
+    "correlation_id": { "$ref": "_defs.schema.json#/$defs/correlationId" },
+    "created_at": { "$ref": "_defs.schema.json#/$defs/utcTimestamp" }
+  }
+}

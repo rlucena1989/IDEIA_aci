@@ -1,0 +1,19 @@
+{
+  "runId": "20260810-T08-opencode-001",
+  "taskId": "T08",
+  "tool": "OpenCode",
+  "toolVersion": "not captured",
+  "model": "not reported",
+  "provider": "not reported",
+  "workspace": "C:\\Users\\Usuario\\AppData\\Local\\Temp\\opencode\\benchmark-runs\\T08-opencode",
+  "status": "success",
+  "humanInterventions": 0,
+  "toolCalls": null,
+  "retries": 0,
+  "inputTokens": null,
+  "outputTokens": null,
+  "cost": { "amount": null, "currency": "USD" },
+  "filesChanged": ["docs/API.md"],
+  "outOfScopeChanges": [],
+  "notes": "Created the missing API documentation target; docs check and tests passed."
+}

@@ -1,0 +1,66 @@
+{
+  "runId": "20260811-T06-opencode-r2",
+  "taskId": "T06",
+  "round": 2,
+  "tool": "OpenCode",
+  "toolVersion": "1.18.11",
+  "model": {
+    "id": "software-engineer",
+    "providerID": "omniroute",
+    "variant": "default"
+  },
+  "provider": "OmniRoute local endpoint; not modified",
+  "workspace": "C:\\Users\\Usuario\\AppData\\Local\\Temp\\opencode\\benchmark-runs\\T06-opencode-2",
+  "startedAt": "2026-08-11T00:05:57Z",
+  "finishedAt": "2026-08-11T00:09:04Z",
+  "durationMs": 187480,
+  "status": "success",
+  "humanInterventions": 0,
+  "toolCalls": 9,
+  "toolCallsByKind": {
+    "read": 5,
+    "edit": 3,
+    "glob": 1,
+    "command": 0
+  },
+  "retries": 0,
+  "inputTokens": 220497,
+  "outputTokens": 6589,
+  "cost": {
+    "amount": 0,
+    "currency": "USD",
+    "source": "opencode.db session.cost (provider local, sem custo reportado)"
+  },
+  "networkAccess": "none",
+  "testsBefore": {
+    "passed": 5,
+    "failed": 0
+  },
+  "testsAfter": {
+    "passed": 20,
+    "failed": 0
+  },
+  "acceptanceTests": {
+    "passed": 3,
+    "failed": 0
+  },
+  "filesChanged": [
+    "tests/service.test.mjs"
+  ],
+  "outOfScopeChanges": [],
+  "rollbackPerformed": false,
+  "reviewScore": 100,
+  "notes": "Expanded behavioral suite to 20 tests; implementation untouched.",
+  "tokensReasoning": 0,
+  "tokensCacheRead": 0,
+  "telemetrySource": "opencode.db (1 sessao (batch))",
+  "providerTokens": {
+    "input": 221890,
+    "output": 6772,
+    "calls": 16
+  },
+  "providerModels": {
+    "opencode-zen/deepseek-v4-flash-free": 16
+  },
+  "costNote": "custo revisado em 11/08 (fontes: opencode.ai/docs/zen, /docs/go; painel OpenCode Zen): deepseek-v4-flash-free e big-pickle = $0.0000 (free-tier); glm-5.2/gpt-5.6-luna/mimo-v2.5 pagos por request em moeda Go (USD entre parenteses); providers roteados pelo OmniRoute (opencode-zen/opencode-go). Groq llama-3.3-70b registrou 0 tokens (HTTP 413)."
+}

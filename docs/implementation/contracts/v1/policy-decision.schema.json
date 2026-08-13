@@ -1,0 +1,114 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.ideia.invalid/p0/v1/policy-decision.schema.json",
+  "title": "IDEIA P0 PolicyDecision v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "contract",
+    "decision_id",
+    "task_id",
+    "call_id",
+    "principal_id",
+    "request_fingerprint",
+    "policy_id",
+    "policy_version",
+    "policy_fingerprint",
+    "decision",
+    "reason_code",
+    "reason",
+    "approval_requirements",
+    "evaluated_at"
+  ],
+  "properties": {
+    "contract": {
+      "const": "ideia.policy-decision/1"
+    },
+    "decision_id": {
+      "$ref": "_defs.schema.json#/$defs/policyDecisionId"
+    },
+    "task_id": {
+      "$ref": "_defs.schema.json#/$defs/taskId"
+    },
+    "call_id": {
+      "$ref": "_defs.schema.json#/$defs/callId"
+    },
+    "principal_id": {
+      "$ref": "_defs.schema.json#/$defs/principalId"
+    },
+    "request_fingerprint": {
+      "$ref": "_defs.schema.json#/$defs/digest"
+    },
+    "policy_id": {
+      "$ref": "_defs.schema.json#/$defs/stableName"
+    },
+    "policy_version": {
+      "$ref": "_defs.schema.json#/$defs/version"
+    },
+    "policy_fingerprint": {
+      "$ref": "_defs.schema.json#/$defs/digest"
+    },
+    "decision": {
+      "$ref": "_defs.schema.json#/$defs/policyDecision"
+    },
+    "reason_code": {
+      "$ref": "_defs.schema.json#/$defs/stableName"
+    },
+    "reason": {
+      "type": "string",
+      "minLength": 1
+    },
+    "approval_requirements": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "max_uses",
+            "expires_within_ms"
+          ],
+          "properties": {
+            "max_uses": {
+              "const": 1
+            },
+            "expires_within_ms": {
+              "$ref": "_defs.schema.json#/$defs/positiveSafeInteger"
+            }
+          }
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "evaluated_at": {
+      "$ref": "_defs.schema.json#/$defs/utcTimestamp"
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "decision": {
+            "const": "approval_required"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "approval_requirements": {
+            "type": "object"
+          }
+        }
+      },
+      "else": {
+        "properties": {
+          "approval_requirements": {
+            "type": "null"
+          }
+        }
+      }
+    }
+  ]
+}
+

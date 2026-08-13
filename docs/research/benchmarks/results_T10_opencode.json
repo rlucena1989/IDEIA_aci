@@ -1,0 +1,19 @@
+{
+  "runId": "20260810-T10-opencode-001",
+  "taskId": "T10",
+  "tool": "OpenCode",
+  "toolVersion": "not captured",
+  "model": "not reported",
+  "provider": "not reported",
+  "workspace": "C:\\Users\\Usuario\\AppData\\Local\\Temp\\opencode\\benchmark-runs\\T10-opencode",
+  "status": "success",
+  "humanInterventions": 0,
+  "toolCalls": null,
+  "retries": 0,
+  "inputTokens": null,
+  "outputTokens": null,
+  "cost": { "amount": null, "currency": "USD" },
+  "filesChanged": ["packages/catalog/src/products.mjs"],
+  "outOfScopeChanges": [],
+  "notes": "Added EUR formatting in catalog while checkout remained intact; all suites passed."
+}

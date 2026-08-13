@@ -1,0 +1,87 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.ideia.invalid/p0/v1/approval-grant.schema.json",
+  "title": "IDEIA P0 ApprovalGrant v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "contract",
+    "approval_id",
+    "policy_decision_id",
+    "task_id",
+    "call_id",
+    "principal_id",
+    "request_fingerprint",
+    "policy_fingerprint",
+    "tool",
+    "limits",
+    "max_uses",
+    "nonce",
+    "granted_at",
+    "expires_at"
+  ],
+  "properties": {
+    "contract": {
+      "const": "ideia.approval-grant/1"
+    },
+    "approval_id": {
+      "$ref": "_defs.schema.json#/$defs/approvalId"
+    },
+    "policy_decision_id": {
+      "$ref": "_defs.schema.json#/$defs/policyDecisionId"
+    },
+    "task_id": {
+      "$ref": "_defs.schema.json#/$defs/taskId"
+    },
+    "call_id": {
+      "$ref": "_defs.schema.json#/$defs/callId"
+    },
+    "principal_id": {
+      "$ref": "_defs.schema.json#/$defs/principalId"
+    },
+    "request_fingerprint": {
+      "$ref": "_defs.schema.json#/$defs/digest"
+    },
+    "policy_fingerprint": {
+      "$ref": "_defs.schema.json#/$defs/digest"
+    },
+    "tool": {
+      "$ref": "_defs.schema.json#/$defs/toolRef"
+    },
+    "limits": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "name",
+          "unit",
+          "value"
+        ],
+        "properties": {
+          "name": {
+            "$ref": "_defs.schema.json#/$defs/stableName"
+          },
+          "unit": {
+            "$ref": "_defs.schema.json#/$defs/stableName"
+          },
+          "value": {
+            "$ref": "_defs.schema.json#/$defs/nonNegativeSafeInteger"
+          }
+        }
+      }
+    },
+    "max_uses": {
+      "const": 1
+    },
+    "nonce": {
+      "$ref": "_defs.schema.json#/$defs/nonce"
+    },
+    "granted_at": {
+      "$ref": "_defs.schema.json#/$defs/utcTimestamp"
+    },
+    "expires_at": {
+      "$ref": "_defs.schema.json#/$defs/utcTimestamp"
+    }
+  }
+}

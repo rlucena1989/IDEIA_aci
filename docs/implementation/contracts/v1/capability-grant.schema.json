@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.ideia.invalid/p0/v1/capability-grant.schema.json",
+  "title": "IDEIA P0 CapabilityGrant v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "contract", "capability_grant_id", "task_id", "principal_id", "sandbox_profile_fingerprint",
+    "capability", "resource_type", "resource", "permissions", "constraints", "policy_decision_id",
+    "valid_from", "expires_at", "max_uses", "grant_fingerprint"
+  ],
+  "properties": {
+    "contract": { "const": "ideia.capability-grant/1" },
+    "capability_grant_id": { "$ref": "_defs.schema.json#/$defs/capabilityGrantId" },
+    "task_id": { "$ref": "_defs.schema.json#/$defs/taskId" },
+    "principal_id": { "$ref": "_defs.schema.json#/$defs/principalId" },
+    "sandbox_profile_fingerprint": { "$ref": "_defs.schema.json#/$defs/digest" },
+    "capability": {
+      "enum": ["filesystem_read", "filesystem_write", "process_spawn", "network_egress", "secret_use", "git_mutation", "external_mutation"]
+    },
+    "resource_type": {
+      "enum": ["workspace_path", "executable", "network_destination", "secret_handle", "git_repository", "external_resource"]
+    },
+    "resource": { "type": "string", "minLength": 1, "maxLength": 2048 },
+    "permissions": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": { "$ref": "_defs.schema.json#/$defs/stableName" }
+    },
+    "constraints": { "$ref": "_defs.schema.json#/$defs/jsonObject" },
+    "policy_decision_id": { "$ref": "_defs.schema.json#/$defs/policyDecisionId" },
+    "valid_from": { "$ref": "_defs.schema.json#/$defs/utcTimestamp" },
+    "expires_at": { "$ref": "_defs.schema.json#/$defs/utcTimestamp" },
+    "max_uses": {
+      "oneOf": [
+        { "$ref": "_defs.schema.json#/$defs/positiveSafeInteger" },
+        { "type": "null" }
+      ]
+    },
+    "grant_fingerprint": { "$ref": "_defs.schema.json#/$defs/digest" }
+  }
+}

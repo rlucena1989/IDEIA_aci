@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.ideia.invalid/p0/v1/price-book.schema.json",
+  "title": "IDEIA P0 PriceBook v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "contract", "price_book_id", "task_id", "provider_id", "model_id", "region",
+    "source_uri", "source_observed_at", "effective_at", "expires_at", "entries", "price_book_fingerprint"
+  ],
+  "properties": {
+    "contract": { "const": "ideia.price-book/1" },
+    "price_book_id": { "$ref": "_defs.schema.json#/$defs/priceBookId" },
+    "task_id": { "$ref": "_defs.schema.json#/$defs/taskId" },
+    "provider_id": { "$ref": "_defs.schema.json#/$defs/stableName" },
+    "model_id": { "type": "string", "minLength": 1, "maxLength": 256 },
+    "region": {
+      "oneOf": [
+        { "type": "string", "minLength": 1, "maxLength": 128 },
+        { "type": "null" }
+      ]
+    },
+    "source_uri": { "type": "string", "pattern": "^https://", "maxLength": 2048 },
+    "source_observed_at": { "$ref": "_defs.schema.json#/$defs/utcTimestamp" },
+    "effective_at": {
+      "oneOf": [
+        { "$ref": "_defs.schema.json#/$defs/utcTimestamp" },
+        { "type": "null" }
+      ]
+    },
+    "expires_at": { "$ref": "_defs.schema.json#/$defs/utcTimestamp" },
+    "entries": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["meter", "price_minor", "unit_quantity", "currency", "conditions"],
+        "properties": {
+          "meter": { "enum": ["call", "input_token", "output_token", "duration_ms"] },
+          "price_minor": { "$ref": "_defs.schema.json#/$defs/nonNegativeSafeInteger" },
+          "unit_quantity": { "$ref": "_defs.schema.json#/$defs/positiveSafeInteger" },
+          "currency": { "type": "string", "pattern": "^[A-Z]{3}$" },
+          "conditions": { "$ref": "_defs.schema.json#/$defs/jsonObject" }
+        }
+      }
+    },
+    "price_book_fingerprint": { "$ref": "_defs.schema.json#/$defs/digest" }
+  }
+}

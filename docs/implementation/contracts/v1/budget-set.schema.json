@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.ideia.invalid/p0/v1/budget-set.schema.json",
+  "title": "IDEIA P0 BudgetSet v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["contract", "budget_set_id", "task_id", "price_book_id", "limits", "action", "created_at", "budget_fingerprint"],
+  "properties": {
+    "contract": { "const": "ideia.budget-set/1" },
+    "budget_set_id": { "$ref": "_defs.schema.json#/$defs/budgetSetId" },
+    "task_id": { "$ref": "_defs.schema.json#/$defs/taskId" },
+    "price_book_id": {
+      "oneOf": [
+        { "$ref": "_defs.schema.json#/$defs/priceBookId" },
+        { "type": "null" }
+      ]
+    },
+    "limits": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["unit", "hard_limit", "currency"],
+        "properties": {
+          "unit": { "enum": ["call", "input_token", "output_token", "total_token", "duration_ms", "currency_minor"] },
+          "hard_limit": { "$ref": "_defs.schema.json#/$defs/nonNegativeSafeInteger" },
+          "currency": {
+            "oneOf": [
+              { "type": "string", "pattern": "^[A-Z]{3}$" },
+              { "type": "null" }
+            ]
+          }
+        },
+        "allOf": [
+          {
+            "if": { "properties": { "unit": { "const": "currency_minor" } } },
+            "then": { "properties": { "currency": { "type": "string", "pattern": "^[A-Z]{3}$" } } },
+            "else": { "properties": { "currency": { "type": "null" } } }
+          }
+        ]
+      }
+    },
+    "action": { "const": "stop_new_billable" },
+    "created_at": { "$ref": "_defs.schema.json#/$defs/utcTimestamp" },
+    "budget_fingerprint": { "$ref": "_defs.schema.json#/$defs/digest" }
+  }
+}

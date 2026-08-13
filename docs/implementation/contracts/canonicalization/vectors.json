@@ -1,0 +1,249 @@
+{
+  "contract": "ideia.canonicalization-vectors/1",
+  "profile": "jcs-sha256-v1",
+  "header_template": "IDEIA-P0|jcs-sha256-v1|<purpose>\n",
+  "vectors": [
+    {
+      "id": "JCS-P0-001",
+      "source": "internal-simple-order",
+      "purpose": "payload",
+      "input_json": "{\"b\":2,\"a\":1}",
+      "expected_canonical": "{\"a\":1,\"b\":2}",
+      "expected_digest": "sha256:622a6b2f076db99850e4f10c149522bb21f1635b8d82e2bdba26863dc1f3942a"
+    },
+    {
+      "id": "JCS-P0-002",
+      "source": "internal-recursion-array",
+      "purpose": "payload",
+      "input_json": "{\"z\":[{\"b\":true,\"a\":null},3],\"a\":\"x\"}",
+      "expected_canonical": "{\"a\":\"x\",\"z\":[{\"a\":null,\"b\":true},3]}",
+      "expected_digest": "sha256:71e59040a3b74ee74cbfff34d7c923de9093f28069b56f7025a2f66646812874"
+    },
+    {
+      "id": "JCS-P0-003",
+      "source": "RFC-8785-section-3.2.3",
+      "purpose": "payload",
+      "input_json": "{\"\\u20ac\":\"Euro Sign\",\"\\r\":\"Carriage Return\",\"\\ufb33\":\"Hebrew Letter Dalet With Dagesh\",\"1\":\"One\",\"\\ud83d\\ude00\":\"Emoji: Grinning Face\",\"\\u0080\":\"Control\",\"\\u00f6\":\"Latin Small Letter O With Diaeresis\"}",
+      "expected_canonical": "{\"\\r\":\"Carriage Return\",\"1\":\"One\",\"\u0080\":\"Control\",\"ö\":\"Latin Small Letter O With Diaeresis\",\"€\":\"Euro Sign\",\"😀\":\"Emoji: Grinning Face\",\"דּ\":\"Hebrew Letter Dalet With Dagesh\"}",
+      "expected_digest": "sha256:ee480e5498eac465bc962af95408aa498b68862939811cd96a0f451bb9c08bf5"
+    },
+    {
+      "id": "JCS-P0-004",
+      "source": "RFC-8785-number-rules-subset",
+      "purpose": "payload",
+      "input_json": "[333333333.33333329,1E30,4.50,2e-3,0.000000000000000000000000001,-0]",
+      "expected_canonical": "[333333333.3333333,1e+30,4.5,0.002,1e-27,0]",
+      "expected_digest": "sha256:9d5ddc4764f8ddaf9f597bfb22e2f9b5fee5490a7be6684c4c2c7b9014afc552"
+    },
+    {
+      "id": "JCS-P0-005A",
+      "source": "internal-array-order",
+      "purpose": "payload",
+      "input_json": "{\"items\":[1,2]}",
+      "expected_canonical": "{\"items\":[1,2]}",
+      "expected_digest": "sha256:48bf8ade40fad499bff13c4762ae2a2277b8323d921b2701e330be075668437b"
+    },
+    {
+      "id": "JCS-P0-005B",
+      "source": "internal-array-order",
+      "purpose": "payload",
+      "input_json": "{\"items\":[2,1]}",
+      "expected_canonical": "{\"items\":[2,1]}",
+      "expected_digest": "sha256:016e5e54592776e62f9e6fbb69c5adcaceeea1a1baf561cc1619895c7b3fedc3"
+    },
+    {
+      "id": "JCS-P0-006",
+      "source": "internal-tool-request",
+      "purpose": "tool-request",
+      "input": {
+        "contract": "ideia.tool-request/1",
+        "call_id": "cal_123e4567-e89b-42d3-a456-426614174000",
+        "task_id": "tsk_123e4567-e89b-42d3-a456-426614174000",
+        "step_id": "stp_123e4567-e89b-42d3-a456-426614174000",
+        "principal_id": "prn_123e4567-e89b-42d3-a456-426614174000",
+        "tool": {
+          "tool_id": "read-file",
+          "tool_version": "1.0.0"
+        },
+        "effect_class": "read_only",
+        "arguments": {
+          "path": "src/a.ts",
+          "encoding": "utf8"
+        },
+        "target": {
+          "path": "src/a.ts"
+        },
+        "preconditions": [
+          {
+            "kind": "file-digest",
+            "subject": "src/a.ts",
+            "expected_digest": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          }
+        ],
+        "sandbox_profile_fingerprint": "sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "capability_grant_ids": [
+          "cpg_123e4567-e89b-42d3-a456-426614174000"
+        ],
+        "idempotency_key": null
+      },
+      "expected_canonical": "{\"arguments\":{\"encoding\":\"utf8\",\"path\":\"src/a.ts\"},\"call_id\":\"cal_123e4567-e89b-42d3-a456-426614174000\",\"capability_grant_ids\":[\"cpg_123e4567-e89b-42d3-a456-426614174000\"],\"contract\":\"ideia.tool-request/1\",\"effect_class\":\"read_only\",\"idempotency_key\":null,\"preconditions\":[{\"expected_digest\":\"sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\",\"kind\":\"file-digest\",\"subject\":\"src/a.ts\"}],\"principal_id\":\"prn_123e4567-e89b-42d3-a456-426614174000\",\"sandbox_profile_fingerprint\":\"sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb\",\"step_id\":\"stp_123e4567-e89b-42d3-a456-426614174000\",\"target\":{\"path\":\"src/a.ts\"},\"task_id\":\"tsk_123e4567-e89b-42d3-a456-426614174000\",\"tool\":{\"tool_id\":\"read-file\",\"tool_version\":\"1.0.0\"}}",
+      "expected_digest": "sha256:27d8356e4e7d154031fe992aaedd96970fd7fac0974e37119d94121d1e366fce"
+    },
+    {
+      "id": "JCS-DOM-001", "source": "internal-domain-separation", "purpose": "manifest",
+      "input": { "profile": "domain-separation", "version": 1 },
+      "expected_canonical": "{\"profile\":\"domain-separation\",\"version\":1}",
+      "expected_digest": "sha256:853210f1d124237a7ce6a63a4ef1c398c31c253c9f685cff3c4e2d4d23de34ff"
+    },
+    {
+      "id": "JCS-DOM-002", "source": "internal-domain-separation", "purpose": "config",
+      "input": { "profile": "domain-separation", "version": 1 },
+      "expected_canonical": "{\"profile\":\"domain-separation\",\"version\":1}",
+      "expected_digest": "sha256:6a7ff1a8cc82999f7b7865b0aa5a7dc14ab320f10ce23286ce2e521800ad8673"
+    },
+    {
+      "id": "JCS-DOM-003", "source": "internal-domain-separation", "purpose": "provider-capabilities",
+      "input": { "profile": "domain-separation", "version": 1 },
+      "expected_canonical": "{\"profile\":\"domain-separation\",\"version\":1}",
+      "expected_digest": "sha256:afcdca412645a21f19f8ae896a70622aaa53fa78a2397099d2a9904a21aaba37"
+    },
+    {
+      "id": "JCS-DOM-004", "source": "internal-domain-separation", "purpose": "governance-bundle",
+      "input": { "profile": "domain-separation", "version": 1 },
+      "expected_canonical": "{\"profile\":\"domain-separation\",\"version\":1}",
+      "expected_digest": "sha256:e4004873ed67b6b6b5b899beef97982a779b3949a387d631a2d198b9c013974c"
+    },
+    {
+      "id": "JCS-DOM-005", "source": "internal-domain-separation", "purpose": "plan",
+      "input": { "profile": "domain-separation", "version": 1 },
+      "expected_canonical": "{\"profile\":\"domain-separation\",\"version\":1}",
+      "expected_digest": "sha256:93cc3a2eeffa230c2bab9f5740c516d0ecd12a7c1744386a87e6568425ce5729"
+    },
+    {
+      "id": "JCS-DOM-006", "source": "internal-domain-separation", "purpose": "policy",
+      "input": { "profile": "domain-separation", "version": 1 },
+      "expected_canonical": "{\"profile\":\"domain-separation\",\"version\":1}",
+      "expected_digest": "sha256:28c4b9eff9fbd68aea672489b4b09a909d1489b6fe37ae3d6897bd156c6f051c"
+    },
+    {
+      "id": "JCS-DOM-007", "source": "internal-domain-separation", "purpose": "event",
+      "input": { "profile": "domain-separation", "version": 1 },
+      "expected_canonical": "{\"profile\":\"domain-separation\",\"version\":1}",
+      "expected_digest": "sha256:555fd29946c1ac25fb67b8af9ad3a9f718ce2bf68f01035fc1ea99acd85538ff"
+    },
+    {
+      "id": "JCS-DOM-008", "source": "internal-domain-separation", "purpose": "context-query",
+      "input": { "profile": "domain-separation", "version": 1 },
+      "expected_canonical": "{\"profile\":\"domain-separation\",\"version\":1}",
+      "expected_digest": "sha256:3ed30c79890c9aa18bf2be85bbc23d417287c3573d65f46e9f5719ba98533e45"
+    },
+    {
+      "id": "JCS-DOM-009", "source": "internal-domain-separation", "purpose": "context-item",
+      "input": { "profile": "domain-separation", "version": 1 },
+      "expected_canonical": "{\"profile\":\"domain-separation\",\"version\":1}",
+      "expected_digest": "sha256:5e4be0f81bd4cc433069c772c879ca861c7a19348774ece625fc1198f9af126d"
+    },
+    {
+      "id": "JCS-DOM-010", "source": "internal-domain-separation", "purpose": "context-package",
+      "input": { "profile": "domain-separation", "version": 1 },
+      "expected_canonical": "{\"profile\":\"domain-separation\",\"version\":1}",
+      "expected_digest": "sha256:3633680087c7924a0f6660fd266d030486b731780514a824019e7c9e28b97dfc"
+    },
+    {
+      "id": "JCS-DOM-011", "source": "internal-domain-separation", "purpose": "tool-result",
+      "input": { "profile": "domain-separation", "version": 1 },
+      "expected_canonical": "{\"profile\":\"domain-separation\",\"version\":1}",
+      "expected_digest": "sha256:068a2aa502483e6ae9ce639f4f5454f84d02440fad9baa8321d5166cb7c1fe0c"
+    },
+    {
+      "id": "JCS-DOM-012", "source": "internal-domain-separation", "purpose": "provider-request",
+      "input": { "profile": "domain-separation", "version": 1 },
+      "expected_canonical": "{\"profile\":\"domain-separation\",\"version\":1}",
+      "expected_digest": "sha256:a794dd9644f5d0708f0ac96c5d1d6b5d3292f359dbf6b9719584d98d7b84e503"
+    },
+    {
+      "id": "JCS-DOM-013", "source": "internal-domain-separation", "purpose": "provider-result",
+      "input": { "profile": "domain-separation", "version": 1 },
+      "expected_canonical": "{\"profile\":\"domain-separation\",\"version\":1}",
+      "expected_digest": "sha256:4b2c310fc0c122cc386ae6f092c1567d25048c627e3e36bcec06d15cc6145139"
+    },
+    {
+      "id": "JCS-DOM-014", "source": "internal-domain-separation", "purpose": "approval-request",
+      "input": { "profile": "domain-separation", "version": 1 },
+      "expected_canonical": "{\"profile\":\"domain-separation\",\"version\":1}",
+      "expected_digest": "sha256:b914524719109fdfe5dc28a728648089740344042b479131b45efaf7869171f8"
+    },
+    {
+      "id": "JCS-DOM-015", "source": "internal-domain-separation", "purpose": "verification",
+      "input": { "profile": "domain-separation", "version": 1 },
+      "expected_canonical": "{\"profile\":\"domain-separation\",\"version\":1}",
+      "expected_digest": "sha256:3c84cf3c2a2ebe0e416d52a37fe0e759e1586efca5988af30c296163a00f7e87"
+    },
+    {
+      "id": "JCS-DOM-016", "source": "internal-domain-separation", "purpose": "artifact-metadata",
+      "input": { "profile": "domain-separation", "version": 1 },
+      "expected_canonical": "{\"profile\":\"domain-separation\",\"version\":1}",
+      "expected_digest": "sha256:f6ab3eac053824a40bc539b2d0160917d1314b491c974a5a7e6bd9d27b87a6a3"
+    },
+    {
+      "id": "JCS-DOM-017", "source": "internal-domain-separation", "purpose": "recovery-report",
+      "input": { "profile": "domain-separation", "version": 1 },
+      "expected_canonical": "{\"profile\":\"domain-separation\",\"version\":1}",
+      "expected_digest": "sha256:b3cc1a85507b8a024ec90ed1415ec3cde678b659709e7e13b1da61cd360594c1"
+    },
+    {
+      "id": "JCS-DOM-018", "source": "internal-domain-separation", "purpose": "price-book",
+      "input": { "profile": "domain-separation", "version": 1 },
+      "expected_canonical": "{\"profile\":\"domain-separation\",\"version\":1}",
+      "expected_digest": "sha256:63df78e1ce8749fa07eaa5cac8dc8f500b659f1797faeac418a0152f3e93fd00"
+    },
+    {
+      "id": "JCS-DOM-019", "source": "internal-domain-separation", "purpose": "budget-ledger",
+      "input": { "profile": "domain-separation", "version": 1 },
+      "expected_canonical": "{\"profile\":\"domain-separation\",\"version\":1}",
+      "expected_digest": "sha256:a8f2fe18c21ecbdd5e6ee79937e29159eb80e5c74596ca92f1c1280df8f786e9"
+    },
+    {
+      "id": "JCS-DOM-020", "source": "internal-domain-separation", "purpose": "schema",
+      "input": { "profile": "domain-separation", "version": 1 },
+      "expected_canonical": "{\"profile\":\"domain-separation\",\"version\":1}",
+      "expected_digest": "sha256:a1c26a6dac40b5a354841c22d1b530d836c55b847b4e5dbd79c9a8945270cb77"
+    },
+    {
+      "id": "JCS-DOM-021", "source": "internal-domain-separation", "purpose": "sandbox-profile",
+      "input": { "profile": "domain-separation", "version": 1 },
+      "expected_canonical": "{\"profile\":\"domain-separation\",\"version\":1}",
+      "expected_digest": "sha256:2879587d8298a8067c817fc333e054e4f0b4efe53b82c01b68fa2b4c50525386"
+    },
+    {
+      "id": "JCS-DOM-022", "source": "internal-domain-separation", "purpose": "capability-grant",
+      "input": { "profile": "domain-separation", "version": 1 },
+      "expected_canonical": "{\"profile\":\"domain-separation\",\"version\":1}",
+      "expected_digest": "sha256:a03a78f07845bb5cd25a73398c3a0e1ff4683c436df6a76e8e2477c41e766a81"
+    },
+    {
+      "id": "JCS-DOM-023", "source": "internal-domain-separation", "purpose": "budget-set",
+      "input": { "profile": "domain-separation", "version": 1 },
+      "expected_canonical": "{\"profile\":\"domain-separation\",\"version\":1}",
+      "expected_digest": "sha256:0a0b4042ee0231a87fcc5d3fd316c65210be896a21f16c3c2698a7fdaa39eb99"
+    },
+    {
+      "id": "JCS-DOM-024", "source": "internal-domain-separation", "purpose": "budget-reservation",
+      "input": { "profile": "domain-separation", "version": 1 },
+      "expected_canonical": "{\"profile\":\"domain-separation\",\"version\":1}",
+      "expected_digest": "sha256:ff2b18cce29f8289a592fbd19474954562823f08d7c587b75f7300dddcfd90db"
+    },
+    {
+      "id": "JCS-DOM-025", "source": "internal-domain-separation", "purpose": "evaluation-report",
+      "input": { "profile": "domain-separation", "version": 1 },
+      "expected_canonical": "{\"profile\":\"domain-separation\",\"version\":1}",
+      "expected_digest": "sha256:171c59c048301e42e31415dc88bc548ee2d2c727e62e48617f67116469b8d9da"
+    },
+    {
+      "id": "JCS-DOM-026", "source": "internal-domain-separation", "purpose": "governance-candidate",
+      "input": { "profile": "domain-separation", "version": 1 },
+      "expected_canonical": "{\"profile\":\"domain-separation\",\"version\":1}",
+      "expected_digest": "sha256:c44c91c90baada2f35d6e63aacab7b624a8bb77c872fe5d713a4186aa35ab56a"
+    }
+  ]
+}

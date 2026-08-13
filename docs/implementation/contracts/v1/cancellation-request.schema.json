@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.ideia.invalid/p0/v1/cancellation-request.schema.json",
+  "title": "IDEIA P0 task.cancellation_requested payload v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "contract",
+    "requested_by",
+    "reason_code",
+    "reason"
+  ],
+  "properties": {
+    "contract": {
+      "const": "ideia.cancellation-request/1"
+    },
+    "requested_by": {
+      "$ref": "_defs.schema.json#/$defs/principalId"
+    },
+    "reason_code": {
+      "$ref": "_defs.schema.json#/$defs/stableName"
+    },
+    "reason": {
+      "type": "string",
+      "minLength": 1
+    }
+  }
+}
+

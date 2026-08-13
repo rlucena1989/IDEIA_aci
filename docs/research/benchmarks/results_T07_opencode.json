@@ -1,0 +1,19 @@
+{
+  "runId": "20260810-T07-opencode-001",
+  "taskId": "T07",
+  "tool": "OpenCode",
+  "toolVersion": "not captured",
+  "model": "not reported",
+  "provider": "not reported",
+  "workspace": "C:\\Users\\Usuario\\AppData\\Local\\Temp\\opencode\\benchmark-runs\\T07-opencode",
+  "status": "success_with_scope_note",
+  "humanInterventions": 0,
+  "toolCalls": null,
+  "retries": 1,
+  "inputTokens": null,
+  "outputTokens": null,
+  "cost": { "amount": null, "currency": "USD" },
+  "filesChanged": ["package.json", "package-lock.json"],
+  "outOfScopeChanges": [],
+  "notes": "Updated local dependency offline; tests and build passed. First external access attempt was blocked."
+}

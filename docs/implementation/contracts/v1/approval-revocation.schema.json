@@ -1,0 +1,76 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.ideia.invalid/p0/v1/approval-revocation.schema.json",
+  "title": "IDEIA P0 approval.revoked payload v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "contract",
+    "approval_id",
+    "revoked_by",
+    "scope",
+    "emergency_stop",
+    "reason_code",
+    "reason"
+  ],
+  "properties": {
+    "contract": {
+      "const": "ideia.approval-revocation/1"
+    },
+    "approval_id": {
+      "oneOf": [
+        {
+          "$ref": "_defs.schema.json#/$defs/approvalId"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "revoked_by": {
+      "$ref": "_defs.schema.json#/$defs/principalId"
+    },
+    "scope": {
+      "enum": [
+        "single",
+        "all_pending"
+      ]
+    },
+    "emergency_stop": {
+      "type": "boolean"
+    },
+    "reason_code": {
+      "$ref": "_defs.schema.json#/$defs/stableName"
+    },
+    "reason": {
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "scope": {
+            "const": "single"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "approval_id": {
+            "$ref": "_defs.schema.json#/$defs/approvalId"
+          }
+        }
+      },
+      "else": {
+        "properties": {
+          "approval_id": {
+            "type": "null"
+          }
+        }
+      }
+    }
+  ]
+}
+

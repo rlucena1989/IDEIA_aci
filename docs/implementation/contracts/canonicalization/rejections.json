@@ -1,0 +1,132 @@
+{
+  "contract": "ideia.canonicalization-rejections/1",
+  "profile": "jcs-sha256-v1",
+  "cases": [
+    {
+      "id": "JCS-R01",
+      "construction": "raw_json",
+      "value": "{\"a\":1,\"a\":2}",
+      "reason": "duplicate property name"
+    },
+    {
+      "id": "JCS-R02",
+      "construction": "javascript_expression",
+      "value": "NaN",
+      "reason": "non-finite number"
+    },
+    {
+      "id": "JCS-R03",
+      "construction": "javascript_expression",
+      "value": "Infinity",
+      "reason": "non-finite number"
+    },
+    {
+      "id": "JCS-R04",
+      "construction": "javascript_expression",
+      "value": "1n",
+      "reason": "BigInt is not JSON"
+    },
+    {
+      "id": "JCS-R05",
+      "construction": "javascript_expression",
+      "value": "undefined",
+      "reason": "undefined is not JSON"
+    },
+    {
+      "id": "JCS-R06",
+      "construction": "javascript_expression",
+      "value": "new Array(2)",
+      "reason": "sparse array is not accepted"
+    },
+    {
+      "id": "JCS-R07",
+      "construction": "javascript_expression",
+      "value": "({toJSON(){return 1}})",
+      "reason": "toJSON could alter hashed bytes"
+    },
+    {
+      "id": "JCS-R08",
+      "construction": "javascript_expression",
+      "value": "Object.create({inherited:true})",
+      "reason": "custom prototype is not a plain JSON object"
+    },
+    {
+      "id": "JCS-R09",
+      "construction": "javascript_expression",
+      "value": "String.fromCharCode(0xdead)",
+      "reason": "lone surrogate"
+    },
+    {
+      "id": "JCS-R10",
+      "construction": "javascript_expression",
+      "value": "const x={};x.self=x;x",
+      "reason": "cycle"
+    },
+    {
+      "id": "JCS-R11",
+      "construction": "purpose",
+      "value": "Payload",
+      "reason": "purpose outside lowercase token alphabet"
+    },
+    {
+      "id": "JCS-R12",
+      "construction": "purpose",
+      "value": "payload|event",
+      "reason": "domain separator injection"
+    },
+    {
+      "id": "JCS-R13",
+      "construction": "raw_json",
+      "value": "{\"a\":1,\"\\u0061\":2}",
+      "reason": "duplicate property after JSON escape decoding"
+    },
+    {
+      "id": "JCS-R14",
+      "construction": "raw_json",
+      "value": "{\"outer\":{\"x\":1,\"x\":2}}",
+      "reason": "nested duplicate property"
+    },
+    {
+      "id": "JCS-R15",
+      "construction": "javascript_expression",
+      "value": "function named(){}",
+      "reason": "Function is not JSON"
+    },
+    {
+      "id": "JCS-R16",
+      "construction": "javascript_expression",
+      "value": "Symbol('value')",
+      "reason": "Symbol value is not JSON"
+    },
+    {
+      "id": "JCS-R17",
+      "construction": "javascript_expression",
+      "value": "const a=[];a.extra=1;a",
+      "reason": "array extra property would be discarded"
+    },
+    {
+      "id": "JCS-R18",
+      "construction": "javascript_expression",
+      "value": "Object.defineProperty({},'x',{get(){return 1},enumerable:true})",
+      "reason": "accessor can execute or change value during serialization"
+    },
+    {
+      "id": "JCS-R19",
+      "construction": "javascript_expression",
+      "value": "Object.defineProperty({},'x',{value:1,enumerable:false})",
+      "reason": "non-enumerable own property would be discarded"
+    },
+    {
+      "id": "JCS-R20",
+      "construction": "javascript_expression",
+      "value": "const x={};x[Symbol('key')]=1;x",
+      "reason": "Symbol key would be discarded"
+    },
+    {
+      "id": "JCS-R21",
+      "construction": "limit",
+      "value": "input exceeding any caller-provided strict JSON limit",
+      "reason": "resource limit must fail before hashing"
+    }
+  ]
+}

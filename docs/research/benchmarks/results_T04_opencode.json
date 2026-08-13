@@ -1,0 +1,20 @@
+{
+  "runId": "20260810-T04-opencode-001",
+  "taskId": "T04",
+  "tool": "OpenCode",
+  "toolVersion": "not captured",
+  "model": "not reported",
+  "provider": "not reported",
+  "workspace": "C:\\Users\\Usuario\\AppData\\Local\\Temp\\opencode\\benchmark-runs\\T04-opencode",
+  "status": "success",
+  "humanInterventions": 0,
+  "toolCalls": null,
+  "retries": 0,
+  "inputTokens": null,
+  "outputTokens": null,
+  "cost": { "amount": null, "currency": "USD" },
+  "filesChanged": ["src/products.mjs"],
+  "outOfScopeChanges": [],
+  "rollbackPerformed": false,
+  "notes": "Case-insensitive product filter; empty query returns all; input preserved."
+}

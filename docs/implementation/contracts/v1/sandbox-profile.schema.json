@@ -1,0 +1,75 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.ideia.invalid/p0/v1/sandbox-profile.schema.json",
+  "title": "IDEIA P0 SandboxProfile v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "contract", "task_id", "profile_id", "profile_version", "os_family", "isolation_level",
+    "controls", "network_default", "hostile_input_allowed", "evidence_artifact_id", "evidence_ref",
+    "degradations", "selected_at", "profile_fingerprint"
+  ],
+  "properties": {
+    "contract": { "const": "ideia.sandbox-profile/1" },
+    "task_id": { "$ref": "_defs.schema.json#/$defs/taskId" },
+    "profile_id": { "$ref": "_defs.schema.json#/$defs/stableName" },
+    "profile_version": { "$ref": "_defs.schema.json#/$defs/version" },
+    "os_family": { "enum": ["windows", "linux", "macos"] },
+    "isolation_level": { "enum": ["logical_readonly", "controlled_host", "virtualized"] },
+    "controls": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["filesystem", "process", "network", "resources", "secrets"],
+      "properties": {
+        "filesystem": { "enum": ["enforced", "not_enforced", "unsupported", "unknown"] },
+        "process": { "enum": ["enforced", "not_enforced", "unsupported", "unknown"] },
+        "network": { "enum": ["enforced", "not_enforced", "unsupported", "unknown"] },
+        "resources": { "enum": ["enforced", "not_enforced", "unsupported", "unknown"] },
+        "secrets": { "enum": ["enforced", "not_enforced", "unsupported", "unknown"] }
+      }
+    },
+    "network_default": { "const": "deny" },
+    "hostile_input_allowed": { "type": "boolean" },
+    "evidence_artifact_id": {
+      "oneOf": [
+        { "$ref": "_defs.schema.json#/$defs/artifactId" },
+        { "type": "null" }
+      ]
+    },
+    "evidence_ref": {
+      "oneOf": [
+        { "$ref": "_defs.schema.json#/$defs/artifactRef" },
+        { "type": "null" }
+      ]
+    },
+    "degradations": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": { "$ref": "_defs.schema.json#/$defs/stableName" }
+    },
+    "selected_at": { "$ref": "_defs.schema.json#/$defs/utcTimestamp" },
+    "profile_fingerprint": { "$ref": "_defs.schema.json#/$defs/digest" }
+  },
+  "allOf": [
+    {
+      "if": { "properties": { "hostile_input_allowed": { "const": true } } },
+      "then": {
+        "properties": {
+          "isolation_level": { "const": "virtualized" },
+          "controls": {
+            "type": "object",
+            "properties": {
+              "filesystem": { "const": "enforced" },
+              "process": { "const": "enforced" },
+              "network": { "const": "enforced" },
+              "resources": { "const": "enforced" },
+              "secrets": { "const": "enforced" }
+            }
+          },
+          "evidence_artifact_id": { "$ref": "_defs.schema.json#/$defs/artifactId" },
+          "evidence_ref": { "$ref": "_defs.schema.json#/$defs/artifactRef" }
+        }
+      }
+    }
+  ]
+}

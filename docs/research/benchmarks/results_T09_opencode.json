@@ -1,0 +1,19 @@
+{
+  "runId": "20260810-T09-opencode-001",
+  "taskId": "T09",
+  "tool": "OpenCode",
+  "toolVersion": "not captured",
+  "model": "not reported",
+  "provider": "not reported",
+  "workspace": "C:\\Users\\Usuario\\AppData\\Local\\Temp\\opencode\\benchmark-runs\\T09-opencode",
+  "status": "success_with_scope_note",
+  "humanInterventions": 0,
+  "toolCalls": null,
+  "retries": 2,
+  "inputTokens": null,
+  "outputTokens": null,
+  "cost": { "amount": null, "currency": "USD" },
+  "filesChanged": ["src/config.mjs", "src/client.mjs", "tests/config.test.mjs", "tests/acceptance.test.mjs"],
+  "outOfScopeChanges": [],
+  "notes": "Removed hardcoded secret, used process.env.API_KEY and explicit missing-key error. Initial attempts required contract alignment."
+}

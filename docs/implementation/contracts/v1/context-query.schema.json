@@ -1,0 +1,83 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.ideia.invalid/p0/v1/context-query.schema.json",
+  "title": "IDEIA P0 ContextQuery v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "contract",
+    "context_query_id",
+    "task_id",
+    "step_id",
+    "criterion_id",
+    "purpose",
+    "query_fingerprint",
+    "strategy_id",
+    "strategy_version",
+    "read_paths",
+    "allowed_data_classes",
+    "allowed_trust_classes",
+    "limits",
+    "tie_break",
+    "candidate_count",
+    "accepted_count",
+    "rejected_count",
+    "queried_at"
+  ],
+  "properties": {
+    "contract": { "const": "ideia.context-query/1" },
+    "context_query_id": { "$ref": "_defs.schema.json#/$defs/contextQueryId" },
+    "task_id": { "$ref": "_defs.schema.json#/$defs/taskId" },
+    "step_id": {
+      "oneOf": [
+        { "$ref": "_defs.schema.json#/$defs/stepId" },
+        { "type": "null" }
+      ]
+    },
+    "criterion_id": {
+      "oneOf": [
+        { "$ref": "_defs.schema.json#/$defs/criterionId" },
+        { "type": "null" }
+      ]
+    },
+    "purpose": { "$ref": "_defs.schema.json#/$defs/stableName" },
+    "query_fingerprint": { "$ref": "_defs.schema.json#/$defs/digest" },
+    "strategy_id": { "$ref": "_defs.schema.json#/$defs/stableName" },
+    "strategy_version": { "$ref": "_defs.schema.json#/$defs/version" },
+    "read_paths": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": { "type": "string", "minLength": 1, "maxLength": 4096 }
+    },
+    "allowed_data_classes": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": { "$ref": "_defs.schema.json#/$defs/dataClass" }
+    },
+    "allowed_trust_classes": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "enum": ["instruction", "observation", "inference", "hypothesis", "decision"]
+      }
+    },
+    "limits": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["max_items", "max_bytes", "max_estimated_tokens", "timeout_ms"],
+      "properties": {
+        "max_items": { "$ref": "_defs.schema.json#/$defs/positiveSafeInteger" },
+        "max_bytes": { "$ref": "_defs.schema.json#/$defs/positiveSafeInteger" },
+        "max_estimated_tokens": { "$ref": "_defs.schema.json#/$defs/positiveSafeInteger" },
+        "timeout_ms": { "$ref": "_defs.schema.json#/$defs/positiveSafeInteger" }
+      }
+    },
+    "tie_break": { "enum": ["source_ref_then_range_then_item_id"] },
+    "candidate_count": { "$ref": "_defs.schema.json#/$defs/nonNegativeSafeInteger" },
+    "accepted_count": { "$ref": "_defs.schema.json#/$defs/nonNegativeSafeInteger" },
+    "rejected_count": { "$ref": "_defs.schema.json#/$defs/nonNegativeSafeInteger" },
+    "queried_at": { "$ref": "_defs.schema.json#/$defs/utcTimestamp" }
+  }
+}

@@ -1,0 +1,179 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.ideia.invalid/p0/v1/usage-record.schema.json",
+  "title": "IDEIA P0 UsageRecord v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "contract",
+    "usage_id",
+    "task_id",
+    "call_id",
+    "provider_id",
+    "model_id",
+    "classification",
+    "unit",
+    "value",
+    "currency",
+    "source",
+    "possible_overage",
+    "occurred_at"
+  ],
+  "properties": {
+    "contract": {
+      "const": "ideia.usage-record/1"
+    },
+    "usage_id": {
+      "$ref": "_defs.schema.json#/$defs/usageId"
+    },
+    "task_id": {
+      "$ref": "_defs.schema.json#/$defs/taskId"
+    },
+    "call_id": {
+      "$ref": "_defs.schema.json#/$defs/callId"
+    },
+    "provider_id": {
+      "$ref": "_defs.schema.json#/$defs/stableName"
+    },
+    "model_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "classification": {
+      "enum": [
+        "reported",
+        "estimated",
+        "unknown"
+      ]
+    },
+    "unit": {
+      "enum": [
+        "call",
+        "input_token",
+        "output_token",
+        "total_token",
+        "duration_ms",
+        "currency_minor"
+      ]
+    },
+    "value": {
+      "oneOf": [
+        {
+          "$ref": "_defs.schema.json#/$defs/nonNegativeSafeInteger"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "currency": {
+      "oneOf": [
+        {
+          "type": "string",
+          "pattern": "^[A-Z]{3}$"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "source": {
+      "enum": [
+        "provider",
+        "local_estimator",
+        "none"
+      ]
+    },
+    "possible_overage": {
+      "type": "boolean"
+    },
+    "occurred_at": {
+      "$ref": "_defs.schema.json#/$defs/utcTimestamp"
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "classification": {
+            "const": "unknown"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "value": {
+            "type": "null"
+          },
+          "source": {
+            "const": "none"
+          }
+        }
+      },
+      "else": {
+        "properties": {
+          "value": {
+            "$ref": "_defs.schema.json#/$defs/nonNegativeSafeInteger"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "classification": {
+            "const": "reported"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "source": {
+            "const": "provider"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "classification": {
+            "const": "estimated"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "source": {
+            "const": "local_estimator"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "unit": {
+            "const": "currency_minor"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "currency": {
+            "type": "string",
+            "pattern": "^[A-Z]{3}$"
+          }
+        }
+      },
+      "else": {
+        "properties": {
+          "currency": {
+            "type": "null"
+          }
+        }
+      }
+    }
+  ]
+}
+

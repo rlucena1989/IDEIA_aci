@@ -1,0 +1,109 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.ideia.invalid/p0/v1/event-envelope.schema.json",
+  "title": "IDEIA P0 EventEnvelope v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "contract",
+    "domain",
+    "event_id",
+    "task_id",
+    "sequence",
+    "occurred_at",
+    "recorded_at",
+    "principal_id",
+    "project_id",
+    "step_id",
+    "event_type",
+    "correlation_id",
+    "causation_event_id",
+    "payload_contract",
+    "payload",
+    "payload_digest",
+    "previous_event_digest",
+    "fingerprint_profile",
+    "event_digest"
+  ],
+  "properties": {
+    "contract": {
+      "const": "ideia.event-envelope/1"
+    },
+    "domain": {
+      "const": "IDEIA-P0"
+    },
+    "event_id": {
+      "$ref": "_defs.schema.json#/$defs/eventId"
+    },
+    "task_id": {
+      "$ref": "_defs.schema.json#/$defs/taskId"
+    },
+    "sequence": {
+      "$ref": "_defs.schema.json#/$defs/positiveSafeInteger"
+    },
+    "occurred_at": {
+      "$ref": "_defs.schema.json#/$defs/utcTimestamp"
+    },
+    "recorded_at": {
+      "$ref": "_defs.schema.json#/$defs/utcTimestamp"
+    },
+    "principal_id": {
+      "$ref": "_defs.schema.json#/$defs/principalId"
+    },
+    "project_id": {
+      "$ref": "_defs.schema.json#/$defs/projectId"
+    },
+    "step_id": {
+      "oneOf": [
+        {
+          "$ref": "_defs.schema.json#/$defs/stepId"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "event_type": {
+      "$ref": "_defs.schema.json#/$defs/stableName"
+    },
+    "correlation_id": {
+      "$ref": "_defs.schema.json#/$defs/correlationId"
+    },
+    "causation_event_id": {
+      "oneOf": [
+        {
+          "$ref": "_defs.schema.json#/$defs/eventId"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "payload_contract": {
+      "$ref": "_defs.schema.json#/$defs/contractName"
+    },
+    "payload": {
+      "$ref": "_defs.schema.json#/$defs/jsonValue"
+    },
+    "payload_digest": {
+      "$ref": "_defs.schema.json#/$defs/digest"
+    },
+    "previous_event_digest": {
+      "oneOf": [
+        {
+          "$ref": "_defs.schema.json#/$defs/digest"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "fingerprint_profile": {
+      "const": "jcs-sha256-v1"
+    },
+    "event_digest": {
+      "$ref": "_defs.schema.json#/$defs/digest"
+    }
+  }
+}
+

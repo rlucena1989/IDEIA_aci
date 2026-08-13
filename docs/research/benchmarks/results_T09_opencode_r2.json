@@ -1,0 +1,70 @@
+{
+  "runId": "20260811-T09-opencode-r2",
+  "taskId": "T09",
+  "round": 2,
+  "tool": "OpenCode",
+  "toolVersion": "1.18.11",
+  "model": {
+    "id": "software-engineer",
+    "providerID": "omniroute",
+    "variant": "default"
+  },
+  "provider": "OmniRoute local endpoint; not modified",
+  "workspace": "C:\\Users\\Usuario\\AppData\\Local\\Temp\\opencode\\benchmark-runs\\T09-opencode-2",
+  "startedAt": "2026-08-11T00:12:03Z",
+  "finishedAt": "2026-08-11T00:14:58Z",
+  "durationMs": 175081,
+  "status": "success",
+  "humanInterventions": 0,
+  "toolCalls": 13,
+  "toolCallsByKind": {
+    "read": 7,
+    "edit": 4,
+    "glob": 2,
+    "command": 0
+  },
+  "retries": 0,
+  "inputTokens": 167400,
+  "outputTokens": 7454,
+  "cost": {
+    "amount": 0,
+    "currency": "USD",
+    "source": "opencode.db session.cost (provider local, sem custo reportado)"
+  },
+  "networkAccess": "none",
+  "testsBefore": {
+    "passed": 7,
+    "failed": 1
+  },
+  "testsAfter": {
+    "passed": 10,
+    "failed": 0
+  },
+  "acceptanceTests": {
+    "passed": 3,
+    "failed": 0
+  },
+  "filesChanged": [
+    "src/config.mjs",
+    "src/client.mjs",
+    "tests/acceptance.test.mjs",
+    "tests/config.test.mjs"
+  ],
+  "outOfScopeChanges": [],
+  "rollbackPerformed": false,
+  "reviewScore": 100,
+  "notes": "API_KEY via env getter with no fallback; clear error when missing; both paths validated locally. Error message is 'API_KEY environment variable is required'.",
+  "tokensReasoning": 0,
+  "tokensCacheRead": 0,
+  "telemetrySource": "opencode.db (1 sessao (batch))",
+  "providerTokens": {
+    "input": 1371294,
+    "output": 8458,
+    "calls": 19
+  },
+  "providerModels": {
+    "opencode-zen/deepseek-v4-flash-free": 12,
+    "opencode-go/glm-5.2": 7
+  },
+  "costNote": "custo revisado em 11/08 (fontes: opencode.ai/docs/zen, /docs/go; painel OpenCode Zen): deepseek-v4-flash-free e big-pickle = $0.0000 (free-tier); glm-5.2/gpt-5.6-luna/mimo-v2.5 pagos por request em moeda Go (USD entre parenteses); providers roteados pelo OmniRoute (opencode-zen/opencode-go). Groq llama-3.3-70b registrou 0 tokens (HTTP 413)."
+}

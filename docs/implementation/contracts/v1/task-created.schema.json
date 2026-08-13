@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.ideia.invalid/p0/v1/task-created.schema.json",
+  "title": "IDEIA P0 task.created payload v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "contract",
+    "manifest_id",
+    "manifest_fingerprint",
+    "initial_state"
+  ],
+  "properties": {
+    "contract": {
+      "const": "ideia.task-created/1"
+    },
+    "manifest_id": {
+      "$ref": "_defs.schema.json#/$defs/manifestId"
+    },
+    "manifest_fingerprint": {
+      "$ref": "_defs.schema.json#/$defs/digest"
+    },
+    "initial_state": {
+      "const": "created"
+    }
+  }
+}
+

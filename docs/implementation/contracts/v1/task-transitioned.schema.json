@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.ideia.invalid/p0/v1/task-transitioned.schema.json",
+  "title": "IDEIA P0 task.transitioned payload v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "contract",
+    "from_state",
+    "to_state",
+    "reason_code",
+    "reason"
+  ],
+  "properties": {
+    "contract": {
+      "const": "ideia.task-transitioned/1"
+    },
+    "from_state": {
+      "$ref": "_defs.schema.json#/$defs/taskState"
+    },
+    "to_state": {
+      "$ref": "_defs.schema.json#/$defs/taskState"
+    },
+    "reason_code": {
+      "$ref": "_defs.schema.json#/$defs/stableName"
+    },
+    "reason": {
+      "type": "string",
+      "minLength": 1
+    }
+  }
+}
+

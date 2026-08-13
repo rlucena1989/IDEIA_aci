@@ -1,0 +1,174 @@
+{
+  "contract": "ideia.id-vectors/1",
+  "uuid_profile": "uuid-v4-lowercase",
+  "valid": [
+    {
+      "type": "ProjectId",
+      "value": "prj_123e4567-e89b-42d3-a456-426614174000"
+    },
+    {
+      "type": "WorkspaceId",
+      "value": "wsp_123e4567-e89b-42d3-a456-426614174000"
+    },
+    {
+      "type": "PrincipalId",
+      "value": "prn_123e4567-e89b-42d3-a456-426614174000"
+    },
+    {
+      "type": "TaskId",
+      "value": "tsk_123e4567-e89b-42d3-a456-426614174000"
+    },
+    {
+      "type": "ManifestId",
+      "value": "mft_123e4567-e89b-42d3-a456-426614174000"
+    },
+    {
+      "type": "PlanId",
+      "value": "pln_123e4567-e89b-42d3-a456-426614174000"
+    },
+    {
+      "type": "StepId",
+      "value": "stp_123e4567-e89b-42d3-a456-426614174000"
+    },
+    {
+      "type": "EventId",
+      "value": "evt_123e4567-e89b-42d3-a456-426614174000"
+    },
+    {
+      "type": "CorrelationId",
+      "value": "cor_123e4567-e89b-42d3-a456-426614174000"
+    },
+    {
+      "type": "CallId",
+      "value": "cal_123e4567-e89b-42d3-a456-426614174000"
+    },
+    {
+      "type": "PolicyDecisionId",
+      "value": "pdc_123e4567-e89b-42d3-a456-426614174000"
+    },
+    {
+      "type": "ApprovalId",
+      "value": "apr_123e4567-e89b-42d3-a456-426614174000"
+    },
+    {
+      "type": "ApprovalUseId",
+      "value": "apu_123e4567-e89b-42d3-a456-426614174000"
+    },
+    {
+      "type": "Nonce",
+      "value": "non_123e4567-e89b-42d3-a456-426614174000"
+    },
+    {
+      "type": "EffectIntentId",
+      "value": "efi_123e4567-e89b-42d3-a456-426614174000"
+    },
+    {
+      "type": "VerificationId",
+      "value": "vrf_123e4567-e89b-42d3-a456-426614174000"
+    },
+    {
+      "type": "UsageId",
+      "value": "use_123e4567-e89b-42d3-a456-426614174000"
+    },
+    {
+      "type": "CriterionId",
+      "value": "crt_123e4567-e89b-42d3-a456-426614174000"
+    },
+    {
+      "type": "AttemptId",
+      "value": "atm_123e4567-e89b-42d3-a456-426614174000"
+    },
+    {
+      "type": "ProviderRequestId",
+      "value": "pvr_123e4567-e89b-42d3-a456-426614174000"
+    },
+    {
+      "type": "ContextQueryId",
+      "value": "cxq_123e4567-e89b-42d3-a456-426614174000"
+    },
+    {
+      "type": "ContextItemId",
+      "value": "cxi_123e4567-e89b-42d3-a456-426614174000"
+    },
+    {
+      "type": "ContextPackageId",
+      "value": "cxp_123e4567-e89b-42d3-a456-426614174000"
+    },
+    {
+      "type": "ArtifactId",
+      "value": "art_123e4567-e89b-42d3-a456-426614174000"
+    },
+    {
+      "type": "BudgetSetId",
+      "value": "bgt_123e4567-e89b-42d3-a456-426614174000"
+    },
+    {
+      "type": "BudgetReservationId",
+      "value": "brs_123e4567-e89b-42d3-a456-426614174000"
+    },
+    {
+      "type": "PriceBookId",
+      "value": "pbk_123e4567-e89b-42d3-a456-426614174000"
+    },
+    {
+      "type": "CapabilityGrantId",
+      "value": "cpg_123e4567-e89b-42d3-a456-426614174000"
+    },
+    {
+      "type": "RecoveryRunId",
+      "value": "rcv_123e4567-e89b-42d3-a456-426614174000"
+    }
+  ],
+  "invalid": [
+    {
+      "type": "TaskId",
+      "value": "tsk_123E4567-E89B-42D3-A456-426614174000",
+      "reason": "uppercase is not canonical"
+    },
+    {
+      "type": "TaskId",
+      "value": "tsk_123e4567-e89b-12d3-a456-426614174000",
+      "reason": "UUID version is not 4"
+    },
+    {
+      "type": "TaskId",
+      "value": "tsk_123e4567-e89b-42d3-7456-426614174000",
+      "reason": "UUID variant is not 10"
+    },
+    {
+      "type": "TaskId",
+      "value": "evt_123e4567-e89b-42d3-a456-426614174000",
+      "reason": "wrong entity prefix"
+    },
+    {
+      "type": "TaskId",
+      "value": " tsk_123e4567-e89b-42d3-a456-426614174000",
+      "reason": "leading whitespace"
+    },
+    {
+      "type": "TaskId",
+      "value": "tsk_123e4567e89b42d3a456426614174000",
+      "reason": "UUID text is not canonical"
+    },
+    {
+      "type": "TaskId",
+      "value": "123e4567-e89b-42d3-a456-426614174000",
+      "reason": "missing entity prefix"
+    },
+    {
+      "type": "TaskId",
+      "value": "tsk_00000000-0000-0000-0000-000000000000",
+      "reason": "nil UUID and not version 4"
+    },
+    {
+      "type": "ArtifactId",
+      "value": "cxp_123e4567-e89b-42d3-a456-426614174000",
+      "reason": "context package prefix is not artifact prefix"
+    },
+    {
+      "type": "ContextItemId",
+      "value": "CXI_123e4567-e89b-42d3-a456-426614174000",
+      "reason": "uppercase prefix is not canonical"
+    }
+  ]
+}

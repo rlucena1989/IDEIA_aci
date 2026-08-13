@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.ideia.invalid/p0/v1/event-correction.schema.json",
+  "title": "IDEIA P0 event.corrected payload v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "contract",
+    "corrected_event_id",
+    "reason_code",
+    "reason",
+    "replacement_payload_contract",
+    "replacement_payload",
+    "replacement_payload_digest"
+  ],
+  "properties": {
+    "contract": {
+      "const": "ideia.event-correction/1"
+    },
+    "corrected_event_id": {
+      "$ref": "_defs.schema.json#/$defs/eventId"
+    },
+    "reason_code": {
+      "$ref": "_defs.schema.json#/$defs/stableName"
+    },
+    "reason": {
+      "type": "string",
+      "minLength": 1
+    },
+    "replacement_payload_contract": {
+      "$ref": "_defs.schema.json#/$defs/contractName"
+    },
+    "replacement_payload": {
+      "$ref": "_defs.schema.json#/$defs/jsonValue"
+    },
+    "replacement_payload_digest": {
+      "$ref": "_defs.schema.json#/$defs/digest"
+    }
+  }
+}
+

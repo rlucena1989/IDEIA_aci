@@ -1,0 +1,69 @@
+{
+  "contract": "ideia.measurement-profile/1",
+  "profile_id": "mp-p0",
+  "profile_version": "0.1-draft",
+  "status": "draft",
+  "captured_at": null,
+  "environment": {
+    "os_name": null,
+    "os_version": null,
+    "os_build": null,
+    "architecture": null,
+    "filesystem": null,
+    "node_version": null,
+    "sqlite_version": null,
+    "cpu_model": null,
+    "logical_cores": null,
+    "memory_bytes": null,
+    "storage_class": null,
+    "power_profile": null
+  },
+  "fixtures": [],
+  "limits": {
+    "json_max_bytes": null,
+    "json_max_depth": null,
+    "json_max_members": null,
+    "json_max_string_bytes": null,
+    "artifact_max_single_bytes": null,
+    "artifact_max_task_bytes": null,
+    "artifact_max_staging_bytes": null,
+    "artifact_max_open": null,
+    "context_max_items": null,
+    "context_max_bytes": null,
+    "context_max_estimated_tokens": null,
+    "context_timeout_ms": null,
+    "provider_timeout_ms": null,
+    "provider_max_output_tokens": null,
+    "provider_max_attempts": null,
+    "process_timeout_ms": null,
+    "process_cancellation_grace_ms": null,
+    "process_max_stdout_bytes": null,
+    "process_max_stderr_bytes": null
+  },
+  "workloads": [],
+  "thresholds": [
+    {
+      "metric_id": "qg-05-first-local-progress-p95",
+      "unit": "millisecond",
+      "comparator": "lte",
+      "value": 1000,
+      "provisional": true,
+      "evidence_ref": null
+    },
+    {
+      "metric_id": "qg-06-metadata-view-p95",
+      "unit": "millisecond",
+      "comparator": "lt",
+      "value": 500,
+      "provisional": true,
+      "evidence_ref": null
+    }
+  ],
+  "approval": {
+    "approved_by": null,
+    "approved_at": null,
+    "evidence_artifact_id": null,
+    "evidence_ref": null
+  },
+  "profile_fingerprint": null
+}

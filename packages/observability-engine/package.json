@@ -1,0 +1,27 @@
+{
+  "name": "@ideia/observability-engine",
+  "description": "Observabilidade, mÃƒÆ’Ã‚Â©tricas, incerteza, custo e latÃƒÆ’Ã‚Âªncia",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc"
+  },
+  "dependencies": {
+    "@ideia/logger": "*"
+  },
+  "files": [
+    "dist"
+  ],
+  "bugs": {
+    "url": "https://github.com/rlucena1989/IDEIA/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rlucena1989/IDEIA.git"
+  },
+  "homepage": "https://ideia.dev",
+  "publishConfig": {
+    "access": "public"
+  }
+}

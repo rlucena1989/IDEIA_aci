@@ -1,0 +1,88 @@
+# Credenciais e configuração local
+.env
+.env.*
+!.env.example
+!.env.*.example
+.npmrc
+.pypirc
+.netrc
+*.pem
+*.key
+*.p12
+*.pfx
+*.jks
+*.keystore
+**/id_rsa
+**/id_ed25519
+**/credentials.json
+**/secrets.json
+
+# Configurações locais de agentes e editores
+.devin/config.local.json
+.claude/settings.local.json
+.codex/
+.cursor/
+.idea/
+.vscode/
+*.code-workspace
+
+# Dependências e caches
+node_modules/
+.pnpm-store/
+.yarn/
+.npm/
+.cache/
+.turbo/
+.next/
+
+# Compilação, cobertura e artefatos gerados
+dist/
+build/
+out/
+coverage/
+.nyc_output/
+*.tsbuildinfo
+
+# Saídas TypeScript atualmente geradas ao lado dos fontes
+**/src/**/*.js
+**/src/**/*.js.map
+**/src/**/*.d.ts
+**/src/**/*.d.ts.map
+
+# Dados operacionais locais
+*.sqlite
+*.sqlite3
+*.db
+*.db3
+*.db-wal
+*.db-shm
+*.sqlite-wal
+*.sqlite-shm
+*.wal
+*.shm
+
+# Logs, temporários e backups locais
+*.log
+logs/
+tmp/
+temp/
+.tmp/
+*.tmp
+*.bak
+*.backup
+backups/
+.backups/
+
+# Modelos e artefatos grandes de ML
+models/
+*.gguf
+*.safetensors
+*.onnx
+*.ckpt
+*.pt
+*.pth
+
+# Sistema operacional
+.DS_Store
+Thumbs.db
+Desktop.ini

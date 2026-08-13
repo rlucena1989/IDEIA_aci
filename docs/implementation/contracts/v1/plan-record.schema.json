@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.ideia.invalid/p0/v1/plan-record.schema.json",
+  "title": "IDEIA P0 PlanRecord v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "contract",
+    "plan_id",
+    "task_id",
+    "revision",
+    "source_provider_request_id",
+    "previous_plan_fingerprint",
+    "governance_bundle_fingerprint",
+    "context_package_fingerprint",
+    "steps_artifact_id",
+    "steps_ref",
+    "step_count",
+    "criterion_ids",
+    "reason",
+    "recorded_at",
+    "plan_fingerprint"
+  ],
+  "properties": {
+    "contract": { "const": "ideia.plan-record/1" },
+    "plan_id": { "$ref": "_defs.schema.json#/$defs/planId" },
+    "task_id": { "$ref": "_defs.schema.json#/$defs/taskId" },
+    "revision": { "$ref": "_defs.schema.json#/$defs/positiveSafeInteger" },
+    "source_provider_request_id": {
+      "oneOf": [
+        { "$ref": "_defs.schema.json#/$defs/providerRequestId" },
+        { "type": "null" }
+      ]
+    },
+    "previous_plan_fingerprint": {
+      "oneOf": [
+        { "$ref": "_defs.schema.json#/$defs/digest" },
+        { "type": "null" }
+      ]
+    },
+    "governance_bundle_fingerprint": { "$ref": "_defs.schema.json#/$defs/digest" },
+    "context_package_fingerprint": { "$ref": "_defs.schema.json#/$defs/digest" },
+    "steps_artifact_id": { "$ref": "_defs.schema.json#/$defs/artifactId" },
+    "steps_ref": { "$ref": "_defs.schema.json#/$defs/artifactRef" },
+    "step_count": { "$ref": "_defs.schema.json#/$defs/positiveSafeInteger" },
+    "criterion_ids": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": { "$ref": "_defs.schema.json#/$defs/criterionId" }
+    },
+    "reason": { "enum": ["initial", "revision", "recovery"] },
+    "recorded_at": { "$ref": "_defs.schema.json#/$defs/utcTimestamp" },
+    "plan_fingerprint": { "$ref": "_defs.schema.json#/$defs/digest" }
+  }
+}

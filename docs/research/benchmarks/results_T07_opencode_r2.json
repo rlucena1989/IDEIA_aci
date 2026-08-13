@@ -1,0 +1,56 @@
+{
+  "runId": "20260811-T07-opencode-r2",
+  "taskId": "T07",
+  "round": 2,
+  "tool": "OpenCode",
+  "toolVersion": "1.18.11",
+  "model": {
+    "id": "software-engineer",
+    "providerID": "omniroute",
+    "variant": "default"
+  },
+  "provider": "OmniRoute local endpoint; not modified",
+  "workspace": "C:\\Users\\Usuario\\AppData\\Local\\Temp\\opencode\\benchmark-runs\\T07-opencode-2",
+  "startedAt": "2026-08-11T00:00:00Z",
+  "finishedAt": "2026-08-11T00:01:38Z",
+  "durationMs": 97900,
+  "status": "success",
+  "humanInterventions": 0,
+  "toolCalls": 10,
+  "toolCallsByKind": {
+    "read": 1,
+    "edit": 1,
+    "command": 7,
+    "glob": 1
+  },
+  "retries": 0,
+  "inputTokens": 65213,
+  "outputTokens": 1164,
+  "cost": {
+    "amount": 0,
+    "currency": "USD",
+    "source": "opencode.db session.cost (provider local, sem custo reportado)"
+  },
+  "networkAccess": "none",
+  "filesChanged": [
+    "package.json",
+    "package-lock.json"
+  ],
+  "outOfScopeChanges": [],
+  "rollbackPerformed": false,
+  "reviewScore": 100,
+  "notes": "Run 2. Offline install, 2/2 tests, build ok, dist.txt=hello-world. src, tests and vendor unchanged. No blocked events.",
+  "tokensReasoning": 0,
+  "tokensCacheRead": 0,
+  "telemetrySource": "opencode.db (1 sessao)",
+  "providerTokens": {
+    "input": 2313037,
+    "output": 8368,
+    "calls": 25
+  },
+  "providerModels": {
+    "opencode-zen/big-pickle": 16,
+    "opencode-zen/deepseek-v4-flash-free": 9
+  },
+  "costNote": "custo revisado em 11/08 (fontes: opencode.ai/docs/zen, /docs/go; painel OpenCode Zen): deepseek-v4-flash-free e big-pickle = $0.0000 (free-tier); glm-5.2/gpt-5.6-luna/mimo-v2.5 pagos por request em moeda Go (USD entre parenteses); providers roteados pelo OmniRoute (opencode-zen/opencode-go). Groq llama-3.3-70b registrou 0 tokens (HTTP 413)."
+}

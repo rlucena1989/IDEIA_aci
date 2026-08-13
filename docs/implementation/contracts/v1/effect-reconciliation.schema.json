@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.ideia.invalid/p0/v1/effect-reconciliation.schema.json",
+  "title": "IDEIA P0 EffectReconciliation v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "contract",
+    "recovery_run_id",
+    "effect_intent_id",
+    "task_id",
+    "call_id",
+    "observation",
+    "evidence",
+    "disposition",
+    "reconciled_at"
+  ],
+  "properties": {
+    "contract": { "const": "ideia.effect-reconciliation/1" },
+    "recovery_run_id": { "$ref": "_defs.schema.json#/$defs/recoveryRunId" },
+    "effect_intent_id": { "$ref": "_defs.schema.json#/$defs/effectIntentId" },
+    "task_id": { "$ref": "_defs.schema.json#/$defs/taskId" },
+    "call_id": { "$ref": "_defs.schema.json#/$defs/callId" },
+    "observation": { "enum": ["no_effect", "observed_success", "observed_failure", "ambiguous"] },
+    "evidence": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "_defs.schema.json#/$defs/evidenceRef" }
+    },
+    "disposition": { "enum": ["record_observation", "no_retry", "manual_required"] },
+    "reconciled_at": { "$ref": "_defs.schema.json#/$defs/utcTimestamp" }
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.ideia.invalid/p0/v1/approval-use.schema.json",
+  "title": "IDEIA P0 ApprovalUse v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "contract",
+    "approval_use_id",
+    "approval_id",
+    "effect_intent_id",
+    "task_id",
+    "call_id",
+    "principal_id",
+    "request_fingerprint",
+    "nonce",
+    "consumed_at"
+  ],
+  "properties": {
+    "contract": {
+      "const": "ideia.approval-use/1"
+    },
+    "approval_use_id": {
+      "$ref": "_defs.schema.json#/$defs/approvalUseId"
+    },
+    "approval_id": {
+      "$ref": "_defs.schema.json#/$defs/approvalId"
+    },
+    "effect_intent_id": {
+      "$ref": "_defs.schema.json#/$defs/effectIntentId"
+    },
+    "task_id": {
+      "$ref": "_defs.schema.json#/$defs/taskId"
+    },
+    "call_id": {
+      "$ref": "_defs.schema.json#/$defs/callId"
+    },
+    "principal_id": {
+      "$ref": "_defs.schema.json#/$defs/principalId"
+    },
+    "request_fingerprint": {
+      "$ref": "_defs.schema.json#/$defs/digest"
+    },
+    "nonce": {
+      "$ref": "_defs.schema.json#/$defs/nonce"
+    },
+    "consumed_at": {
+      "$ref": "_defs.schema.json#/$defs/utcTimestamp"
+    }
+  }
+}
+

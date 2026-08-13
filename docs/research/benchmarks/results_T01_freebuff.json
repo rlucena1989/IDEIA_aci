@@ -1,0 +1,22 @@
+{
+  "runId": "20260810-T01-freebuff-001",
+  "taskId": "T01",
+  "tool": "Freebuff Desktop",
+  "toolVersion": "not captured",
+  "model": "not reported",
+  "provider": "not reported",
+  "workspace": "C:\\Users\\Usuario\\AppData\\Local\\Temp\\opencode\\benchmark-runs\\T01-freebuff",
+  "status": "success_with_scope_note",
+  "humanInterventions": 0,
+  "toolCalls": null,
+  "retries": 0,
+  "inputTokens": null,
+  "outputTokens": null,
+  "cost": { "amount": null, "currency": "USD" },
+  "filesChanged": [],
+  "workspaceArtifactsObserved": [".freebuff/desktop-v2.db", ".freebuff/desktop-v2.db-shm", ".freebuff/desktop-v2.db-wal"],
+  "outOfScopeChanges": ["Freebuff created local workspace metadata/database files; source and test hashes remained identical"],
+  "rollbackPerformed": false,
+  "reviewScore": 100,
+  "notes": "Read-only report correctly identified entry point, call sequence, symbols, data shapes, non-positive total behavior and concrete limitations."
+}

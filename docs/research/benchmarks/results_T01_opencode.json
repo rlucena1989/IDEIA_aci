@@ -1,0 +1,20 @@
+{
+  "runId": "20260810-T01-opencode-001",
+  "taskId": "T01",
+  "tool": "OpenCode",
+  "toolVersion": "not captured",
+  "model": "not reported",
+  "provider": "not reported",
+  "workspace": "C:\\Users\\Usuario\\AppData\\Local\\Temp\\opencode\\benchmark-runs\\T01-opencode",
+  "status": "success_with_scope_note",
+  "humanInterventions": 0,
+  "toolCalls": null,
+  "retries": 1,
+  "inputTokens": null,
+  "outputTokens": null,
+  "cost": { "amount": null, "currency": "USD" },
+  "filesChanged": [],
+  "outOfScopeChanges": [],
+  "rollbackPerformed": false,
+  "notes": "Read-only comprehension report correct. One external path access attempt was blocked; no files changed."
+}

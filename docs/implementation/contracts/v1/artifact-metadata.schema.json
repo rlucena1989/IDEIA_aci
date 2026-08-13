@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.ideia.invalid/p0/v1/artifact-metadata.schema.json",
+  "title": "IDEIA P0 ArtifactMetadata v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "contract",
+    "artifact_id",
+    "task_id",
+    "producer_call_id",
+    "kind",
+    "lifecycle",
+    "reference",
+    "data_class",
+    "redaction_status",
+    "retention_class",
+    "expires_at",
+    "storage_profile",
+    "created_at",
+    "lifecycle_changed_at",
+    "quarantine_reason_code",
+    "metadata_fingerprint"
+  ],
+  "properties": {
+    "contract": { "const": "ideia.artifact-metadata/1" },
+    "artifact_id": { "$ref": "_defs.schema.json#/$defs/artifactId" },
+    "task_id": { "$ref": "_defs.schema.json#/$defs/taskId" },
+    "producer_call_id": {
+      "oneOf": [
+        { "$ref": "_defs.schema.json#/$defs/callId" },
+        { "type": "null" }
+      ]
+    },
+    "kind": { "$ref": "_defs.schema.json#/$defs/stableName" },
+    "lifecycle": { "enum": ["staged", "committed", "quarantined", "tombstoned"] },
+    "reference": { "$ref": "_defs.schema.json#/$defs/artifactRef" },
+    "data_class": { "enum": ["D0", "D1", "D2", "D3", "D4"] },
+    "redaction_status": { "enum": ["not_required", "applied"] },
+    "retention_class": { "$ref": "_defs.schema.json#/$defs/stableName" },
+    "expires_at": {
+      "oneOf": [
+        { "$ref": "_defs.schema.json#/$defs/utcTimestamp" },
+        { "type": "null" }
+      ]
+    },
+    "storage_profile": { "const": "per-artifact-no-dedup-v1" },
+    "created_at": { "$ref": "_defs.schema.json#/$defs/utcTimestamp" },
+    "lifecycle_changed_at": { "$ref": "_defs.schema.json#/$defs/utcTimestamp" },
+    "quarantine_reason_code": {
+      "oneOf": [
+        { "$ref": "_defs.schema.json#/$defs/stableName" },
+        { "type": "null" }
+      ]
+    },
+    "metadata_fingerprint": { "$ref": "_defs.schema.json#/$defs/digest" }
+  },
+  "allOf": [
+    {
+      "if": { "properties": { "lifecycle": { "const": "quarantined" } } },
+      "then": { "properties": { "quarantine_reason_code": { "$ref": "_defs.schema.json#/$defs/stableName" } } },
+      "else": { "properties": { "quarantine_reason_code": { "type": "null" } } }
+    }
+  ]
+}

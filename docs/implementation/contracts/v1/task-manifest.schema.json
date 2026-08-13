@@ -1,0 +1,230 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.ideia.invalid/p0/v1/task-manifest.schema.json",
+  "title": "IDEIA P0 TaskManifest v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "contract",
+    "manifest_id",
+    "project_id",
+    "workspace_id",
+    "principal_id",
+    "objective",
+    "workspace_root",
+    "scope",
+    "criteria",
+    "governance",
+    "budget",
+    "timeouts",
+    "policy",
+    "provider",
+    "sandbox",
+    "allowed_tools",
+    "created_at"
+  ],
+  "properties": {
+    "contract": {
+      "const": "ideia.task-manifest/1"
+    },
+    "manifest_id": {
+      "$ref": "_defs.schema.json#/$defs/manifestId"
+    },
+    "project_id": {
+      "$ref": "_defs.schema.json#/$defs/projectId"
+    },
+    "workspace_id": {
+      "$ref": "_defs.schema.json#/$defs/workspaceId"
+    },
+    "principal_id": {
+      "$ref": "_defs.schema.json#/$defs/principalId"
+    },
+    "objective": {
+      "type": "string",
+      "minLength": 1
+    },
+    "workspace_root": {
+      "type": "string",
+      "minLength": 1
+    },
+    "scope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "read_paths",
+        "write_paths"
+      ],
+      "properties": {
+        "read_paths": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "write_paths": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "criteria": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "criterion_id",
+          "description",
+          "required",
+          "verification"
+        ],
+        "properties": {
+          "criterion_id": {
+            "$ref": "_defs.schema.json#/$defs/criterionId"
+          },
+          "description": {
+            "type": "string",
+            "minLength": 1
+          },
+          "required": {
+            "type": "boolean"
+          },
+          "verification": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "method",
+              "verifier_id",
+              "verifier_version"
+            ],
+            "properties": {
+              "method": {
+                "enum": [
+                  "command",
+                  "inspection",
+                  "artifact",
+                  "state"
+                ]
+              },
+              "verifier_id": {
+                "$ref": "_defs.schema.json#/$defs/stableName"
+              },
+              "verifier_version": {
+                "$ref": "_defs.schema.json#/$defs/version"
+              }
+            }
+          }
+        }
+      }
+    },
+    "governance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["bundle_id", "bundle_fingerprint"],
+      "properties": {
+        "bundle_id": { "$ref": "_defs.schema.json#/$defs/stableName" },
+        "bundle_fingerprint": { "$ref": "_defs.schema.json#/$defs/digest" }
+      }
+    },
+    "budget": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "budget_set_id",
+        "budget_fingerprint"
+      ],
+      "properties": {
+        "budget_set_id": { "$ref": "_defs.schema.json#/$defs/budgetSetId" },
+        "budget_fingerprint": { "$ref": "_defs.schema.json#/$defs/digest" }
+      }
+    },
+    "timeouts": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "task_timeout_ms",
+        "operation_timeout_ms",
+        "cancellation_grace_ms"
+      ],
+      "properties": {
+        "task_timeout_ms": {
+          "$ref": "_defs.schema.json#/$defs/positiveSafeInteger"
+        },
+        "operation_timeout_ms": {
+          "$ref": "_defs.schema.json#/$defs/positiveSafeInteger"
+        },
+        "cancellation_grace_ms": {
+          "$ref": "_defs.schema.json#/$defs/nonNegativeSafeInteger"
+        }
+      }
+    },
+    "policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "policy_id",
+        "policy_version",
+        "policy_fingerprint"
+      ],
+      "properties": {
+        "policy_id": {
+          "$ref": "_defs.schema.json#/$defs/stableName"
+        },
+        "policy_version": {
+          "$ref": "_defs.schema.json#/$defs/version"
+        },
+        "policy_fingerprint": {
+          "$ref": "_defs.schema.json#/$defs/digest"
+        }
+      }
+    },
+    "provider": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "provider_id",
+        "model_id",
+        "config_fingerprint"
+      ],
+      "properties": {
+        "provider_id": {
+          "$ref": "_defs.schema.json#/$defs/stableName"
+        },
+        "model_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "config_fingerprint": {
+          "$ref": "_defs.schema.json#/$defs/digest"
+        }
+      }
+    },
+    "sandbox": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["profile_id", "profile_version", "profile_fingerprint"],
+      "properties": {
+        "profile_id": { "$ref": "_defs.schema.json#/$defs/stableName" },
+        "profile_version": { "$ref": "_defs.schema.json#/$defs/version" },
+        "profile_fingerprint": { "$ref": "_defs.schema.json#/$defs/digest" }
+      }
+    },
+    "allowed_tools": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "$ref": "_defs.schema.json#/$defs/toolRef"
+      }
+    },
+    "created_at": {
+      "$ref": "_defs.schema.json#/$defs/utcTimestamp"
+    }
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "runId": "20260811-T04-opencode-r2",
+  "taskId": "T04",
+  "round": 2,
+  "tool": "OpenCode",
+  "toolVersion": "1.18.11",
+  "model": {
+    "id": "software-engineer",
+    "providerID": "omniroute",
+    "variant": "default"
+  },
+  "provider": "OmniRoute local endpoint; not modified",
+  "workspace": "C:\\Users\\Usuario\\AppData\\Local\\Temp\\opencode\\benchmark-runs\\T04-opencode-2",
+  "startedAt": "2026-08-11T00:02:16Z",
+  "finishedAt": "2026-08-11T00:03:33Z",
+  "durationMs": 76594,
+  "status": "success",
+  "humanInterventions": 0,
+  "toolCalls": 6,
+  "toolCallsByKind": {
+    "read": 4,
+    "edit": 1,
+    "glob": 1,
+    "command": 0
+  },
+  "retries": 0,
+  "inputTokens": 47666,
+  "outputTokens": 887,
+  "cost": {
+    "amount": 0,
+    "currency": "USD",
+    "source": "opencode.db session.cost (provider local, sem custo reportado)"
+  },
+  "networkAccess": "none",
+  "testsBefore": {
+    "passed": 2,
+    "failed": 2
+  },
+  "testsAfter": {
+    "passed": 4,
+    "failed": 0
+  },
+  "acceptanceTests": {
+    "passed": 3,
+    "failed": 0
+  },
+  "filesChanged": [
+    "src/products.mjs"
+  ],
+  "outOfScopeChanges": [],
+  "rollbackPerformed": false,
+  "reviewScore": 100,
+  "notes": "Case-insensitive filter; empty query returns all; input preserved. Tests 4/4 and acceptance 3/3.",
+  "tokensReasoning": 0,
+  "tokensCacheRead": 0,
+  "telemetrySource": "opencode.db (1 sessao)",
+  "providerTokens": {
+    "input": 523003,
+    "output": 1726,
+    "calls": 10
+  },
+  "providerModels": {
+    "opencode-zen/big-pickle": 3,
+    "opencode-zen/deepseek-v4-flash-free": 7
+  },
+  "costNote": "custo revisado em 11/08 (fontes: opencode.ai/docs/zen, /docs/go; painel OpenCode Zen): deepseek-v4-flash-free e big-pickle = $0.0000 (free-tier); glm-5.2/gpt-5.6-luna/mimo-v2.5 pagos por request em moeda Go (USD entre parenteses); providers roteados pelo OmniRoute (opencode-zen/opencode-go). Groq llama-3.3-70b registrou 0 tokens (HTTP 413)."
+}
