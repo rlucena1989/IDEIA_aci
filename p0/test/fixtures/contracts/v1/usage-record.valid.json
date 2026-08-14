@@ -1,0 +1,15 @@
+{
+  "contract": "ideia.usage-record/1",
+  "usage_id": "use_123e4567-e89b-42d3-a456-426614174000",
+  "task_id": "tsk_123e4567-e89b-42d3-a456-426614174000",
+  "call_id": "cal_123e4567-e89b-42d3-a456-426614174000",
+  "provider_id": "default",
+  "model_id": "model_123e4567-e89b-42d3-a456-426614174000",
+  "classification": "reported",
+  "unit": "call",
+  "value": 0,
+  "currency": null,
+  "source": "provider",
+  "possible_overage": true,
+  "occurred_at": "2024-01-01T00:00:00.000Z"
+}

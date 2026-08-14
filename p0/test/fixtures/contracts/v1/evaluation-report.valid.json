@@ -1,0 +1,47 @@
+{
+  "contract": "ideia.evaluation-report/1",
+  "report_id": "default",
+  "report_version": "default",
+  "evaluation_task_id": "tsk_123e4567-e89b-42d3-a456-426614174000",
+  "candidate_fingerprint": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+  "baseline_candidate_fingerprint": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+  "corpus": {
+    "corpus_id": "default",
+    "corpus_version": "default",
+    "corpus_digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+    "split_profile_fingerprint": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  "runner_fingerprint": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+  "measurement_profile_fingerprint": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+  "started_at": "2024-01-01T00:00:00.000Z",
+  "finished_at": "2024-01-01T00:00:00.000Z",
+  "case_count": 1,
+  "results_artifact_id": "art_123e4567-e89b-42d3-a456-426614174000",
+  "results_ref": {
+    "profile": "raw-sha256-v1",
+    "digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+    "size_bytes": 0,
+    "media_type": "default"
+  },
+  "metrics": [
+    {
+      "metric_id": "default",
+      "unit": "default",
+      "numerator": 0,
+      "denominator": 1,
+      "sample_count": 1,
+      "classification": "primary"
+    }
+  ],
+  "hard_gates": [
+    {
+      "gate_id": "default",
+      "outcome": "pass",
+      "passed_cases": 0,
+      "total_cases": 1,
+      "evidence_digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+    }
+  ],
+  "verdict": "promote",
+  "report_fingerprint": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+}

@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.ideia.invalid/p0/v1/artifact-lifecycle.schema.json",
+  "title": "IDEIA P0 ArtifactLifecycle v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "contract", "artifact_id", "sequence", "from_state", "to_state",
+    "reason_code", "event_id", "occurred_at", "metadata_fingerprint"
+  ],
+  "properties": {
+    "contract": { "const": "ideia.artifact-lifecycle/1" },
+    "artifact_id": { "$ref": "_defs.schema.json#/$defs/artifactId" },
+    "sequence": { "$ref": "_defs.schema.json#/$defs/positiveSafeInteger" },
+    "from_state": {
+      "oneOf": [
+        { "enum": ["staged", "committed", "quarantined", "tombstoned"] },
+        { "type": "null" }
+      ]
+    },
+    "to_state": { "enum": ["staged", "committed", "quarantined", "tombstoned"] },
+    "reason_code": { "$ref": "_defs.schema.json#/$defs/stableName" },
+    "event_id": {
+      "oneOf": [
+        { "$ref": "_defs.schema.json#/$defs/eventId" },
+        { "type": "null" }
+      ]
+    },
+    "occurred_at": { "$ref": "_defs.schema.json#/$defs/utcTimestamp" },
+    "metadata_fingerprint": { "$ref": "_defs.schema.json#/$defs/digest" }
+  },
+  "allOf": [
+    {
+      "if": { "properties": { "sequence": { "const": 1 } } },
+      "then": {
+        "properties": {
+          "from_state": { "type": "null" },
+          "to_state": { "const": "staged" }
+        }
+      },
+      "else": { "properties": { "from_state": { "enum": ["staged", "committed", "quarantined"] } } }
+    },
+    {
+      "if": { "properties": { "from_state": { "const": "staged" } }, "required": ["from_state"] },
+      "then": { "properties": { "to_state": { "enum": ["committed", "quarantined"] } } }
+    },
+    {
+      "if": { "properties": { "from_state": { "const": "committed" } }, "required": ["from_state"] },
+      "then": { "properties": { "to_state": { "enum": ["quarantined", "tombstoned"] } } }
+    },
+    {
+      "if": { "properties": { "from_state": { "const": "quarantined" } }, "required": ["from_state"] },
+      "then": { "properties": { "to_state": { "const": "tombstoned" } } }
+    }
+  ]
+}

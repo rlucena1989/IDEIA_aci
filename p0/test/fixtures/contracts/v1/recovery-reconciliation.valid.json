@@ -1,0 +1,24 @@
+{
+  "contract": "ideia.recovery-reconciliation/1",
+  "recovery_run_id": "rcv_123e4567-e89b-42d3-a456-426614174000",
+  "task_id": "tsk_123e4567-e89b-42d3-a456-426614174000",
+  "outcome": "completed",
+  "counts": {
+    "consistent": 0,
+    "missing": 0,
+    "divergent": 0,
+    "ambiguous": 0,
+    "reconciled": 0
+  },
+  "report_artifact_id": "art_123e4567-e89b-42d3-a456-426614174000",
+  "report_ref": {
+    "profile": "raw-sha256-v1",
+    "digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+    "size_bytes": 0,
+    "media_type": "default"
+  },
+  "remaining_ambiguities": 0,
+  "recommended_final_state": null,
+  "finished_at": "2024-01-01T00:00:00.000Z",
+  "report_fingerprint": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+}

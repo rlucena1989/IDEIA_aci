@@ -1,0 +1,14 @@
+{
+  "workPackage": "WP-03",
+  "title": "Máquina de estados",
+  "allowedPaths": [
+    "p0/src/domain/task-state.ts",
+    "p0/src/domain/task-transition.ts",
+    "p0/test/domain/task-transition.test.ts"
+  ],
+  "requiredPaths": [
+    "p0/src/domain/task-state.ts",
+    "p0/src/domain/task-transition.ts",
+    "p0/test/domain/task-transition.test.ts"
+  ]
+}

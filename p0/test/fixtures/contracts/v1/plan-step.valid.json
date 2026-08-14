@@ -1,0 +1,25 @@
+{
+  "contract": "ideia.plan-step/1",
+  "plan_id": "pln_123e4567-e89b-42d3-a456-426614174000",
+  "step_id": "stp_123e4567-e89b-42d3-a456-426614174000",
+  "task_id": "tsk_123e4567-e89b-42d3-a456-426614174000",
+  "position": 0,
+  "description": "default",
+  "preconditions": [
+    {
+      "kind": "default",
+      "subject": "default",
+      "expected_digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+    }
+  ],
+  "tool": {
+    "tool_id": "default",
+    "tool_version": "default"
+  },
+  "effect_class": "pure",
+  "expected_effect": "default",
+  "risk": "low",
+  "criterion_ids": [
+    "crt_123e4567-e89b-42d3-a456-426614174000"
+  ]
+}

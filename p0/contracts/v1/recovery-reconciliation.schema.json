@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.ideia.invalid/p0/v1/recovery-reconciliation.schema.json",
+  "title": "IDEIA P0 RecoveryReconciliation v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "contract",
+    "recovery_run_id",
+    "task_id",
+    "outcome",
+    "counts",
+    "report_artifact_id",
+    "report_ref",
+    "remaining_ambiguities",
+    "recommended_final_state",
+    "finished_at",
+    "report_fingerprint"
+  ],
+  "properties": {
+    "contract": { "const": "ideia.recovery-reconciliation/1" },
+    "recovery_run_id": { "$ref": "_defs.schema.json#/$defs/recoveryRunId" },
+    "task_id": { "$ref": "_defs.schema.json#/$defs/taskId" },
+    "outcome": { "enum": ["completed", "blocked", "inconclusive"] },
+    "counts": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["consistent", "missing", "divergent", "ambiguous", "reconciled"],
+      "properties": {
+        "consistent": { "$ref": "_defs.schema.json#/$defs/nonNegativeSafeInteger" },
+        "missing": { "$ref": "_defs.schema.json#/$defs/nonNegativeSafeInteger" },
+        "divergent": { "$ref": "_defs.schema.json#/$defs/nonNegativeSafeInteger" },
+        "ambiguous": { "$ref": "_defs.schema.json#/$defs/nonNegativeSafeInteger" },
+        "reconciled": { "$ref": "_defs.schema.json#/$defs/nonNegativeSafeInteger" }
+      }
+    },
+    "report_artifact_id": { "$ref": "_defs.schema.json#/$defs/artifactId" },
+    "report_ref": { "$ref": "_defs.schema.json#/$defs/artifactRef" },
+    "remaining_ambiguities": { "$ref": "_defs.schema.json#/$defs/nonNegativeSafeInteger" },
+    "recommended_final_state": {
+      "oneOf": [
+        { "enum": ["falha", "bloqueado", "cancelado", "inconclusivo"] },
+        { "type": "null" }
+      ]
+    },
+    "finished_at": { "$ref": "_defs.schema.json#/$defs/utcTimestamp" },
+    "report_fingerprint": { "$ref": "_defs.schema.json#/$defs/digest" }
+  }
+}

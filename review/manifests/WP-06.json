@@ -1,0 +1,12 @@
+{
+  "workPackage": "WP-06",
+  "title": "Gate de limite duro",
+  "allowedPaths": [
+    "p0/src/domain/budget.ts",
+    "p0/test/domain/budget.test.ts"
+  ],
+  "requiredPaths": [
+    "p0/src/domain/budget.ts",
+    "p0/test/domain/budget.test.ts"
+  ]
+}

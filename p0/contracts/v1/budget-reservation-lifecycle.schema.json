@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.ideia.invalid/p0/v1/budget-reservation-lifecycle.schema.json",
+  "title": "IDEIA P0 BudgetReservationLifecycle v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "contract", "budget_reservation_id", "sequence", "from_status", "to_status",
+    "possible_overage", "reservation_fingerprint", "changed_at"
+  ],
+  "properties": {
+    "contract": { "const": "ideia.budget-reservation-lifecycle/1" },
+    "budget_reservation_id": { "$ref": "_defs.schema.json#/$defs/budgetReservationId" },
+    "sequence": { "$ref": "_defs.schema.json#/$defs/positiveSafeInteger" },
+    "from_status": {
+      "oneOf": [
+        { "enum": ["active", "consumed", "released", "expired", "reconciled"] },
+        { "type": "null" }
+      ]
+    },
+    "to_status": { "enum": ["active", "consumed", "released", "expired", "reconciled"] },
+    "possible_overage": { "type": "boolean" },
+    "reservation_fingerprint": { "$ref": "_defs.schema.json#/$defs/digest" },
+    "changed_at": { "$ref": "_defs.schema.json#/$defs/utcTimestamp" }
+  },
+  "allOf": [
+    {
+      "if": { "properties": { "sequence": { "const": 1 } } },
+      "then": {
+        "properties": {
+          "from_status": { "type": "null" },
+          "to_status": { "const": "active" }
+        }
+      },
+      "else": {
+        "properties": {
+          "from_status": { "const": "active" },
+          "to_status": { "enum": ["consumed", "released", "expired", "reconciled"] }
+        }
+      }
+    }
+  ]
+}

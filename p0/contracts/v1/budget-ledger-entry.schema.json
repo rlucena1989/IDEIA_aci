@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.ideia.invalid/p0/v1/budget-ledger-entry.schema.json",
+  "title": "IDEIA P0 BudgetLedgerEntry v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "contract", "budget_set_id", "task_id", "sequence", "event_id", "budget_reservation_id",
+    "usage_id", "classification", "unit", "amount", "currency", "source", "occurred_at", "entry_fingerprint"
+  ],
+  "properties": {
+    "contract": { "const": "ideia.budget-ledger-entry/1" },
+    "budget_set_id": { "$ref": "_defs.schema.json#/$defs/budgetSetId" },
+    "task_id": { "$ref": "_defs.schema.json#/$defs/taskId" },
+    "sequence": { "$ref": "_defs.schema.json#/$defs/positiveSafeInteger" },
+    "event_id": { "$ref": "_defs.schema.json#/$defs/eventId" },
+    "budget_reservation_id": {
+      "oneOf": [
+        { "$ref": "_defs.schema.json#/$defs/budgetReservationId" },
+        { "type": "null" }
+      ]
+    },
+    "usage_id": {
+      "oneOf": [
+        { "$ref": "_defs.schema.json#/$defs/usageId" },
+        { "type": "null" }
+      ]
+    },
+    "classification": { "enum": ["confirmed", "reserved", "released", "possible_overage", "adjustment"] },
+    "unit": { "enum": ["call", "input_token", "output_token", "total_token", "duration_ms", "currency_minor"] },
+    "amount": { "$ref": "_defs.schema.json#/$defs/nonNegativeSafeInteger" },
+    "currency": {
+      "oneOf": [
+        { "type": "string", "pattern": "^[A-Z]{3}$" },
+        { "type": "null" }
+      ]
+    },
+    "source": { "enum": ["provider", "local_estimator", "reservation", "reconciliation", "operator"] },
+    "occurred_at": { "$ref": "_defs.schema.json#/$defs/utcTimestamp" },
+    "entry_fingerprint": { "$ref": "_defs.schema.json#/$defs/digest" }
+  },
+  "allOf": [
+    {
+      "if": { "properties": { "unit": { "const": "currency_minor" } } },
+      "then": { "properties": { "currency": { "type": "string", "pattern": "^[A-Z]{3}$" } } },
+      "else": { "properties": { "currency": { "type": "null" } } }
+    }
+  ]
+}

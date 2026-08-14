@@ -1,0 +1,92 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.ideia.invalid/p0/v1/provider-outcome.schema.json",
+  "title": "IDEIA P0 ProviderOutcome v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "contract",
+    "provider_request_id",
+    "attempt_id",
+    "call_id",
+    "task_id",
+    "step_id",
+    "provider_id",
+    "model_id",
+    "request_fingerprint",
+    "execution_status",
+    "parse_status",
+    "output_artifact_id",
+    "output_ref",
+    "output_fingerprint",
+    "finish_reason",
+    "provider_response_id_digest",
+    "error_code",
+    "retry_disposition",
+    "started_at",
+    "finished_at",
+    "duration_ms",
+    "truncated",
+    "result_digest"
+  ],
+  "properties": {
+    "contract": { "const": "ideia.provider-outcome/1" },
+    "provider_request_id": { "$ref": "_defs.schema.json#/$defs/providerRequestId" },
+    "attempt_id": { "$ref": "_defs.schema.json#/$defs/attemptId" },
+    "call_id": { "$ref": "_defs.schema.json#/$defs/callId" },
+    "task_id": { "$ref": "_defs.schema.json#/$defs/taskId" },
+    "step_id": {
+      "oneOf": [
+        { "$ref": "_defs.schema.json#/$defs/stepId" },
+        { "type": "null" }
+      ]
+    },
+    "provider_id": { "$ref": "_defs.schema.json#/$defs/stableName" },
+    "model_id": { "type": "string", "minLength": 1, "maxLength": 256 },
+    "request_fingerprint": { "$ref": "_defs.schema.json#/$defs/digest" },
+    "execution_status": { "enum": ["completed", "failed", "cancelled", "timed_out", "ambiguous"] },
+    "parse_status": { "enum": ["not_requested", "valid", "invalid", "not_available"] },
+    "output_artifact_id": {
+      "oneOf": [
+        { "$ref": "_defs.schema.json#/$defs/artifactId" },
+        { "type": "null" }
+      ]
+    },
+    "output_ref": {
+      "oneOf": [
+        { "$ref": "_defs.schema.json#/$defs/artifactRef" },
+        { "type": "null" }
+      ]
+    },
+    "output_fingerprint": {
+      "oneOf": [
+        { "$ref": "_defs.schema.json#/$defs/digest" },
+        { "type": "null" }
+      ]
+    },
+    "finish_reason": {
+      "oneOf": [
+        { "type": "string", "minLength": 1, "maxLength": 128 },
+        { "type": "null" }
+      ]
+    },
+    "provider_response_id_digest": {
+      "oneOf": [
+        { "$ref": "_defs.schema.json#/$defs/digest" },
+        { "type": "null" }
+      ]
+    },
+    "error_code": {
+      "oneOf": [
+        { "$ref": "_defs.schema.json#/$defs/stableName" },
+        { "type": "null" }
+      ]
+    },
+    "retry_disposition": { "enum": ["never", "safe", "ambiguous", "manual"] },
+    "started_at": { "$ref": "_defs.schema.json#/$defs/utcTimestamp" },
+    "finished_at": { "$ref": "_defs.schema.json#/$defs/utcTimestamp" },
+    "duration_ms": { "$ref": "_defs.schema.json#/$defs/nonNegativeSafeInteger" },
+    "truncated": { "type": "boolean" },
+    "result_digest": { "$ref": "_defs.schema.json#/$defs/digest" }
+  }
+}

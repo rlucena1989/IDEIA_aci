@@ -1,0 +1,34 @@
+{
+  "contract": "ideia.tool-result/1",
+  "task_id": "tsk_123e4567-e89b-42d3-a456-426614174000",
+  "step_id": "stp_123e4567-e89b-42d3-a456-426614174000",
+  "call_id": "cal_123e4567-e89b-42d3-a456-426614174000",
+  "effect_intent_id": "efi_123e4567-e89b-42d3-a456-426614174000",
+  "execution_status": "completed",
+  "effect_status": "not_applicable",
+  "output": "default",
+  "output_ref": {
+    "profile": "raw-sha256-v1",
+    "digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+    "size_bytes": 0,
+    "media_type": "default"
+  },
+  "stdout_ref": {
+    "profile": "raw-sha256-v1",
+    "digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+    "size_bytes": 0,
+    "media_type": "default"
+  },
+  "stderr_ref": {
+    "profile": "raw-sha256-v1",
+    "digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+    "size_bytes": 0,
+    "media_type": "default"
+  },
+  "exit_code": -2147483648,
+  "started_at": "2024-01-01T00:00:00.000Z",
+  "finished_at": "2024-01-01T00:00:00.000Z",
+  "duration_ms": 0,
+  "truncated": true,
+  "result_digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+}

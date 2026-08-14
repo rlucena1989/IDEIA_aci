@@ -1,85 +1,69 @@
 # Fixture de Benchmark
 
-**Data:** 11 de agosto de 2026  
-**Status:** Fixture criado, pronto para execução manual
+**Snapshot documental:** 13 de agosto de 2026
 
-## Estrutura do fixture
+**Status:** a fixture possui fontes locais, mas elas estão ignoradas pelo Git; as dependências não estão instaladas, não há lockfile e não existe execução limpa registrada. Portanto, ela **não está pronta para produzir resultados de benchmark**.
 
-```
+## Estrutura observada
+
+```text
 benchmark_fixture/
-├── package.json
-├── src/
-│   ├── index.js (servidor Express)
-│   ├── email-validator.js (BUG: validação incorreta)
-│   ├── pagination.js (paginação correta)
-│   └── email-validator.test.js (testes)
-├── run_t01.js (script para executar T01)
-└── results/ (resultados do benchmark)
+├── package.json                    # versionado
+├── run_t01.js                      # versionado; produz resultado não aderente ao schema atual
+├── src/                            # existe localmente, mas .js está ignorado pelo Git
+│   ├── index.js
+│   ├── email-validator.js
+│   ├── pagination.js
+│   └── email-validator.test.js
+├── results/                        # criado pelo runner quando ele executa; ausente neste snapshot
+└── validate_benchmark.mjs          # ausente
 ```
 
-## Tarefas do benchmark
+O padrão global `.gitignore` (`**/src/**/*.js`) exclui os quatro arquivos de `src/`. Eles não aparecem em `git ls-files`, `git status` ou em inventários que respeitam `.gitignore`; isso torna a fixture não reproduzível a partir do repositório atual.
 
-### T01: Compreensão (read-only)
-- **Objetivo:** Explicar estrutura e fluxo principal
-- **Critério:** Relatório cita arquivos/símbolos corretos; nenhum arquivo alterado
-- **Script:** `node run_t01.js`
-- **Status:** Script criado, requer execução manual com ferramenta
+## Situação das tarefas
 
-### T02: Bugfix
-- **Objetivo:** Corrigir bug de validação de email
-- **Critério:** Teste de regressão falha antes e passa depois
-- **Arquivo alvo:** `src/email-validator.js`
-- **Bug:** Validação apenas verifica se tem @, não formato completo
-- **Status:** Fixture pronto, requer execução manual
+### T01 — compreensão (read-only)
 
-### T03: Feature backend
-- **Objetivo:** Adicionar endpoint de paginação
-- **Critério:** Contrato HTTP, validação, paginação e testes passam
-- **Status:** Paginação já implementada, pode ser usada como teste de regressão
+- **Objetivo:** explicar a estrutura e o fluxo principal sem alterar arquivos.
+- **Runner existente:** `node run_t01.js`.
+- **Estado:** não verificado. O runner exige `jest`, atualmente ausente, e grava um registro que não cumpre o [schema de resultados](../docs/research/benchmarks/schema_resultados.md).
+- **Limite importante:** o runner atual fixa `status: 'success'`; ele não captura evidência da resposta humana nem compara o diff antes/depois. Uma execução dele não prova T01.
 
-### T04-T10: Outras tarefas
-- **Status:** Requerem implementação adicional no fixture
+### T02 — bugfix de email
 
-## Como executar
+- **Alvo local:** `src/email-validator.js`.
+- **Oráculo local:** `src/email-validator.test.js` contém casos de regressão que devem falhar com o bug atual e passar após a correção.
+- **Estado:** cenário definido, porém não executado nem versionado. Não há evidência de instalação limpa ou de baseline registrado.
 
-### Pré-requisitos
+### T03 — feature backend
+
+- **Fonte local:** `src/index.js` possui a rota `GET /api/users`; `src/pagination.js` implementa a paginação básica.
+- **Estado:** não verificado. Faltam testes de contrato/validação da rota e uma execução registrada; a afirmação de que a paginação está “correta” não é demonstrada.
+
+### T04–T10
+
+Não há cenários implementados ou oráculos documentados neste snapshot.
+
+## Pré-condições para qualquer execução
+
+1. Corrigir o versionamento de `src/` e revisar o diff antes de adicioná-lo ao Git.
+2. Gerar e versionar `package-lock.json` com scripts de instalação desabilitados.
+3. Em cópia limpa, executar `npm ci --ignore-scripts` e registrar o resultado.
+4. Executar e registrar o baseline (`npm test`) antes de expor uma tarefa a uma ferramenta.
+5. Resolver a semântica de status e criar um schema executável/validador antes de aceitar JSON em `results/`.
+
+Enquanto essas pré-condições não forem atendidas, comandos mostrados abaixo são apenas comandos previstos, não instruções de que a fixture já é executável.
+
+## Comandos previstos após a recuperação
+
 ```bash
 cd benchmark_fixture
-npm install
-```
-
-### Executar T01
-```bash
+npm ci --ignore-scripts
+npm test -- --runInBand
 node run_t01.js
 ```
 
-O script irá:
-1. Executar testes baseline
-2. Registrar hash do commit
-3. Aguardar intervenção manual para iniciar ferramenta
-4. Registrar métricas em JSON
+## Próxima implementação necessária
 
-### Executar T02 manualmente
-1. Clonar fixture para diretório temporário
-2. Iniciar ferramenta (OpenCode, Freebuff, etc.)
-3. Pedir para corrigir bug em `src/email-validator.js`
-4. Executar testes: `npm test`
-5. Verificar que teste de regressão passa
-6. Registrar métricas manualmente
-
-## Limitações de autonomia
-
-O benchmark requer intervenção manual porque:
-1. Ferramenta (OpenCode, Freebuff, etc.) precisa ser iniciada manualmente
-2. Interação com a ferramenta não pode ser automatizada sem API
-3. Validação de critérios de aceite requer revisão humana
-4. Custo de API precisa ser monitorado manualmente
-
-## Próximos passos
-
-Para execução completa do benchmark:
-1. Instalar ferramenta de benchmark (OpenCode, Freebuff, etc.)
-2. Executar T01-T10 sequencialmente
-3. Registrar métricas em JSON
-4. Validar com `validate_benchmark.mjs`
-5. Gerar relatório de resultados
+As alterações de código e configuração estão fora do escopo do WP-10. O inventário, as decisões pendentes e a sequência segura de implementação estão em [P0_ALIGNMENT.md](P0_ALIGNMENT.md).

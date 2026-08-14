@@ -1,0 +1,42 @@
+{
+  "contract": "ideia.governance-bundle/1",
+  "bundle_id": "default",
+  "bundle_version": "default",
+  "status": "draft",
+  "provider": {
+    "provider_id": "default",
+    "endpoint_profile": "default",
+    "model_id": "model_123e4567-e89b-42d3-a456-426614174000",
+    "model_revision": "default",
+    "config_fingerprint": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+    "capabilities_fingerprint": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  "prompts": [
+    {
+      "prompt_id": "default",
+      "prompt_version": "default",
+      "prompt_fingerprint": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+    }
+  ],
+  "policy": {
+    "policy_id": "default",
+    "policy_version": "default",
+    "policy_fingerprint": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  "tool_catalog_fingerprint": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+  "context_strategy": {
+    "strategy_id": "default",
+    "strategy_version": "default",
+    "strategy_fingerprint": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  "limits_profile_fingerprint": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+  "measurement_profile_fingerprint": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+  "evaluation_report_id": "default",
+  "evaluation_report_fingerprint": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+  "approved_by": "prn_123e4567-e89b-42d3-a456-426614174000",
+  "approved_at": "2024-01-01T00:00:00.000Z",
+  "effective_at": "2024-01-01T00:00:00.000Z",
+  "expires_at": "2024-01-01T00:00:00.000Z",
+  "candidate_fingerprint": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+  "bundle_fingerprint": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+}

@@ -1,0 +1,13 @@
+{
+  "contract": "ideia.redaction-failure/1",
+  "task_id": "tsk_123e4567-e89b-42d3-a456-426614174000",
+  "step_id": "stp_123e4567-e89b-42d3-a456-426614174000",
+  "call_id": "cal_123e4567-e89b-42d3-a456-426614174000",
+  "subject_kind": "context",
+  "subject_ref_digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+  "redaction_profile_fingerprint": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+  "reason_code": "default",
+  "bytes_persisted": false,
+  "bytes_sent": false,
+  "occurred_at": "2024-01-01T00:00:00.000Z"
+}

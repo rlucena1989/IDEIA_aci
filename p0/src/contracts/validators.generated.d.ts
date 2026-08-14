@@ -1,0 +1,50 @@
+// Auto-generated TypeScript declarations for contract validators
+// DO NOT EDIT - regenerate with npm run generate-validators
+
+import type { ValidateFunction } from 'ajv';
+
+export declare const validateapprovalGrant: ValidateFunction<unknown>;
+export declare const validateapprovalRevocation: ValidateFunction<unknown>;
+export declare const validateapprovalUse: ValidateFunction<unknown>;
+export declare const validateartifactLifecycle: ValidateFunction<unknown>;
+export declare const validateartifactMetadata: ValidateFunction<unknown>;
+export declare const validateartifactQuarantine: ValidateFunction<unknown>;
+export declare const validatebudgetLedgerEntry: ValidateFunction<unknown>;
+export declare const validatebudgetReservationLifecycle: ValidateFunction<unknown>;
+export declare const validatebudgetReservation: ValidateFunction<unknown>;
+export declare const validatebudgetSet: ValidateFunction<unknown>;
+export declare const validatecancellationRequest: ValidateFunction<unknown>;
+export declare const validatecapabilityGrant: ValidateFunction<unknown>;
+export declare const validatecapabilityRevocation: ValidateFunction<unknown>;
+export declare const validatecontextItem: ValidateFunction<unknown>;
+export declare const validatecontextPackage: ValidateFunction<unknown>;
+export declare const validatecontextQuery: ValidateFunction<unknown>;
+export declare const validatecontextStale: ValidateFunction<unknown>;
+export declare const validateeffectIntent: ValidateFunction<unknown>;
+export declare const validateeffectReconciliation: ValidateFunction<unknown>;
+export declare const validateevaluationReport: ValidateFunction<unknown>;
+export declare const validateeventCorrection: ValidateFunction<unknown>;
+export declare const validateeventEnvelope: ValidateFunction<unknown>;
+export declare const validategovernanceBundle: ValidateFunction<unknown>;
+export declare const validatemeasurementProfile: ValidateFunction<unknown>;
+export declare const validateplanRecord: ValidateFunction<unknown>;
+export declare const validateplanStep: ValidateFunction<unknown>;
+export declare const validatepolicyDecision: ValidateFunction<unknown>;
+export declare const validatepriceBook: ValidateFunction<unknown>;
+export declare const validateproviderCapabilitiesSnapshot: ValidateFunction<unknown>;
+export declare const validateproviderOutcome: ValidateFunction<unknown>;
+export declare const validateproviderRequest: ValidateFunction<unknown>;
+export declare const validaterecoveryReconciliation: ValidateFunction<unknown>;
+export declare const validaterecoveryStarted: ValidateFunction<unknown>;
+export declare const validateredactionFailure: ValidateFunction<unknown>;
+export declare const validatesandboxProfile: ValidateFunction<unknown>;
+export declare const validatetaskCreated: ValidateFunction<unknown>;
+export declare const validatetaskManifest: ValidateFunction<unknown>;
+export declare const validatetaskRun: ValidateFunction<unknown>;
+export declare const validatetaskTransitioned: ValidateFunction<unknown>;
+export declare const validatetoolDefinition: ValidateFunction<unknown>;
+export declare const validatetoolRequest: ValidateFunction<unknown>;
+export declare const validatetoolResult: ValidateFunction<unknown>;
+export declare const validateusageRecord: ValidateFunction<unknown>;
+export declare const validateverificationResult: ValidateFunction<unknown>;
+export declare const validate_defs: ValidateFunction<unknown>;

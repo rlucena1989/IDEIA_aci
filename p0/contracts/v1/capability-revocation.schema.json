@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.ideia.invalid/p0/v1/capability-revocation.schema.json",
+  "title": "IDEIA P0 CapabilityRevocation v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["contract", "capability_grant_id", "task_id", "revoked_by", "reason_code", "revoked_at"],
+  "properties": {
+    "contract": { "const": "ideia.capability-revocation/1" },
+    "capability_grant_id": { "$ref": "_defs.schema.json#/$defs/capabilityGrantId" },
+    "task_id": { "$ref": "_defs.schema.json#/$defs/taskId" },
+    "revoked_by": { "$ref": "_defs.schema.json#/$defs/principalId" },
+    "reason_code": { "$ref": "_defs.schema.json#/$defs/stableName" },
+    "revoked_at": { "$ref": "_defs.schema.json#/$defs/utcTimestamp" }
+  }
+}

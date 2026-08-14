@@ -1,0 +1,16 @@
+{
+  "contract": "ideia.policy-decision/1",
+  "decision_id": "pdc_123e4567-e89b-42d3-a456-426614174000",
+  "task_id": "tsk_123e4567-e89b-42d3-a456-426614174000",
+  "call_id": "cal_123e4567-e89b-42d3-a456-426614174000",
+  "principal_id": "prn_123e4567-e89b-42d3-a456-426614174000",
+  "request_fingerprint": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+  "policy_id": "default",
+  "policy_version": "default",
+  "policy_fingerprint": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+  "decision": "allow",
+  "reason_code": "default",
+  "reason": "default",
+  "approval_requirements": null,
+  "evaluated_at": "2024-01-01T00:00:00.000Z"
+}

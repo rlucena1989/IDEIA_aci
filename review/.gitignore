@@ -1,0 +1,3 @@
+# Relatórios são evidência local/reexecutável; o formato e o runner são versionados.
+reports/*
+!reports/.gitignore

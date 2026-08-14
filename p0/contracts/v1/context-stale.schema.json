@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.ideia.invalid/p0/v1/context-stale.schema.json",
+  "title": "IDEIA P0 ContextStale v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "contract",
+    "task_id",
+    "step_id",
+    "context_package_id",
+    "context_item_id",
+    "provider_request_id",
+    "source_ref",
+    "expected_source_version",
+    "observed_source_version",
+    "disposition",
+    "detected_at"
+  ],
+  "properties": {
+    "contract": { "const": "ideia.context-stale/1" },
+    "task_id": { "$ref": "_defs.schema.json#/$defs/taskId" },
+    "step_id": {
+      "oneOf": [
+        { "$ref": "_defs.schema.json#/$defs/stepId" },
+        { "type": "null" }
+      ]
+    },
+    "context_package_id": { "$ref": "_defs.schema.json#/$defs/contextPackageId" },
+    "context_item_id": { "$ref": "_defs.schema.json#/$defs/contextItemId" },
+    "provider_request_id": {
+      "oneOf": [
+        { "$ref": "_defs.schema.json#/$defs/providerRequestId" },
+        { "type": "null" }
+      ]
+    },
+    "source_ref": { "type": "string", "minLength": 1, "maxLength": 4096 },
+    "expected_source_version": { "$ref": "_defs.schema.json#/$defs/digest" },
+    "observed_source_version": { "$ref": "_defs.schema.json#/$defs/digest" },
+    "disposition": { "enum": ["blocked", "package_rebuilt"] },
+    "detected_at": { "$ref": "_defs.schema.json#/$defs/utcTimestamp" }
+  }
+}

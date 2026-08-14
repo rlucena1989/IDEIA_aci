@@ -1,0 +1,8 @@
+{
+  "contract": "ideia.capability-revocation/1",
+  "capability_grant_id": "cpg_123e4567-e89b-42d3-a456-426614174000",
+  "task_id": "tsk_123e4567-e89b-42d3-a456-426614174000",
+  "revoked_by": "prn_123e4567-e89b-42d3-a456-426614174000",
+  "reason_code": "default",
+  "revoked_at": "2024-01-01T00:00:00.000Z"
+}

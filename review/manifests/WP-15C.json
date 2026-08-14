@@ -1,0 +1,22 @@
+{
+  "workPackage": "WP-15C",
+  "title": "Budget engine e reserva multiunidade",
+  "allowedPaths": [
+    "p0/src/domain/exact-rational.ts",
+    "p0/src/domain/budget-gate.ts",
+    "p0/src/application/budget-service.ts",
+    "p0/test/domain/exact-rational.test.ts",
+    "p0/test/domain/budget-gate.test.ts",
+    "p0/test/application/budget-service.test.ts",
+    "p0/test/fixtures/budget/**"
+  ],
+  "requiredPaths": [
+    "p0/src/domain/exact-rational.ts",
+    "p0/src/domain/budget-gate.ts",
+    "p0/src/application/budget-service.ts",
+    "p0/test/domain/exact-rational.test.ts",
+    "p0/test/domain/budget-gate.test.ts",
+    "p0/test/application/budget-service.test.ts"
+  ],
+  "requiredDirectories": ["p0/test/fixtures/budget"]
+}

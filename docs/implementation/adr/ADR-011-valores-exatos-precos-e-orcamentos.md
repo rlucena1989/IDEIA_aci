@@ -29,7 +29,7 @@ price_minor / unit_quantity
 
 Para reservar moeda, a operação calcula a soma racional com aritmética inteira/BigInt e aplica ceiling conservador uma vez no total da chamada. Overflow ou redução impossível bloqueia. Ledger persiste somente o inteiro final em currency_minor e referencia PriceBook; relatório pode preservar numerador/denominador da estimativa em artifact.
 
-Uso faturado/reportado, quando disponível, substitui a reserva por novos fatos `released/confirmed`; não atualiza a estimativa antiga. Diferença tardia pode ser `possible_overage`.
+Uso faturado/reportado, quando disponível, substitui a reserva por novos fatos `released/confirmed`; não atualiza a estimativa antiga. Diferença tardia pode ser `possible_overage`. Essa classificação é informativa e permanece separada do valor `accounted` usado pelo gate: `accounted = confirmed + reserved`; `possible_overage` não é somado ao limite nem altera a decisão de iniciar operação.
 
 ### Free tier e local
 

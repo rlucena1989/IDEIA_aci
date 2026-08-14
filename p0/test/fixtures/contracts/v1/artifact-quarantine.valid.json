@@ -1,0 +1,11 @@
+{
+  "contract": "ideia.artifact-quarantine/1",
+  "artifact_id": "art_123e4567-e89b-42d3-a456-426614174000",
+  "task_id": "tsk_123e4567-e89b-42d3-a456-426614174000",
+  "artifact_digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+  "previous_lifecycle": "staged",
+  "reason_code": "default",
+  "evidence_digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+  "byte_disposition": "retained_blocked",
+  "detected_at": "2024-01-01T00:00:00.000Z"
+}

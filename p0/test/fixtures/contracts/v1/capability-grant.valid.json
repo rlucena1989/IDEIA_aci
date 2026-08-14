@@ -1,0 +1,19 @@
+{
+  "contract": "ideia.capability-grant/1",
+  "capability_grant_id": "cpg_123e4567-e89b-42d3-a456-426614174000",
+  "task_id": "tsk_123e4567-e89b-42d3-a456-426614174000",
+  "principal_id": "prn_123e4567-e89b-42d3-a456-426614174000",
+  "sandbox_profile_fingerprint": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+  "capability": "filesystem_read",
+  "resource_type": "workspace_path",
+  "resource": "default",
+  "permissions": [
+    "default"
+  ],
+  "constraints": {},
+  "policy_decision_id": "pdc_123e4567-e89b-42d3-a456-426614174000",
+  "valid_from": "2024-01-01T00:00:00.000Z",
+  "expires_at": "2024-01-01T00:00:00.000Z",
+  "max_uses": 1,
+  "grant_fingerprint": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+}

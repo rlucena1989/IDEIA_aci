@@ -1,0 +1,16 @@
+{
+  "name": "@ideia/review-kit",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "engines": {
+    "node": ">=24.0.0"
+  },
+  "scripts": {
+    "test": "node --test test/**/*.test.mjs",
+    "inventory": "node scripts/review.mjs --profile inventory",
+    "fast": "node scripts/review.mjs --profile fast",
+    "full": "node scripts/review.mjs --profile full",
+    "wp": "node scripts/review.mjs --profile scope"
+  }
+}

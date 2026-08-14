@@ -1,0 +1,9 @@
+{
+  "contract": "ideia.approval-revocation/1",
+  "approval_id": "apr_123e4567-e89b-42d3-a456-426614174000",
+  "revoked_by": "prn_123e4567-e89b-42d3-a456-426614174000",
+  "scope": "single",
+  "emergency_stop": true,
+  "reason_code": "default",
+  "reason": "default"
+}

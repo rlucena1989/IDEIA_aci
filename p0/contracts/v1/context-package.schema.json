@@ -1,0 +1,103 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.ideia.invalid/p0/v1/context-package.schema.json",
+  "title": "IDEIA P0 ContextPackage v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "contract",
+    "context_package_id",
+    "task_id",
+    "step_id",
+    "criterion_id",
+    "governance_bundle_id",
+    "governance_bundle_fingerprint",
+    "query_ids",
+    "items",
+    "total_bytes",
+    "estimated_tokens",
+    "data_classes",
+    "ordering_rule",
+    "truncated",
+    "exclusions",
+    "redaction_status",
+    "destination",
+    "endpoint_profile",
+    "created_at",
+    "validated_at",
+    "expires_at",
+    "package_fingerprint"
+  ],
+  "properties": {
+    "contract": { "const": "ideia.context-package/1" },
+    "context_package_id": { "$ref": "_defs.schema.json#/$defs/contextPackageId" },
+    "task_id": { "$ref": "_defs.schema.json#/$defs/taskId" },
+    "step_id": {
+      "oneOf": [
+        { "$ref": "_defs.schema.json#/$defs/stepId" },
+        { "type": "null" }
+      ]
+    },
+    "criterion_id": {
+      "oneOf": [
+        { "$ref": "_defs.schema.json#/$defs/criterionId" },
+        { "type": "null" }
+      ]
+    },
+    "governance_bundle_id": { "$ref": "_defs.schema.json#/$defs/stableName" },
+    "governance_bundle_fingerprint": { "$ref": "_defs.schema.json#/$defs/digest" },
+    "query_ids": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": { "$ref": "_defs.schema.json#/$defs/contextQueryId" }
+    },
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["position", "context_item_id", "item_fingerprint", "content_artifact_id", "content_ref"],
+        "properties": {
+          "position": { "$ref": "_defs.schema.json#/$defs/nonNegativeSafeInteger" },
+          "context_item_id": { "$ref": "_defs.schema.json#/$defs/contextItemId" },
+          "item_fingerprint": { "$ref": "_defs.schema.json#/$defs/digest" },
+          "content_artifact_id": { "$ref": "_defs.schema.json#/$defs/artifactId" },
+          "content_ref": { "$ref": "_defs.schema.json#/$defs/artifactRef" }
+        }
+      }
+    },
+    "total_bytes": { "$ref": "_defs.schema.json#/$defs/nonNegativeSafeInteger" },
+    "estimated_tokens": {
+      "oneOf": [
+        { "$ref": "_defs.schema.json#/$defs/nonNegativeSafeInteger" },
+        { "type": "null" }
+      ]
+    },
+    "data_classes": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": { "$ref": "_defs.schema.json#/$defs/dataClass" }
+    },
+    "ordering_rule": { "const": "package-position-v1" },
+    "truncated": { "type": "boolean" },
+    "exclusions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["reason_code", "count"],
+        "properties": {
+          "reason_code": { "$ref": "_defs.schema.json#/$defs/stableName" },
+          "count": { "$ref": "_defs.schema.json#/$defs/positiveSafeInteger" }
+        }
+      }
+    },
+    "redaction_status": { "enum": ["not_required", "applied"] },
+    "destination": { "enum": ["local", "remote"] },
+    "endpoint_profile": { "$ref": "_defs.schema.json#/$defs/stableName" },
+    "created_at": { "$ref": "_defs.schema.json#/$defs/utcTimestamp" },
+    "validated_at": { "$ref": "_defs.schema.json#/$defs/utcTimestamp" },
+    "expires_at": { "$ref": "_defs.schema.json#/$defs/utcTimestamp" },
+    "package_fingerprint": { "$ref": "_defs.schema.json#/$defs/digest" }
+  }
+}

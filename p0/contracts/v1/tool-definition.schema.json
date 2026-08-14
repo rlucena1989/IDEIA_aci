@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.ideia.invalid/p0/v1/tool-definition.schema.json",
+  "title": "IDEIA P0 ToolDefinition v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "contract",
+    "tool_id",
+    "tool_version",
+    "input_schema_id",
+    "output_schema_id",
+    "effect_class",
+    "cancelability",
+    "idempotency",
+    "required_capabilities",
+    "default_policy"
+  ],
+  "properties": {
+    "contract": {
+      "const": "ideia.tool-definition/1"
+    },
+    "tool_id": {
+      "$ref": "_defs.schema.json#/$defs/stableName"
+    },
+    "tool_version": {
+      "$ref": "_defs.schema.json#/$defs/version"
+    },
+    "input_schema_id": {
+      "$ref": "_defs.schema.json#/$defs/schemaUri"
+    },
+    "output_schema_id": {
+      "$ref": "_defs.schema.json#/$defs/schemaUri"
+    },
+    "effect_class": {
+      "$ref": "_defs.schema.json#/$defs/effectClass"
+    },
+    "cancelability": {
+      "enum": [
+        "not_applicable",
+        "cooperative",
+        "process_tree",
+        "unknown"
+      ]
+    },
+    "idempotency": {
+      "enum": [
+        "not_applicable",
+        "idempotent",
+        "conditional",
+        "non_idempotent",
+        "unknown"
+      ]
+    },
+    "required_capabilities": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "enum": ["filesystem_read", "filesystem_write", "process_spawn", "network_egress", "secret_use", "git_mutation", "external_mutation"]
+      }
+    },
+    "default_policy": {
+      "$ref": "_defs.schema.json#/$defs/policyDecision"
+    }
+  }
+}

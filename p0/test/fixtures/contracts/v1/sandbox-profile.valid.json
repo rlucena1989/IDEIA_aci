@@ -1,0 +1,29 @@
+{
+  "contract": "ideia.sandbox-profile/1",
+  "task_id": "tsk_123e4567-e89b-42d3-a456-426614174000",
+  "profile_id": "default",
+  "profile_version": "default",
+  "os_family": "windows",
+  "isolation_level": "virtualized",
+  "controls": {
+    "filesystem": "enforced",
+    "process": "enforced",
+    "network": "enforced",
+    "resources": "enforced",
+    "secrets": "enforced"
+  },
+  "network_default": "deny",
+  "hostile_input_allowed": true,
+  "evidence_artifact_id": "art_123e4567-e89b-42d3-a456-426614174000",
+  "evidence_ref": {
+    "profile": "raw-sha256-v1",
+    "digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+    "size_bytes": 0,
+    "media_type": "default"
+  },
+  "degradations": [
+    "default"
+  ],
+  "selected_at": "2024-01-01T00:00:00.000Z",
+  "profile_fingerprint": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+}

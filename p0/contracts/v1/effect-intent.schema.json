@@ -1,0 +1,86 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.ideia.invalid/p0/v1/effect-intent.schema.json",
+  "title": "IDEIA P0 EffectIntent v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "contract",
+    "effect_intent_id",
+    "task_id",
+    "step_id",
+    "call_id",
+    "principal_id",
+    "request_fingerprint",
+    "policy_decision_id",
+    "approval_id",
+    "effect_class",
+    "precondition_snapshot_digest",
+    "sandbox_profile_fingerprint",
+    "capability_grant_ids",
+    "idempotency_key",
+    "prepared_at"
+  ],
+  "properties": {
+    "contract": {
+      "const": "ideia.effect-intent/1"
+    },
+    "effect_intent_id": {
+      "$ref": "_defs.schema.json#/$defs/effectIntentId"
+    },
+    "task_id": {
+      "$ref": "_defs.schema.json#/$defs/taskId"
+    },
+    "step_id": {
+      "$ref": "_defs.schema.json#/$defs/stepId"
+    },
+    "call_id": {
+      "$ref": "_defs.schema.json#/$defs/callId"
+    },
+    "principal_id": {
+      "$ref": "_defs.schema.json#/$defs/principalId"
+    },
+    "request_fingerprint": {
+      "$ref": "_defs.schema.json#/$defs/digest"
+    },
+    "policy_decision_id": {
+      "$ref": "_defs.schema.json#/$defs/policyDecisionId"
+    },
+    "approval_id": {
+      "oneOf": [
+        {
+          "$ref": "_defs.schema.json#/$defs/approvalId"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "effect_class": {
+      "$ref": "_defs.schema.json#/$defs/effectClass"
+    },
+    "precondition_snapshot_digest": {
+      "$ref": "_defs.schema.json#/$defs/digest"
+    },
+    "sandbox_profile_fingerprint": { "$ref": "_defs.schema.json#/$defs/digest" },
+    "capability_grant_ids": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": { "$ref": "_defs.schema.json#/$defs/capabilityGrantId" }
+    },
+    "idempotency_key": {
+      "oneOf": [
+        {
+          "type": "string",
+          "minLength": 1
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "prepared_at": {
+      "$ref": "_defs.schema.json#/$defs/utcTimestamp"
+    }
+  }
+}

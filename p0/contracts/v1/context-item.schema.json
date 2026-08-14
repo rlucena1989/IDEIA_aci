@@ -1,0 +1,81 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.ideia.invalid/p0/v1/context-item.schema.json",
+  "title": "IDEIA P0 ContextItem v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "contract",
+    "context_item_id",
+    "task_id",
+    "project_id",
+    "principal_id",
+    "query_id",
+    "source_kind",
+    "source_ref",
+    "source_version",
+    "range",
+    "data_class",
+    "trust_class",
+    "selection_reason",
+    "strategy_id",
+    "strategy_version",
+    "content_artifact_id",
+    "content_ref",
+    "redaction_status",
+    "observed_at",
+    "expires_at",
+    "item_fingerprint"
+  ],
+  "properties": {
+    "contract": { "const": "ideia.context-item/1" },
+    "context_item_id": { "$ref": "_defs.schema.json#/$defs/contextItemId" },
+    "task_id": { "$ref": "_defs.schema.json#/$defs/taskId" },
+    "project_id": { "$ref": "_defs.schema.json#/$defs/projectId" },
+    "principal_id": { "$ref": "_defs.schema.json#/$defs/principalId" },
+    "query_id": {
+      "oneOf": [
+        { "$ref": "_defs.schema.json#/$defs/contextQueryId" },
+        { "type": "null" }
+      ]
+    },
+    "source_kind": {
+      "enum": ["file", "event", "tool_result", "user_input", "config", "memory"]
+    },
+    "source_ref": { "type": "string", "minLength": 1, "maxLength": 4096 },
+    "source_version": { "$ref": "_defs.schema.json#/$defs/digest" },
+    "range": {
+      "oneOf": [
+        { "type": "null" },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["unit", "start", "end_exclusive"],
+          "properties": {
+            "unit": { "enum": ["byte", "line"] },
+            "start": { "$ref": "_defs.schema.json#/$defs/nonNegativeSafeInteger" },
+            "end_exclusive": { "$ref": "_defs.schema.json#/$defs/positiveSafeInteger" }
+          }
+        }
+      ]
+    },
+    "data_class": { "$ref": "_defs.schema.json#/$defs/dataClass" },
+    "trust_class": {
+      "enum": ["instruction", "observation", "inference", "hypothesis", "decision"]
+    },
+    "selection_reason": { "$ref": "_defs.schema.json#/$defs/stableName" },
+    "strategy_id": { "$ref": "_defs.schema.json#/$defs/stableName" },
+    "strategy_version": { "$ref": "_defs.schema.json#/$defs/version" },
+    "content_artifact_id": { "$ref": "_defs.schema.json#/$defs/artifactId" },
+    "content_ref": { "$ref": "_defs.schema.json#/$defs/artifactRef" },
+    "redaction_status": { "enum": ["not_required", "applied"] },
+    "observed_at": { "$ref": "_defs.schema.json#/$defs/utcTimestamp" },
+    "expires_at": {
+      "oneOf": [
+        { "$ref": "_defs.schema.json#/$defs/utcTimestamp" },
+        { "type": "null" }
+      ]
+    },
+    "item_fingerprint": { "$ref": "_defs.schema.json#/$defs/digest" }
+  }
+}

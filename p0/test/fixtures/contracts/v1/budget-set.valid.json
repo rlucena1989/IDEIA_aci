@@ -1,0 +1,16 @@
+{
+  "contract": "ideia.budget-set/1",
+  "budget_set_id": "bgt_123e4567-e89b-42d3-a456-426614174000",
+  "task_id": "tsk_123e4567-e89b-42d3-a456-426614174000",
+  "price_book_id": "pbk_123e4567-e89b-42d3-a456-426614174000",
+  "limits": [
+    {
+      "unit": "call",
+      "hard_limit": 0,
+      "currency": null
+    }
+  ],
+  "action": "stop_new_billable",
+  "created_at": "2024-01-01T00:00:00.000Z",
+  "budget_fingerprint": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+}

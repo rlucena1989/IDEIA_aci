@@ -1,0 +1,30 @@
+{
+  "contract": "ideia.provider-outcome/1",
+  "provider_request_id": "pvr_123e4567-e89b-42d3-a456-426614174000",
+  "attempt_id": "atm_123e4567-e89b-42d3-a456-426614174000",
+  "call_id": "cal_123e4567-e89b-42d3-a456-426614174000",
+  "task_id": "tsk_123e4567-e89b-42d3-a456-426614174000",
+  "step_id": "stp_123e4567-e89b-42d3-a456-426614174000",
+  "provider_id": "default",
+  "model_id": "model_123e4567-e89b-42d3-a456-426614174000",
+  "request_fingerprint": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+  "execution_status": "completed",
+  "parse_status": "not_requested",
+  "output_artifact_id": "art_123e4567-e89b-42d3-a456-426614174000",
+  "output_ref": {
+    "profile": "raw-sha256-v1",
+    "digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+    "size_bytes": 0,
+    "media_type": "default"
+  },
+  "output_fingerprint": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+  "finish_reason": "default",
+  "provider_response_id_digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+  "error_code": "default",
+  "retry_disposition": "never",
+  "started_at": "2024-01-01T00:00:00.000Z",
+  "finished_at": "2024-01-01T00:00:00.000Z",
+  "duration_ms": 0,
+  "truncated": true,
+  "result_digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+}

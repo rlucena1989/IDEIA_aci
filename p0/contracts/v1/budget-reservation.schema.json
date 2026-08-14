@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.ideia.invalid/p0/v1/budget-reservation.schema.json",
+  "title": "IDEIA P0 BudgetReservation v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "contract", "budget_reservation_id", "budget_set_id", "task_id", "call_id", "status",
+    "lines", "possible_overage", "created_at", "expires_at", "changed_at", "reservation_fingerprint"
+  ],
+  "properties": {
+    "contract": { "const": "ideia.budget-reservation/1" },
+    "budget_reservation_id": { "$ref": "_defs.schema.json#/$defs/budgetReservationId" },
+    "budget_set_id": { "$ref": "_defs.schema.json#/$defs/budgetSetId" },
+    "task_id": { "$ref": "_defs.schema.json#/$defs/taskId" },
+    "call_id": { "$ref": "_defs.schema.json#/$defs/callId" },
+    "status": { "enum": ["active", "consumed", "released", "expired", "reconciled"] },
+    "lines": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["unit", "amount", "currency", "source"],
+        "properties": {
+          "unit": { "enum": ["call", "input_token", "output_token", "total_token", "duration_ms", "currency_minor"] },
+          "amount": { "$ref": "_defs.schema.json#/$defs/nonNegativeSafeInteger" },
+          "currency": {
+            "oneOf": [
+              { "type": "string", "pattern": "^[A-Z]{3}$" },
+              { "type": "null" }
+            ]
+          },
+          "source": { "enum": ["configured_max", "local_estimator", "provider_quote", "reconciliation"] }
+        },
+        "allOf": [
+          {
+            "if": { "properties": { "unit": { "const": "currency_minor" } } },
+            "then": { "properties": { "currency": { "type": "string", "pattern": "^[A-Z]{3}$" } } },
+            "else": { "properties": { "currency": { "type": "null" } } }
+          }
+        ]
+      }
+    },
+    "possible_overage": { "type": "boolean" },
+    "created_at": { "$ref": "_defs.schema.json#/$defs/utcTimestamp" },
+    "expires_at": { "$ref": "_defs.schema.json#/$defs/utcTimestamp" },
+    "changed_at": { "$ref": "_defs.schema.json#/$defs/utcTimestamp" },
+    "reservation_fingerprint": { "$ref": "_defs.schema.json#/$defs/digest" }
+  }
+}

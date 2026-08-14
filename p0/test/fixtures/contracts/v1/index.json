@@ -1,0 +1,266 @@
+[
+  {
+    "fixture": "approval-grant.valid.json",
+    "contract": "ideia.approval-grant/1",
+    "schema_id": "https://schemas.ideia.invalid/p0/v1/approval-grant.schema.json",
+    "scope": "shape_only"
+  },
+  {
+    "fixture": "approval-revocation.valid.json",
+    "contract": "ideia.approval-revocation/1",
+    "schema_id": "https://schemas.ideia.invalid/p0/v1/approval-revocation.schema.json",
+    "scope": "shape_only"
+  },
+  {
+    "fixture": "approval-use.valid.json",
+    "contract": "ideia.approval-use/1",
+    "schema_id": "https://schemas.ideia.invalid/p0/v1/approval-use.schema.json",
+    "scope": "shape_only"
+  },
+  {
+    "fixture": "artifact-lifecycle.valid.json",
+    "contract": "ideia.artifact-lifecycle/1",
+    "schema_id": "https://schemas.ideia.invalid/p0/v1/artifact-lifecycle.schema.json",
+    "scope": "shape_only"
+  },
+  {
+    "fixture": "artifact-metadata.valid.json",
+    "contract": "ideia.artifact-metadata/1",
+    "schema_id": "https://schemas.ideia.invalid/p0/v1/artifact-metadata.schema.json",
+    "scope": "shape_only"
+  },
+  {
+    "fixture": "artifact-quarantine.valid.json",
+    "contract": "ideia.artifact-quarantine/1",
+    "schema_id": "https://schemas.ideia.invalid/p0/v1/artifact-quarantine.schema.json",
+    "scope": "shape_only"
+  },
+  {
+    "fixture": "budget-ledger-entry.valid.json",
+    "contract": "ideia.budget-ledger-entry/1",
+    "schema_id": "https://schemas.ideia.invalid/p0/v1/budget-ledger-entry.schema.json",
+    "scope": "shape_only"
+  },
+  {
+    "fixture": "budget-reservation-lifecycle.valid.json",
+    "contract": "ideia.budget-reservation-lifecycle/1",
+    "schema_id": "https://schemas.ideia.invalid/p0/v1/budget-reservation-lifecycle.schema.json",
+    "scope": "shape_only"
+  },
+  {
+    "fixture": "budget-reservation.valid.json",
+    "contract": "ideia.budget-reservation/1",
+    "schema_id": "https://schemas.ideia.invalid/p0/v1/budget-reservation.schema.json",
+    "scope": "shape_only"
+  },
+  {
+    "fixture": "budget-set.valid.json",
+    "contract": "ideia.budget-set/1",
+    "schema_id": "https://schemas.ideia.invalid/p0/v1/budget-set.schema.json",
+    "scope": "shape_only"
+  },
+  {
+    "fixture": "cancellation-request.valid.json",
+    "contract": "ideia.cancellation-request/1",
+    "schema_id": "https://schemas.ideia.invalid/p0/v1/cancellation-request.schema.json",
+    "scope": "shape_only"
+  },
+  {
+    "fixture": "capability-grant.valid.json",
+    "contract": "ideia.capability-grant/1",
+    "schema_id": "https://schemas.ideia.invalid/p0/v1/capability-grant.schema.json",
+    "scope": "shape_only"
+  },
+  {
+    "fixture": "capability-revocation.valid.json",
+    "contract": "ideia.capability-revocation/1",
+    "schema_id": "https://schemas.ideia.invalid/p0/v1/capability-revocation.schema.json",
+    "scope": "shape_only"
+  },
+  {
+    "fixture": "context-item.valid.json",
+    "contract": "ideia.context-item/1",
+    "schema_id": "https://schemas.ideia.invalid/p0/v1/context-item.schema.json",
+    "scope": "shape_only"
+  },
+  {
+    "fixture": "context-package.valid.json",
+    "contract": "ideia.context-package/1",
+    "schema_id": "https://schemas.ideia.invalid/p0/v1/context-package.schema.json",
+    "scope": "shape_only"
+  },
+  {
+    "fixture": "context-query.valid.json",
+    "contract": "ideia.context-query/1",
+    "schema_id": "https://schemas.ideia.invalid/p0/v1/context-query.schema.json",
+    "scope": "shape_only"
+  },
+  {
+    "fixture": "context-stale.valid.json",
+    "contract": "ideia.context-stale/1",
+    "schema_id": "https://schemas.ideia.invalid/p0/v1/context-stale.schema.json",
+    "scope": "shape_only"
+  },
+  {
+    "fixture": "effect-intent.valid.json",
+    "contract": "ideia.effect-intent/1",
+    "schema_id": "https://schemas.ideia.invalid/p0/v1/effect-intent.schema.json",
+    "scope": "shape_only"
+  },
+  {
+    "fixture": "effect-reconciliation.valid.json",
+    "contract": "ideia.effect-reconciliation/1",
+    "schema_id": "https://schemas.ideia.invalid/p0/v1/effect-reconciliation.schema.json",
+    "scope": "shape_only"
+  },
+  {
+    "fixture": "evaluation-report.valid.json",
+    "contract": "ideia.evaluation-report/1",
+    "schema_id": "https://schemas.ideia.invalid/p0/v1/evaluation-report.schema.json",
+    "scope": "shape_only"
+  },
+  {
+    "fixture": "event-correction.valid.json",
+    "contract": "ideia.event-correction/1",
+    "schema_id": "https://schemas.ideia.invalid/p0/v1/event-correction.schema.json",
+    "scope": "shape_only"
+  },
+  {
+    "fixture": "event-envelope.valid.json",
+    "contract": "ideia.event-envelope/1",
+    "schema_id": "https://schemas.ideia.invalid/p0/v1/event-envelope.schema.json",
+    "scope": "shape_only"
+  },
+  {
+    "fixture": "governance-bundle.valid.json",
+    "contract": "ideia.governance-bundle/1",
+    "schema_id": "https://schemas.ideia.invalid/p0/v1/governance-bundle.schema.json",
+    "scope": "shape_only"
+  },
+  {
+    "fixture": "measurement-profile.valid.json",
+    "contract": "ideia.measurement-profile/1",
+    "schema_id": "https://schemas.ideia.invalid/p0/v1/measurement-profile.schema.json",
+    "scope": "shape_only"
+  },
+  {
+    "fixture": "plan-record.valid.json",
+    "contract": "ideia.plan-record/1",
+    "schema_id": "https://schemas.ideia.invalid/p0/v1/plan-record.schema.json",
+    "scope": "shape_only"
+  },
+  {
+    "fixture": "plan-step.valid.json",
+    "contract": "ideia.plan-step/1",
+    "schema_id": "https://schemas.ideia.invalid/p0/v1/plan-step.schema.json",
+    "scope": "shape_only"
+  },
+  {
+    "fixture": "policy-decision.valid.json",
+    "contract": "ideia.policy-decision/1",
+    "schema_id": "https://schemas.ideia.invalid/p0/v1/policy-decision.schema.json",
+    "scope": "shape_only"
+  },
+  {
+    "fixture": "price-book.valid.json",
+    "contract": "ideia.price-book/1",
+    "schema_id": "https://schemas.ideia.invalid/p0/v1/price-book.schema.json",
+    "scope": "shape_only"
+  },
+  {
+    "fixture": "provider-capabilities-snapshot.valid.json",
+    "contract": "ideia.provider-capabilities-snapshot/1",
+    "schema_id": "https://schemas.ideia.invalid/p0/v1/provider-capabilities-snapshot.schema.json",
+    "scope": "shape_only"
+  },
+  {
+    "fixture": "provider-outcome.valid.json",
+    "contract": "ideia.provider-outcome/1",
+    "schema_id": "https://schemas.ideia.invalid/p0/v1/provider-outcome.schema.json",
+    "scope": "shape_only"
+  },
+  {
+    "fixture": "provider-request.valid.json",
+    "contract": "ideia.provider-request/1",
+    "schema_id": "https://schemas.ideia.invalid/p0/v1/provider-request.schema.json",
+    "scope": "shape_only"
+  },
+  {
+    "fixture": "recovery-reconciliation.valid.json",
+    "contract": "ideia.recovery-reconciliation/1",
+    "schema_id": "https://schemas.ideia.invalid/p0/v1/recovery-reconciliation.schema.json",
+    "scope": "shape_only"
+  },
+  {
+    "fixture": "recovery-started.valid.json",
+    "contract": "ideia.recovery-started/1",
+    "schema_id": "https://schemas.ideia.invalid/p0/v1/recovery-started.schema.json",
+    "scope": "shape_only"
+  },
+  {
+    "fixture": "redaction-failure.valid.json",
+    "contract": "ideia.redaction-failure/1",
+    "schema_id": "https://schemas.ideia.invalid/p0/v1/redaction-failure.schema.json",
+    "scope": "shape_only"
+  },
+  {
+    "fixture": "sandbox-profile.valid.json",
+    "contract": "ideia.sandbox-profile/1",
+    "schema_id": "https://schemas.ideia.invalid/p0/v1/sandbox-profile.schema.json",
+    "scope": "shape_only"
+  },
+  {
+    "fixture": "task-created.valid.json",
+    "contract": "ideia.task-created/1",
+    "schema_id": "https://schemas.ideia.invalid/p0/v1/task-created.schema.json",
+    "scope": "shape_only"
+  },
+  {
+    "fixture": "task-manifest.valid.json",
+    "contract": "ideia.task-manifest/1",
+    "schema_id": "https://schemas.ideia.invalid/p0/v1/task-manifest.schema.json",
+    "scope": "shape_only"
+  },
+  {
+    "fixture": "task-run.valid.json",
+    "contract": "ideia.task-run/1",
+    "schema_id": "https://schemas.ideia.invalid/p0/v1/task-run.schema.json",
+    "scope": "shape_only"
+  },
+  {
+    "fixture": "task-transitioned.valid.json",
+    "contract": "ideia.task-transitioned/1",
+    "schema_id": "https://schemas.ideia.invalid/p0/v1/task-transitioned.schema.json",
+    "scope": "shape_only"
+  },
+  {
+    "fixture": "tool-definition.valid.json",
+    "contract": "ideia.tool-definition/1",
+    "schema_id": "https://schemas.ideia.invalid/p0/v1/tool-definition.schema.json",
+    "scope": "shape_only"
+  },
+  {
+    "fixture": "tool-request.valid.json",
+    "contract": "ideia.tool-request/1",
+    "schema_id": "https://schemas.ideia.invalid/p0/v1/tool-request.schema.json",
+    "scope": "shape_only"
+  },
+  {
+    "fixture": "tool-result.valid.json",
+    "contract": "ideia.tool-result/1",
+    "schema_id": "https://schemas.ideia.invalid/p0/v1/tool-result.schema.json",
+    "scope": "shape_only"
+  },
+  {
+    "fixture": "usage-record.valid.json",
+    "contract": "ideia.usage-record/1",
+    "schema_id": "https://schemas.ideia.invalid/p0/v1/usage-record.schema.json",
+    "scope": "shape_only"
+  },
+  {
+    "fixture": "verification-result.valid.json",
+    "contract": "ideia.verification-result/1",
+    "schema_id": "https://schemas.ideia.invalid/p0/v1/verification-result.schema.json",
+    "scope": "shape_only"
+  }
+]

@@ -1,0 +1,12 @@
+{
+  "workPackage": "WP-10",
+  "title": "Alinhamento documental da fixture",
+  "allowedPaths": [
+    "benchmark_fixture/README.md",
+    "benchmark_fixture/P0_ALIGNMENT.md"
+  ],
+  "requiredPaths": [
+    "benchmark_fixture/README.md",
+    "benchmark_fixture/P0_ALIGNMENT.md"
+  ]
+}

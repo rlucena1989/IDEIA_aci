@@ -1,0 +1,22 @@
+{
+  "contract": "ideia.price-book/1",
+  "price_book_id": "pbk_123e4567-e89b-42d3-a456-426614174000",
+  "task_id": "tsk_123e4567-e89b-42d3-a456-426614174000",
+  "provider_id": "default",
+  "model_id": "model_123e4567-e89b-42d3-a456-426614174000",
+  "region": "default",
+  "source_uri": "https://example.invalid/source",
+  "source_observed_at": "2024-01-01T00:00:00.000Z",
+  "effective_at": "2024-01-01T00:00:00.000Z",
+  "expires_at": "2024-01-01T00:00:00.000Z",
+  "entries": [
+    {
+      "meter": "call",
+      "price_minor": 0,
+      "unit_quantity": 1,
+      "currency": "USD",
+      "conditions": {}
+    }
+  ],
+  "price_book_fingerprint": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+}

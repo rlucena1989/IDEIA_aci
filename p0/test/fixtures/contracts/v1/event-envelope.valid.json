@@ -1,0 +1,21 @@
+{
+  "contract": "ideia.event-envelope/1",
+  "domain": "IDEIA-P0",
+  "event_id": "evt_123e4567-e89b-42d3-a456-426614174000",
+  "task_id": "tsk_123e4567-e89b-42d3-a456-426614174000",
+  "sequence": 1,
+  "occurred_at": "2024-01-01T00:00:00.000Z",
+  "recorded_at": "2024-01-01T00:00:00.000Z",
+  "principal_id": "prn_123e4567-e89b-42d3-a456-426614174000",
+  "project_id": "prj_123e4567-e89b-42d3-a456-426614174000",
+  "step_id": "stp_123e4567-e89b-42d3-a456-426614174000",
+  "event_type": "default",
+  "correlation_id": "cor_123e4567-e89b-42d3-a456-426614174000",
+  "causation_event_id": "evt_123e4567-e89b-42d3-a456-426614174000",
+  "payload_contract": "ideia.task-manifest/1",
+  "payload": "default",
+  "payload_digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+  "previous_event_digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+  "fingerprint_profile": "jcs-sha256-v1",
+  "event_digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+}

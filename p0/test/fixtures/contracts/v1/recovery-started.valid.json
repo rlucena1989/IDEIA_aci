@@ -1,0 +1,10 @@
+{
+  "contract": "ideia.recovery-started/1",
+  "recovery_run_id": "rcv_123e4567-e89b-42d3-a456-426614174000",
+  "task_id": "tsk_123e4567-e89b-42d3-a456-426614174000",
+  "trigger_code": "default",
+  "baseline_sequence": 1,
+  "baseline_event_digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+  "scanner_profile_fingerprint": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+  "started_at": "2024-01-01T00:00:00.000Z"
+}

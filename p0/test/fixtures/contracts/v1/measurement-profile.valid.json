@@ -1,0 +1,84 @@
+{
+  "contract": "ideia.measurement-profile/1",
+  "profile_id": "default",
+  "profile_version": "default",
+  "status": "draft",
+  "captured_at": "2024-01-01T00:00:00.000Z",
+  "environment": {
+    "os_name": null,
+    "os_version": null,
+    "os_build": null,
+    "architecture": null,
+    "filesystem": null,
+    "node_version": null,
+    "sqlite_version": null,
+    "cpu_model": null,
+    "logical_cores": 1,
+    "memory_bytes": 1,
+    "storage_class": null,
+    "power_profile": null
+  },
+  "fixtures": [
+    {
+      "fixture_id": "default",
+      "fixture_version": "default",
+      "digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+      "kind": "synthetic",
+      "file_count": 0,
+      "byte_count": 0
+    }
+  ],
+  "limits": {
+    "json_max_bytes": null,
+    "json_max_depth": null,
+    "json_max_members": null,
+    "json_max_string_bytes": null,
+    "artifact_max_single_bytes": null,
+    "artifact_max_task_bytes": null,
+    "artifact_max_staging_bytes": null,
+    "artifact_max_open": null,
+    "context_max_items": null,
+    "context_max_bytes": null,
+    "context_max_estimated_tokens": null,
+    "context_timeout_ms": null,
+    "provider_timeout_ms": null,
+    "provider_max_output_tokens": null,
+    "provider_max_attempts": null,
+    "process_timeout_ms": null,
+    "process_cancellation_grace_ms": null,
+    "process_max_stdout_bytes": null,
+    "process_max_stderr_bytes": null
+  },
+  "workloads": [
+    {
+      "workload_id": "default",
+      "fixture_id": "default",
+      "operation": "default",
+      "concurrency": 1,
+      "cold_runs": 1,
+      "warm_runs": 1
+    }
+  ],
+  "thresholds": [
+    {
+      "metric_id": "default",
+      "unit": "default",
+      "comparator": "lt",
+      "value": 0,
+      "provisional": true,
+      "evidence_ref": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+    }
+  ],
+  "approval": {
+    "approved_by": "prn_123e4567-e89b-42d3-a456-426614174000",
+    "approved_at": "2024-01-01T00:00:00.000Z",
+    "evidence_artifact_id": "art_123e4567-e89b-42d3-a456-426614174000",
+    "evidence_ref": {
+      "profile": "raw-sha256-v1",
+      "digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+      "size_bytes": 0,
+      "media_type": "default"
+    }
+  },
+  "profile_fingerprint": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+}

@@ -1,11 +1,11 @@
 # Requisitos não funcionais — especificação mensurável
 
-**Estudo original:** 10 de agosto de 2026  
-**Revisão:** 12 de agosto de 2026  
-**Data de corte das fontes:** 12 de agosto de 2026  
-**Versão:** 2.0  
-**Status:** requisitos especificados; metas provisórias ainda não benchmarkadas; implementação não auditada  
-**Método:** [Protocolo de pesquisa rigorosa v1.0](../planejamento/protocolo_pesquisa_rigorosa.md)  
+**Estudo original:** 10 de agosto de 2026
+**Revisão:** 12 de agosto de 2026
+**Data de corte das fontes:** 12 de agosto de 2026
+**Versão:** 2.0
+**Status:** requisitos especificados; metas provisórias ainda não benchmarkadas; implementação não auditada
+**Método:** [Protocolo de pesquisa rigorosa v1.0](../planejamento/protocolo_pesquisa_rigorosa.md)
 **Dependências:** [Visão do produto](visao_do_produto.md), [Casos de uso](casos_de_uso.md) e [Requisitos funcionais](requisitos_funcionais.md)
 
 ## 1. Resultado da revisão
@@ -232,7 +232,7 @@ Para P1/P2, um SLO DEVE indicar o SLI, alvo, janela, população, condições v�
 | ID | Fase | Requisito de qualidade | Verificação |
 |---|---|---|---|
 | RNF-021.1 | P0 | Uso reportado, estimado e desconhecido DEVEM aparecer separadamente; estimativa não pode ser rotulada como fatura. | Provider com/sem usage cobre os três estados. |
-| RNF-021.2 | P0 | Ao atingir limite duro, nenhuma nova operação cobrável DEVE iniciar; custo em voo/atrasado DEVE aparecer como possível excedente. | Mock cruza limiar durante stream e mede chamadas posteriores. |
+| RNF-021.2 | P0 | Ao atingir limite duro, nenhuma nova operação cobrável DEVE iniciar; custo em voo/atrasado DEVE aparecer como possível excedente. O possível excedente é informativo e separado do valor contabilizado pelo gate (`accounted = confirmed + reserved`); não pode ser somado ao limite nem alterar a decisão. | Mock cruza limiar durante stream, mede chamadas posteriores e comprova que `possibleOverage` não altera `accounted` nem a decisão. |
 | RNF-021.3 | P1 | Acurácia de estimativa DEVE ser medida contra cobrança conciliada por provider/modelo/janela antes de prometer previsibilidade. | Relatório apresenta erro e cobertura; limiar permanece `TBD` até baseline. |
 
 ### RNF-022 — Tolerância a falhas

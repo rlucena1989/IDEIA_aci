@@ -1,0 +1,74 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.ideia.invalid/p0/v1/tool-request.schema.json",
+  "title": "IDEIA P0 ToolRequest v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "contract",
+    "call_id",
+    "task_id",
+    "step_id",
+    "principal_id",
+    "tool",
+    "effect_class",
+    "arguments",
+    "target",
+    "preconditions",
+    "sandbox_profile_fingerprint",
+    "capability_grant_ids",
+    "idempotency_key"
+  ],
+  "properties": {
+    "contract": {
+      "const": "ideia.tool-request/1"
+    },
+    "call_id": {
+      "$ref": "_defs.schema.json#/$defs/callId"
+    },
+    "task_id": {
+      "$ref": "_defs.schema.json#/$defs/taskId"
+    },
+    "step_id": {
+      "$ref": "_defs.schema.json#/$defs/stepId"
+    },
+    "principal_id": {
+      "$ref": "_defs.schema.json#/$defs/principalId"
+    },
+    "tool": {
+      "$ref": "_defs.schema.json#/$defs/toolRef"
+    },
+    "effect_class": {
+      "$ref": "_defs.schema.json#/$defs/effectClass"
+    },
+    "arguments": {
+      "$ref": "_defs.schema.json#/$defs/jsonObject"
+    },
+    "target": {
+      "$ref": "_defs.schema.json#/$defs/jsonObject"
+    },
+    "preconditions": {
+      "type": "array",
+      "items": {
+        "$ref": "_defs.schema.json#/$defs/precondition"
+      }
+    },
+    "sandbox_profile_fingerprint": { "$ref": "_defs.schema.json#/$defs/digest" },
+    "capability_grant_ids": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": { "$ref": "_defs.schema.json#/$defs/capabilityGrantId" }
+    },
+    "idempotency_key": {
+      "oneOf": [
+        {
+          "type": "string",
+          "minLength": 1
+        },
+        {
+          "type": "null"
+        }
+      ]
+    }
+  }
+}

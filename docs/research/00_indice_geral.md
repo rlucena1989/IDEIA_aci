@@ -6,6 +6,17 @@
 - [Comparativo geral](02_comparativo_geral.md)
 - [Mapa de funcionalidades](02_mapa_funcionalidades.md)
 
+## Instrumentacao verificavel
+- [Indice dos estudos](instrumentacao-verificavel/README.md)
+- [Logs assinados](instrumentacao-verificavel/01_logs_assinados.md)
+- [Armazenamento append-only](instrumentacao-verificavel/02_armazenamento_append_only.md)
+- [Instrumentacao para qualidade de IA](instrumentacao-verificavel/03_instrumentacao_ia.md)
+- [Plano experimental e de implementacao](instrumentacao-verificavel/04_plano_experimental.md)
+- [Modelo de ameacas e limites de confianca](instrumentacao-verificavel/05_modelo_ameacas_confianca.md)
+- [Governanca de dados e retencao](instrumentacao-verificavel/06_governanca_dados_retencao.md)
+- [Dossie para auditoria da Onda A](instrumentacao-verificavel/07_dossie_auditoria_onda_a.md)
+- [Roteiro de auditoria da Onda A](instrumentacao-verificavel/08_roteiro_auditoria_onda_a.md)
+
 ## Ferramentas
 - [Devin](ferramentas/devin.md)
 - [Cursor](ferramentas/cursor.md)

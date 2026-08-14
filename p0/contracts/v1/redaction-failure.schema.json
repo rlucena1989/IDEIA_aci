@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.ideia.invalid/p0/v1/redaction-failure.schema.json",
+  "title": "IDEIA P0 RedactionFailure v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "contract",
+    "task_id",
+    "step_id",
+    "call_id",
+    "subject_kind",
+    "subject_ref_digest",
+    "redaction_profile_fingerprint",
+    "reason_code",
+    "bytes_persisted",
+    "bytes_sent",
+    "occurred_at"
+  ],
+  "properties": {
+    "contract": { "const": "ideia.redaction-failure/1" },
+    "task_id": { "$ref": "_defs.schema.json#/$defs/taskId" },
+    "step_id": {
+      "oneOf": [
+        { "$ref": "_defs.schema.json#/$defs/stepId" },
+        { "type": "null" }
+      ]
+    },
+    "call_id": {
+      "oneOf": [
+        { "$ref": "_defs.schema.json#/$defs/callId" },
+        { "type": "null" }
+      ]
+    },
+    "subject_kind": { "enum": ["context", "provider_input", "provider_output", "tool_output", "artifact"] },
+    "subject_ref_digest": { "$ref": "_defs.schema.json#/$defs/digest" },
+    "redaction_profile_fingerprint": { "$ref": "_defs.schema.json#/$defs/digest" },
+    "reason_code": { "$ref": "_defs.schema.json#/$defs/stableName" },
+    "bytes_persisted": { "const": false },
+    "bytes_sent": { "const": false },
+    "occurred_at": { "$ref": "_defs.schema.json#/$defs/utcTimestamp" }
+  }
+}

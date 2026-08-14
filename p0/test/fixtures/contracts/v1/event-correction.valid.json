@@ -1,0 +1,9 @@
+{
+  "contract": "ideia.event-correction/1",
+  "corrected_event_id": "evt_123e4567-e89b-42d3-a456-426614174000",
+  "reason_code": "default",
+  "reason": "default",
+  "replacement_payload_contract": "ideia.task-manifest/1",
+  "replacement_payload": "default",
+  "replacement_payload_digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+}

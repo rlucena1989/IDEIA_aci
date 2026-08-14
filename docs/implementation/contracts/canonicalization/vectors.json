@@ -90,6 +90,14 @@
       "expected_digest": "sha256:27d8356e4e7d154031fe992aaedd96970fd7fac0974e37119d94121d1e366fce"
     },
     {
+      "id": "JCS-P0-007",
+      "source": "internal-control-u0001",
+      "purpose": "payload",
+      "input_json": "{\"control\":\"\\u0001\"}",
+      "expected_canonical": "{\"control\":\"\\u0001\"}",
+      "expected_digest": "sha256:cfac0e5dba72aba3550dbee93389cb96ae835f540172c1824e9d985bb78f0b4f"
+    },
+    {
       "id": "JCS-DOM-001", "source": "internal-domain-separation", "purpose": "manifest",
       "input": { "profile": "domain-separation", "version": 1 },
       "expected_canonical": "{\"profile\":\"domain-separation\",\"version\":1}",

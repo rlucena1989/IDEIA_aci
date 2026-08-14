@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.ideia.invalid/p0/v1/provider-capabilities-snapshot.schema.json",
+  "title": "IDEIA P0 ProviderCapabilitiesSnapshot v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "contract",
+    "provider_id",
+    "endpoint_profile",
+    "model_id",
+    "model_revision",
+    "source",
+    "features",
+    "max_input_tokens",
+    "max_output_tokens",
+    "quirks",
+    "observed_at",
+    "snapshot_fingerprint"
+  ],
+  "properties": {
+    "contract": { "const": "ideia.provider-capabilities-snapshot/1" },
+    "provider_id": { "$ref": "_defs.schema.json#/$defs/stableName" },
+    "endpoint_profile": { "$ref": "_defs.schema.json#/$defs/stableName" },
+    "model_id": { "type": "string", "minLength": 1, "maxLength": 256 },
+    "model_revision": {
+      "oneOf": [
+        { "type": "string", "minLength": 1, "maxLength": 256 },
+        { "type": "null" }
+      ]
+    },
+    "source": { "enum": ["probed", "configured", "unknown"] },
+    "features": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["streaming", "structured_output", "tool_calling", "usage_reporting", "request_idempotency"],
+      "properties": {
+        "streaming": { "$ref": "_defs.schema.json#/$defs/providerFeature" },
+        "structured_output": { "$ref": "_defs.schema.json#/$defs/providerFeature" },
+        "tool_calling": { "$ref": "_defs.schema.json#/$defs/providerFeature" },
+        "usage_reporting": { "$ref": "_defs.schema.json#/$defs/providerFeature" },
+        "request_idempotency": { "$ref": "_defs.schema.json#/$defs/providerFeature" }
+      }
+    },
+    "max_input_tokens": {
+      "oneOf": [
+        { "$ref": "_defs.schema.json#/$defs/positiveSafeInteger" },
+        { "type": "null" }
+      ]
+    },
+    "max_output_tokens": {
+      "oneOf": [
+        { "$ref": "_defs.schema.json#/$defs/positiveSafeInteger" },
+        { "type": "null" }
+      ]
+    },
+    "quirks": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": { "$ref": "_defs.schema.json#/$defs/stableName" }
+    },
+    "observed_at": { "$ref": "_defs.schema.json#/$defs/utcTimestamp" },
+    "snapshot_fingerprint": { "$ref": "_defs.schema.json#/$defs/digest" }
+  }
+}

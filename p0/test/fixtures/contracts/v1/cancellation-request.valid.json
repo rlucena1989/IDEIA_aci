@@ -1,0 +1,6 @@
+{
+  "contract": "ideia.cancellation-request/1",
+  "requested_by": "prn_123e4567-e89b-42d3-a456-426614174000",
+  "reason_code": "default",
+  "reason": "default"
+}

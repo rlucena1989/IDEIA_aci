@@ -1,0 +1,12 @@
+{
+  "workPackage": "WP-02A",
+  "title": "Relógios injetáveis",
+  "allowedPaths": [
+    "p0/src/domain/clock.ts",
+    "p0/test/domain/clock.test.ts"
+  ],
+  "requiredPaths": [
+    "p0/src/domain/clock.ts",
+    "p0/test/domain/clock.test.ts"
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "contract": "ideia.tool-request/1",
+  "call_id": "cal_123e4567-e89b-42d3-a456-426614174000",
+  "task_id": "tsk_123e4567-e89b-42d3-a456-426614174000",
+  "step_id": "stp_123e4567-e89b-42d3-a456-426614174000",
+  "principal_id": "prn_123e4567-e89b-42d3-a456-426614174000",
+  "tool": {
+    "tool_id": "default",
+    "tool_version": "default"
+  },
+  "effect_class": "pure",
+  "arguments": {},
+  "target": {},
+  "preconditions": [
+    {
+      "kind": "default",
+      "subject": "default",
+      "expected_digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+    }
+  ],
+  "sandbox_profile_fingerprint": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+  "capability_grant_ids": [
+    "cpg_123e4567-e89b-42d3-a456-426614174000"
+  ],
+  "idempotency_key": "default"
+}

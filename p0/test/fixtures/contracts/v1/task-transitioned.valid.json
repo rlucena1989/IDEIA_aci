@@ -1,0 +1,7 @@
+{
+  "contract": "ideia.task-transitioned/1",
+  "from_state": "created",
+  "to_state": "created",
+  "reason_code": "default",
+  "reason": "default"
+}

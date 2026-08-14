@@ -1,0 +1,12 @@
+{
+  "contract": "ideia.tool-definition/1",
+  "tool_id": "default",
+  "tool_version": "default",
+  "input_schema_id": "https://schemas.ideia.invalid/p0/v1/task-manifest.schema.json",
+  "output_schema_id": "https://schemas.ideia.invalid/p0/v1/task-manifest.schema.json",
+  "effect_class": "read_only",
+  "cancelability": "not_applicable",
+  "idempotency": "idempotent",
+  "required_capabilities": [],
+  "default_policy": "allow"
+}

@@ -1,0 +1,12 @@
+{
+  "contract": "ideia.approval-use/1",
+  "approval_use_id": "apu_123e4567-e89b-42d3-a456-426614174000",
+  "approval_id": "apr_123e4567-e89b-42d3-a456-426614174000",
+  "effect_intent_id": "efi_123e4567-e89b-42d3-a456-426614174000",
+  "task_id": "tsk_123e4567-e89b-42d3-a456-426614174000",
+  "call_id": "cal_123e4567-e89b-42d3-a456-426614174000",
+  "principal_id": "prn_123e4567-e89b-42d3-a456-426614174000",
+  "request_fingerprint": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+  "nonce": "non_123e4567-e89b-42d3-a456-426614174000",
+  "consumed_at": "2024-01-01T00:00:00.000Z"
+}

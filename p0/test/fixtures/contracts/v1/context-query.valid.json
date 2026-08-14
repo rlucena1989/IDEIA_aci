@@ -1,0 +1,31 @@
+{
+  "contract": "ideia.context-query/1",
+  "context_query_id": "cxq_123e4567-e89b-42d3-a456-426614174000",
+  "task_id": "tsk_123e4567-e89b-42d3-a456-426614174000",
+  "step_id": "stp_123e4567-e89b-42d3-a456-426614174000",
+  "criterion_id": "crt_123e4567-e89b-42d3-a456-426614174000",
+  "purpose": "default",
+  "query_fingerprint": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+  "strategy_id": "default",
+  "strategy_version": "default",
+  "read_paths": [
+    "default"
+  ],
+  "allowed_data_classes": [
+    "D0"
+  ],
+  "allowed_trust_classes": [
+    "instruction"
+  ],
+  "limits": {
+    "max_items": 1,
+    "max_bytes": 1,
+    "max_estimated_tokens": 1,
+    "timeout_ms": 1
+  },
+  "tie_break": "source_ref_then_range_then_item_id",
+  "candidate_count": 0,
+  "accepted_count": 0,
+  "rejected_count": 0,
+  "queried_at": "2024-01-01T00:00:00.000Z"
+}

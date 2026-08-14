@@ -1,0 +1,65 @@
+[
+  {
+    "case_id": "CT-X02-task-manifest-objective",
+    "base_fixture": "task-manifest.valid.json",
+    "operation": "remove",
+    "json_pointer": "/objective",
+    "expected_code": "invalid.required"
+  },
+  {
+    "case_id": "CT-X03-task-manifest-unknown",
+    "base_fixture": "task-manifest.valid.json",
+    "operation": "add",
+    "json_pointer": "/unknown_field",
+    "value": true,
+    "expected_code": "invalid.unknown_field"
+  },
+  {
+    "case_id": "CT-X04-task-manifest-version",
+    "base_fixture": "task-manifest.valid.json",
+    "operation": "replace",
+    "json_pointer": "/contract",
+    "value": "ideia.task-manifest/2",
+    "expected_code": "invalid.contract_version"
+  },
+  {
+    "case_id": "CT-X05-task-manifest-type",
+    "base_fixture": "task-manifest.valid.json",
+    "operation": "replace",
+    "json_pointer": "/objective",
+    "value": 42,
+    "expected_code": "invalid.type"
+  },
+  {
+    "case_id": "CT-X06-budget-set-range",
+    "base_fixture": "budget-set.valid.json",
+    "operation": "replace",
+    "json_pointer": "/limits/0/hard_limit",
+    "value": 9007199254740992,
+    "expected_code": "invalid.range"
+  },
+  {
+    "case_id": "CT-X07-task-created-timestamp",
+    "base_fixture": "task-manifest.valid.json",
+    "operation": "replace",
+    "json_pointer": "/created_at",
+    "value": "2024-01-01T00:00:00Z",
+    "expected_code": "invalid.timestamp"
+  },
+  {
+    "case_id": "CT-X09-task-manifest-id",
+    "base_fixture": "task-manifest.valid.json",
+    "operation": "replace",
+    "json_pointer": "/manifest_id",
+    "value": "MFT_123e4567-e89b-42d3-a456-426614174000",
+    "expected_code": "invalid.id"
+  },
+  {
+    "case_id": "CT-X10-task-manifest-id-type",
+    "base_fixture": "task-manifest.valid.json",
+    "operation": "replace",
+    "json_pointer": "/manifest_id",
+    "value": "prn_123e4567-e89b-42d3-a456-426614174000",
+    "expected_code": "invalid.id_type"
+  }
+]

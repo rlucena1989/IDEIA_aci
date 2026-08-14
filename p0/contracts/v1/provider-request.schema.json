@@ -1,0 +1,129 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.ideia.invalid/p0/v1/provider-request.schema.json",
+  "title": "IDEIA P0 ProviderRequest v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "contract",
+    "provider_request_id",
+    "attempt_id",
+    "call_id",
+    "task_id",
+    "step_id",
+    "criterion_id",
+    "provider_id",
+    "endpoint_profile",
+    "model_id",
+    "model_revision",
+    "purpose",
+    "governance_bundle_id",
+    "governance_bundle_fingerprint",
+    "capabilities_fingerprint",
+    "prompt_template_id",
+    "prompt_template_version",
+    "prompt_fingerprint",
+    "instruction_artifacts",
+    "context_package_id",
+    "context_package_fingerprint",
+    "tool_catalog_fingerprint",
+    "allowed_tools",
+    "output_contract",
+    "response_schema_id",
+    "max_output_tokens",
+    "timeout_ms",
+    "destination",
+    "data_classes",
+    "egress_decision_id",
+    "budget_set_id",
+    "budget_reservation_id",
+    "budget_reservation_fingerprint",
+    "requested_at",
+    "request_fingerprint"
+  ],
+  "properties": {
+    "contract": { "const": "ideia.provider-request/1" },
+    "provider_request_id": { "$ref": "_defs.schema.json#/$defs/providerRequestId" },
+    "attempt_id": { "$ref": "_defs.schema.json#/$defs/attemptId" },
+    "call_id": { "$ref": "_defs.schema.json#/$defs/callId" },
+    "task_id": { "$ref": "_defs.schema.json#/$defs/taskId" },
+    "step_id": {
+      "oneOf": [
+        { "$ref": "_defs.schema.json#/$defs/stepId" },
+        { "type": "null" }
+      ]
+    },
+    "criterion_id": {
+      "oneOf": [
+        { "$ref": "_defs.schema.json#/$defs/criterionId" },
+        { "type": "null" }
+      ]
+    },
+    "provider_id": { "$ref": "_defs.schema.json#/$defs/stableName" },
+    "endpoint_profile": { "$ref": "_defs.schema.json#/$defs/stableName" },
+    "model_id": { "type": "string", "minLength": 1, "maxLength": 256 },
+    "model_revision": {
+      "oneOf": [
+        { "type": "string", "minLength": 1, "maxLength": 256 },
+        { "type": "null" }
+      ]
+    },
+    "purpose": { "$ref": "_defs.schema.json#/$defs/stableName" },
+    "governance_bundle_id": { "$ref": "_defs.schema.json#/$defs/stableName" },
+    "governance_bundle_fingerprint": { "$ref": "_defs.schema.json#/$defs/digest" },
+    "capabilities_fingerprint": { "$ref": "_defs.schema.json#/$defs/digest" },
+    "prompt_template_id": { "$ref": "_defs.schema.json#/$defs/stableName" },
+    "prompt_template_version": { "$ref": "_defs.schema.json#/$defs/version" },
+    "prompt_fingerprint": { "$ref": "_defs.schema.json#/$defs/digest" },
+    "instruction_artifacts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["artifact_id", "reference"],
+        "properties": {
+          "artifact_id": { "$ref": "_defs.schema.json#/$defs/artifactId" },
+          "reference": { "$ref": "_defs.schema.json#/$defs/artifactRef" }
+        }
+      }
+    },
+    "context_package_id": { "$ref": "_defs.schema.json#/$defs/contextPackageId" },
+    "context_package_fingerprint": { "$ref": "_defs.schema.json#/$defs/digest" },
+    "tool_catalog_fingerprint": {
+      "oneOf": [
+        { "$ref": "_defs.schema.json#/$defs/digest" },
+        { "type": "null" }
+      ]
+    },
+    "allowed_tools": {
+      "type": "array",
+      "items": { "$ref": "_defs.schema.json#/$defs/toolRef" }
+    },
+    "output_contract": { "$ref": "_defs.schema.json#/$defs/stableName" },
+    "response_schema_id": {
+      "oneOf": [
+        { "$ref": "_defs.schema.json#/$defs/schemaUri" },
+        { "type": "null" }
+      ]
+    },
+    "max_output_tokens": { "$ref": "_defs.schema.json#/$defs/positiveSafeInteger" },
+    "timeout_ms": { "$ref": "_defs.schema.json#/$defs/positiveSafeInteger" },
+    "destination": { "enum": ["local", "remote"] },
+    "data_classes": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": { "$ref": "_defs.schema.json#/$defs/dataClass" }
+    },
+    "egress_decision_id": {
+      "oneOf": [
+        { "$ref": "_defs.schema.json#/$defs/policyDecisionId" },
+        { "type": "null" }
+      ]
+    },
+    "budget_set_id": { "$ref": "_defs.schema.json#/$defs/budgetSetId" },
+    "budget_reservation_id": { "$ref": "_defs.schema.json#/$defs/budgetReservationId" },
+    "budget_reservation_fingerprint": { "$ref": "_defs.schema.json#/$defs/digest" },
+    "requested_at": { "$ref": "_defs.schema.json#/$defs/utcTimestamp" },
+    "request_fingerprint": { "$ref": "_defs.schema.json#/$defs/digest" }
+  }
+}

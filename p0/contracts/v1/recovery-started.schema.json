@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.ideia.invalid/p0/v1/recovery-started.schema.json",
+  "title": "IDEIA P0 RecoveryStarted v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "contract",
+    "recovery_run_id",
+    "task_id",
+    "trigger_code",
+    "baseline_sequence",
+    "baseline_event_digest",
+    "scanner_profile_fingerprint",
+    "started_at"
+  ],
+  "properties": {
+    "contract": { "const": "ideia.recovery-started/1" },
+    "recovery_run_id": { "$ref": "_defs.schema.json#/$defs/recoveryRunId" },
+    "task_id": { "$ref": "_defs.schema.json#/$defs/taskId" },
+    "trigger_code": { "$ref": "_defs.schema.json#/$defs/stableName" },
+    "baseline_sequence": { "$ref": "_defs.schema.json#/$defs/positiveSafeInteger" },
+    "baseline_event_digest": { "$ref": "_defs.schema.json#/$defs/digest" },
+    "scanner_profile_fingerprint": { "$ref": "_defs.schema.json#/$defs/digest" },
+    "started_at": { "$ref": "_defs.schema.json#/$defs/utcTimestamp" }
+  }
+}

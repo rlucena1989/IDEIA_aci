@@ -1,0 +1,16 @@
+{
+  "contract": "ideia.budget-ledger-entry/1",
+  "budget_set_id": "bgt_123e4567-e89b-42d3-a456-426614174000",
+  "task_id": "tsk_123e4567-e89b-42d3-a456-426614174000",
+  "sequence": 1,
+  "event_id": "evt_123e4567-e89b-42d3-a456-426614174000",
+  "budget_reservation_id": "brs_123e4567-e89b-42d3-a456-426614174000",
+  "usage_id": "use_123e4567-e89b-42d3-a456-426614174000",
+  "classification": "confirmed",
+  "unit": "call",
+  "amount": 0,
+  "currency": null,
+  "source": "provider",
+  "occurred_at": "2024-01-01T00:00:00.000Z",
+  "entry_fingerprint": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+}

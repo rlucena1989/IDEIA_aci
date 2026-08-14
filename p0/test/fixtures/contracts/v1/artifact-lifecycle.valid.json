@@ -1,0 +1,11 @@
+{
+  "contract": "ideia.artifact-lifecycle/1",
+  "artifact_id": "art_123e4567-e89b-42d3-a456-426614174000",
+  "sequence": 1,
+  "from_state": null,
+  "to_state": "staged",
+  "reason_code": "default",
+  "event_id": "evt_123e4567-e89b-42d3-a456-426614174000",
+  "occurred_at": "2024-01-01T00:00:00.000Z",
+  "metadata_fingerprint": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+}

@@ -49,6 +49,10 @@ coverage/
 **/src/**/*.d.ts
 **/src/**/*.d.ts.map
 
+# Artefatos P0 gerados, porém versionados: são parte do build reproduzível
+!p0/src/contracts/validators.generated.js
+!p0/src/contracts/validators.generated.d.ts
+
 # Dados operacionais locais
 *.sqlite
 *.sqlite3

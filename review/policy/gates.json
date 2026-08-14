@@ -1,0 +1,34 @@
+{
+  "contract": "ideia.review-policy/1",
+  "version": "0.1.0",
+  "principles": [
+    "deterministic_before_llm",
+    "fail_closed_for_blockers",
+    "evidence_is_reproducible",
+    "scope_is_explicit",
+    "generated_outputs_are_verified"
+  ],
+  "profiles": {
+    "scope": {
+      "description": "Confere um WP isolado sem atribuir a ele falhas de WPs concorrentes.",
+      "checks": []
+    },
+    "inventory": {
+      "description": "Inspeção local sem executar a suíte do P0.",
+      "checks": ["repository-health", "source-policy", "schema-copy", "lockfile", "contract-build-policy"]
+    },
+    "fast": {
+      "description": "Gates rápidos para uma mudança já delimitada.",
+      "checks": ["repository-health", "source-policy", "schema-copy", "lockfile", "contract-build-policy", "p0-tests"]
+    },
+    "full": {
+      "description": "Revisão local de integração sem instalar ou baixar dependências.",
+      "checks": ["repository-health", "source-policy", "schema-copy", "lockfile", "contract-build-policy", "p0-tests", "p0-typecheck", "validator-drift"]
+    }
+  },
+  "statusPolicy": {
+    "fail": "bloqueia a aprovação do pacote indicado",
+    "warn": "exige triagem humana, mas não altera o exit code",
+    "skip": "não havia pré-condição suficiente; não é aprovação"
+  }
+}

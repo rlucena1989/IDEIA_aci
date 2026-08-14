@@ -1,0 +1,13 @@
+{
+  "contract": "ideia.context-stale/1",
+  "task_id": "tsk_123e4567-e89b-42d3-a456-426614174000",
+  "step_id": "stp_123e4567-e89b-42d3-a456-426614174000",
+  "context_package_id": "cxp_123e4567-e89b-42d3-a456-426614174000",
+  "context_item_id": "cxi_123e4567-e89b-42d3-a456-426614174000",
+  "provider_request_id": "pvr_123e4567-e89b-42d3-a456-426614174000",
+  "source_ref": "default",
+  "expected_source_version": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+  "observed_source_version": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+  "disposition": "blocked",
+  "detected_at": "2024-01-01T00:00:00.000Z"
+}

@@ -1,0 +1,54 @@
+{
+  "contract": "ideia.provider-request/1",
+  "provider_request_id": "pvr_123e4567-e89b-42d3-a456-426614174000",
+  "attempt_id": "atm_123e4567-e89b-42d3-a456-426614174000",
+  "call_id": "cal_123e4567-e89b-42d3-a456-426614174000",
+  "task_id": "tsk_123e4567-e89b-42d3-a456-426614174000",
+  "step_id": "stp_123e4567-e89b-42d3-a456-426614174000",
+  "criterion_id": "crt_123e4567-e89b-42d3-a456-426614174000",
+  "provider_id": "default",
+  "endpoint_profile": "default",
+  "model_id": "model_123e4567-e89b-42d3-a456-426614174000",
+  "model_revision": "default",
+  "purpose": "default",
+  "governance_bundle_id": "default",
+  "governance_bundle_fingerprint": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+  "capabilities_fingerprint": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+  "prompt_template_id": "default",
+  "prompt_template_version": "default",
+  "prompt_fingerprint": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+  "instruction_artifacts": [
+    {
+      "artifact_id": "art_123e4567-e89b-42d3-a456-426614174000",
+      "reference": {
+        "profile": "raw-sha256-v1",
+        "digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+        "size_bytes": 0,
+        "media_type": "default"
+      }
+    }
+  ],
+  "context_package_id": "cxp_123e4567-e89b-42d3-a456-426614174000",
+  "context_package_fingerprint": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+  "tool_catalog_fingerprint": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+  "allowed_tools": [
+    {
+      "tool_id": "default",
+      "tool_version": "default"
+    }
+  ],
+  "output_contract": "default",
+  "response_schema_id": "https://schemas.ideia.invalid/p0/v1/task-manifest.schema.json",
+  "max_output_tokens": 1,
+  "timeout_ms": 1,
+  "destination": "local",
+  "data_classes": [
+    "D0"
+  ],
+  "egress_decision_id": "pdc_123e4567-e89b-42d3-a456-426614174000",
+  "budget_set_id": "bgt_123e4567-e89b-42d3-a456-426614174000",
+  "budget_reservation_id": "brs_123e4567-e89b-42d3-a456-426614174000",
+  "budget_reservation_fingerprint": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+  "requested_at": "2024-01-01T00:00:00.000Z",
+  "request_fingerprint": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+}

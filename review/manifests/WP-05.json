@@ -1,0 +1,24 @@
+{
+  "workPackage": "WP-05",
+  "title": "Validators JSON Schema standalone",
+  "allowedPaths": [
+    "p0/package.json",
+    "p0/package-lock.json",
+    "p0/contracts/v1/**",
+    "p0/scripts/generate-contract-validators.mjs",
+    "p0/src/contracts/validators.generated.js",
+    "p0/src/contracts/validators.generated.d.ts",
+    "p0/src/contracts/validate.ts",
+    "p0/test/contracts/schema-validation.test.ts"
+  ],
+  "requiredPaths": [
+    "p0/package.json",
+    "p0/package-lock.json",
+    "p0/scripts/generate-contract-validators.mjs",
+    "p0/src/contracts/validators.generated.js",
+    "p0/src/contracts/validators.generated.d.ts",
+    "p0/src/contracts/validate.ts",
+    "p0/test/contracts/schema-validation.test.ts"
+  ],
+  "requiredDirectories": ["p0/contracts/v1"]
+}

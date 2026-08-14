@@ -1,0 +1,22 @@
+{
+  "contract": "ideia.provider-capabilities-snapshot/1",
+  "provider_id": "default",
+  "endpoint_profile": "default",
+  "model_id": "model_123e4567-e89b-42d3-a456-426614174000",
+  "model_revision": "default",
+  "source": "probed",
+  "features": {
+    "streaming": "supported",
+    "structured_output": "supported",
+    "tool_calling": "supported",
+    "usage_reporting": "supported",
+    "request_idempotency": "supported"
+  },
+  "max_input_tokens": 1,
+  "max_output_tokens": 1,
+  "quirks": [
+    "default"
+  ],
+  "observed_at": "2024-01-01T00:00:00.000Z",
+  "snapshot_fingerprint": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+}

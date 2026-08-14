@@ -1,0 +1,20 @@
+{
+  "workPackage": "WP-01",
+  "title": "Esqueleto P0 isolado",
+  "allowedPaths": [
+    "p0/package.json",
+    "p0/tsconfig.json",
+    "p0/.gitignore",
+    "p0/src/index.ts",
+    "p0/test/smoke.test.ts",
+    "p0/README.md"
+  ],
+  "requiredPaths": [
+    "p0/package.json",
+    "p0/tsconfig.json",
+    "p0/.gitignore",
+    "p0/src/index.ts",
+    "p0/test/smoke.test.ts",
+    "p0/README.md"
+  ]
+}

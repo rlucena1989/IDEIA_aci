@@ -1,0 +1,119 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.ideia.invalid/p0/v1/tool-result.schema.json",
+  "title": "IDEIA P0 ToolResult v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "contract",
+    "task_id",
+    "step_id",
+    "call_id",
+    "effect_intent_id",
+    "execution_status",
+    "effect_status",
+    "output",
+    "output_ref",
+    "stdout_ref",
+    "stderr_ref",
+    "exit_code",
+    "started_at",
+    "finished_at",
+    "duration_ms",
+    "truncated",
+    "result_digest"
+  ],
+  "properties": {
+    "contract": {
+      "const": "ideia.tool-result/1"
+    },
+    "task_id": {
+      "$ref": "_defs.schema.json#/$defs/taskId"
+    },
+    "step_id": {
+      "$ref": "_defs.schema.json#/$defs/stepId"
+    },
+    "call_id": {
+      "$ref": "_defs.schema.json#/$defs/callId"
+    },
+    "effect_intent_id": {
+      "$ref": "_defs.schema.json#/$defs/effectIntentId"
+    },
+    "execution_status": {
+      "enum": [
+        "completed",
+        "failed",
+        "cancelled",
+        "timed_out"
+      ]
+    },
+    "effect_status": {
+      "enum": [
+        "not_applicable",
+        "observed_success",
+        "observed_failure",
+        "ambiguous"
+      ]
+    },
+    "output": {
+      "$ref": "_defs.schema.json#/$defs/jsonValue"
+    },
+    "output_ref": {
+      "oneOf": [
+        {
+          "$ref": "_defs.schema.json#/$defs/artifactRef"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "stdout_ref": {
+      "oneOf": [
+        {
+          "$ref": "_defs.schema.json#/$defs/artifactRef"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "stderr_ref": {
+      "oneOf": [
+        {
+          "$ref": "_defs.schema.json#/$defs/artifactRef"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "exit_code": {
+      "oneOf": [
+        {
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "started_at": {
+      "$ref": "_defs.schema.json#/$defs/utcTimestamp"
+    },
+    "finished_at": {
+      "$ref": "_defs.schema.json#/$defs/utcTimestamp"
+    },
+    "duration_ms": {
+      "$ref": "_defs.schema.json#/$defs/nonNegativeSafeInteger"
+    },
+    "truncated": {
+      "type": "boolean"
+    },
+    "result_digest": {
+      "$ref": "_defs.schema.json#/$defs/digest"
+    }
+  }
+}

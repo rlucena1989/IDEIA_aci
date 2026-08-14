@@ -1,0 +1,6 @@
+{
+  "contract": "ideia.task-created/1",
+  "manifest_id": "mft_123e4567-e89b-42d3-a456-426614174000",
+  "manifest_fingerprint": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+  "initial_state": "created"
+}

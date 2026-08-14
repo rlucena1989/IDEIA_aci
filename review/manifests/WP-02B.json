@@ -1,0 +1,18 @@
+{
+  "workPackage": "WP-02B",
+  "title": "IDs tipados e geração injetável",
+  "allowedPaths": [
+    "p0/src/domain/ids.ts",
+    "p0/src/ports/id-generator.ts",
+    "p0/src/adapters/node-id-generator.ts",
+    "p0/test/domain/ids.test.ts",
+    "p0/test/adapters/node-id-generator.test.ts"
+  ],
+  "requiredPaths": [
+    "p0/src/domain/ids.ts",
+    "p0/src/ports/id-generator.ts",
+    "p0/src/adapters/node-id-generator.ts",
+    "p0/test/domain/ids.test.ts",
+    "p0/test/adapters/node-id-generator.test.ts"
+  ]
+}

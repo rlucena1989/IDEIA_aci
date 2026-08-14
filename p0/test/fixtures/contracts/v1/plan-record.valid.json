@@ -1,0 +1,24 @@
+{
+  "contract": "ideia.plan-record/1",
+  "plan_id": "pln_123e4567-e89b-42d3-a456-426614174000",
+  "task_id": "tsk_123e4567-e89b-42d3-a456-426614174000",
+  "revision": 1,
+  "source_provider_request_id": "pvr_123e4567-e89b-42d3-a456-426614174000",
+  "previous_plan_fingerprint": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+  "governance_bundle_fingerprint": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+  "context_package_fingerprint": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+  "steps_artifact_id": "art_123e4567-e89b-42d3-a456-426614174000",
+  "steps_ref": {
+    "profile": "raw-sha256-v1",
+    "digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+    "size_bytes": 0,
+    "media_type": "default"
+  },
+  "step_count": 1,
+  "criterion_ids": [
+    "crt_123e4567-e89b-42d3-a456-426614174000"
+  ],
+  "reason": "initial",
+  "recorded_at": "2024-01-01T00:00:00.000Z",
+  "plan_fingerprint": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+}

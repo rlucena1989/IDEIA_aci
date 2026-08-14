@@ -1,0 +1,17 @@
+{
+  "contract": "ideia.effect-reconciliation/1",
+  "recovery_run_id": "rcv_123e4567-e89b-42d3-a456-426614174000",
+  "effect_intent_id": "efi_123e4567-e89b-42d3-a456-426614174000",
+  "task_id": "tsk_123e4567-e89b-42d3-a456-426614174000",
+  "call_id": "cal_123e4567-e89b-42d3-a456-426614174000",
+  "observation": "no_effect",
+  "evidence": [
+    {
+      "kind": "artifact",
+      "reference": "default",
+      "digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+    }
+  ],
+  "disposition": "record_observation",
+  "reconciled_at": "2024-01-01T00:00:00.000Z"
+}
