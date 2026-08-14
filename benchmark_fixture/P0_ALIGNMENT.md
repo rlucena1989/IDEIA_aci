@@ -1,14 +1,16 @@
 # P0 Alignment — auditoria documental da fixture
 
-**Snapshot:** 13 de agosto de 2026
+> **Conteúdo histórico — snapshot de 13 de agosto de 2026.** As condições abaixo foram atualizadas posteriormente; preserve este documento como registro da auditoria original e das correções posteriores.
+
+**Snapshot original:** 13 de agosto de 2026
 
 **Escopo do WP-10:** inventariar divergências entre README, `run_t01.js`, `package.json` e o schema de resultados, sem editar executores, `package.json` ou `src/`.
 
 ## Método e limite do snapshot
 
-O inventário distingue **arquivo físico** de **arquivo versionado**. A varredura foi feita com listagem explícita do filesystem e com `git ls-files`; usar somente `rg --files` seria insuficiente porque ele respeita `.gitignore`.
+O inventário distingue **arquivo físico** de **arquivo versionado**. A varredura foi feita com listagem explícita do filesystem e com `git ls-files`; usar somente `rg --files` seria insuficiente porque ele respeita `.gitignore`. Estado corrigido após o snapshot: a exceção `!benchmark_fixture/src/**/*.js` foi adicionada ao `.gitignore`, os quatro fontes estão versionados no commit `a88f76d`, e `benchmark_fixture/package-lock.json` foi gerado com `npm install --package-lock-only --ignore-scripts`.
 
-Esta distinção é necessária: o padrão raiz `.gitignore` `**/src/**/*.js` esconde os quatro fontes da fixture. Eles existem localmente, mas não são rastreados. Nenhuma conclusão deste documento afirma que uma instalação, teste ou benchmark foi executado com sucesso.
+Esta distinção é necessária: o padrão raiz `.gitignore` `**/src/**/*.js` agora é acompanhado da exceção específica da fixture. Os quatro fontes existem e são rastreados. A instalação foi preparada com lockfile; o runner T01 também foi executado ponta a ponta em checkout limpo com `node run_t01.js` e Enter via pipe. Essa execução prova a operabilidade do runner, mas não valida o contrato de resultados.
 
 ## 1. Inventário de divergências
 
@@ -16,13 +18,13 @@ Esta distinção é necessária: o padrão raiz `.gitignore` `**/src/**/*.js` es
 
 | Item | Estado físico | Estado Git | Consequência |
 |---|---|---|---|
-| `src/index.js` | existe | ignorado/não rastreado | cópia do repositório não contém o servidor |
-| `src/email-validator.js` | existe | ignorado/não rastreado | cenário T02 não é reproduzível |
-| `src/pagination.js` | existe | ignorado/não rastreado | cenário T03 não é reproduzível |
-| `src/email-validator.test.js` | existe | ignorado/não rastreado | oráculo de regressão não é reproduzível |
+| `src/index.js` | existe | versionado (`a88f76d`) | servidor reproduzível |
+| `src/email-validator.js` | existe | versionado (`a88f76d`) | cenário T02 reproduzível |
+| `src/pagination.js` | existe | versionado (`a88f76d`) | cenário T03 reproduzível |
+| `src/email-validator.test.js` | existe | versionado (`a88f76d`) | oráculo de regressão reproduzível |
 | `results/` | ausente | não rastreado | é criado pelo runner; ainda não há resultado registrado |
 | `validate_benchmark.mjs` | ausente | não rastreado | não existe validação executável dos resultados |
-| `package-lock.json` | ausente | não rastreado | não há instalação reproduzível com `npm ci` |
+| `package-lock.json` | existe | gerado com `npm install --package-lock-only --ignore-scripts` | instalação reproduzível com `npm ci --ignore-scripts` |
 | `node_modules/` | ausente | ignorado | `express` e `jest` estão como dependências não satisfeitas |
 
 **Divergência crítica:** o README histórico listava os quatro arquivos de `src/` corretamente como arquivos físicos, mas dava a entender que compunham a fixture compartilhável. O problema não é ausência de fonte; é que as fontes foram omitidas do controle de versão pela regra global de ignore.
@@ -33,7 +35,7 @@ Esta distinção é necessária: o padrão raiz `.gitignore` `**/src/**/*.js` es
 |---|---|---|
 | `npm test` | script `jest`; `jest` não está instalado | não executável neste checkout |
 | `npm start` | script `node src/index.js`; fonte existe, mas não é versionada e `express` não está instalado | não verificado |
-| `node run_t01.js` | arquivo existe; primeiro chama `npm test` | bloqueado por dependências ausentes |
+| `node run_t01.js` | executado em checkout limpo; primeiro chama `npm test` | operável; registro ainda não adere ao schema |
 | “fixture pronta para execução manual” | falta lockfile, fontes rastreadas e execução limpa registrada | afirmação não demonstrada |
 | “paginação correta” | não há teste de contrato nem execução registrada | afirmação não demonstrada |
 
@@ -111,4 +113,4 @@ Em especial, `timeout` e `error` **não podem ser traduzidos para `rolled_back`*
 
 ## 4. Conclusão
 
-O WP-10 original precisava de correção: sua auditoria confundiu arquivos ignorados com diretório vazio e inventou uma equivalência de status não autorizada. Após esta revisão documental, a situação é clara: há uma fixture local parcial, mas ela não é versionada nem executável de forma reproduzível; T01–T03 são cenários não verificados e T04–T10 não existem como tarefas implementadas.
+O WP-10 original precisava de correção: sua auditoria confundiu arquivos ignorados com diretório vazio e inventou uma equivalência de status não autorizada. Após esta revisão documental, os fontes estão versionados, há lockfile e a fixture foi instalada/testada; o runner T01 também foi executado em checkout limpo. T01 permanece operável, mas o registro produzido ainda não adere ao schema; T02–T03 continuam fora deste ajuste e T04–T10 não existem como tarefas implementadas.

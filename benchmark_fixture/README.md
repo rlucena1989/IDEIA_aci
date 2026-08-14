@@ -2,7 +2,7 @@
 
 **Snapshot documental:** 13 de agosto de 2026
 
-**Status:** a fixture possui fontes locais, mas elas estão ignoradas pelo Git; as dependências não estão instaladas, não há lockfile e não existe execução limpa registrada. Portanto, ela **não está pronta para produzir resultados de benchmark**.
+**Status:** a fixture possui fontes versionadas e um `package-lock.json`; a instalação limpa e a execução ponta a ponta do runner T01 foram verificadas em checkout limpo. Ela está pronta para executar a fixture, mas os resultados ainda não devem ser tratados como evidência válida do schema até que o contrato de resultado e o runner sejam alinhados.
 
 ## Estrutura observada
 
@@ -10,16 +10,17 @@
 benchmark_fixture/
 ├── package.json                    # versionado
 ├── run_t01.js                      # versionado; produz resultado não aderente ao schema atual
-├── src/                            # existe localmente, mas .js está ignorado pelo Git
+├── src/                            # fontes .js versionados pela exceção específica da fixture
 │   ├── index.js
 │   ├── email-validator.js
 │   ├── pagination.js
 │   └── email-validator.test.js
-├── results/                        # criado pelo runner quando ele executa; ausente neste snapshot
+├── package-lock.json               # versionado; instalação reproduzível com npm ci
+├── results/                        # criado pelo runner quando ele executa; não versionar resultados locais
 └── validate_benchmark.mjs          # ausente
 ```
 
-O padrão global `.gitignore` (`**/src/**/*.js`) exclui os quatro arquivos de `src/`. Eles não aparecem em `git ls-files`, `git status` ou em inventários que respeitam `.gitignore`; isso torna a fixture não reproduzível a partir do repositório atual.
+O padrão global `.gitignore` (`**/src/**/*.js`) é sobrescrito pela exceção `!benchmark_fixture/src/**/*.js`. Os quatro arquivos de `src/` estão versionados e aparecem em `git ls-files`; a fixture pode ser reconstruída a partir de um checkout limpo.
 
 ## Situação das tarefas
 
@@ -27,7 +28,7 @@ O padrão global `.gitignore` (`**/src/**/*.js`) exclui os quatro arquivos de `s
 
 - **Objetivo:** explicar a estrutura e o fluxo principal sem alterar arquivos.
 - **Runner existente:** `node run_t01.js`.
-- **Estado:** não verificado. O runner exige `jest`, atualmente ausente, e grava um registro que não cumpre o [schema de resultados](../docs/research/benchmarks/schema_resultados.md).
+- **Estado:** runner executado ponta a ponta em checkout limpo com `node run_t01.js` e Enter alimentado via pipe; o baseline foi executado e o runner emitiu o registro. A execução confirma a operabilidade da fixture, mas o registro ainda não cumpre o [schema de resultados](../docs/research/benchmarks/schema_resultados.md).
 - **Limite importante:** o runner atual fixa `status: 'success'`; ele não captura evidência da resposta humana nem compara o diff antes/depois. Uma execução dele não prova T01.
 
 ### T02 — bugfix de email
@@ -47,13 +48,13 @@ Não há cenários implementados ou oráculos documentados neste snapshot.
 
 ## Pré-condições para qualquer execução
 
-1. Corrigir o versionamento de `src/` e revisar o diff antes de adicioná-lo ao Git.
-2. Gerar e versionar `package-lock.json` com scripts de instalação desabilitados.
-3. Em cópia limpa, executar `npm ci --ignore-scripts` e registrar o resultado.
+1. Os quatro arquivos `.js` de `src/` devem permanecer versionados pela exceção específica no `.gitignore`.
+2. `package-lock.json` deve permanecer versionado e compatível com `package.json`.
+3. Em cópia limpa, executar `npm ci --ignore-scripts` e verificar o resultado.
 4. Executar e registrar o baseline (`npm test`) antes de expor uma tarefa a uma ferramenta.
 5. Resolver a semântica de status e criar um schema executável/validador antes de aceitar JSON em `results/`.
 
-Enquanto essas pré-condições não forem atendidas, comandos mostrados abaixo são apenas comandos previstos, não instruções de que a fixture já é executável.
+As quatro primeiras condições de instalação e execução já foram verificadas para a fixture atual. A quinta permanece pendente; portanto, resultados em `results/` ainda não são evidência válida do schema.
 
 ## Comandos previstos após a recuperação
 

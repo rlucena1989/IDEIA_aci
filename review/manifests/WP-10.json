@@ -3,10 +3,12 @@
   "title": "Alinhamento documental da fixture",
   "allowedPaths": [
     "benchmark_fixture/README.md",
-    "benchmark_fixture/P0_ALIGNMENT.md"
+    "benchmark_fixture/P0_ALIGNMENT.md",
+    "benchmark_fixture/package-lock.json"
   ],
   "requiredPaths": [
     "benchmark_fixture/README.md",
-    "benchmark_fixture/P0_ALIGNMENT.md"
+    "benchmark_fixture/P0_ALIGNMENT.md",
+    "benchmark_fixture/package-lock.json"
   ]
 }
