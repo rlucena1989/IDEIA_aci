@@ -49,6 +49,9 @@ coverage/
 **/src/**/*.d.ts
 **/src/**/*.d.ts.map
 
+# Exceção: fontes .js da fixture de benchmark são versionadas de propósito
+!benchmark_fixture/src/**/*.js
+
 # Artefatos P0 gerados, porém versionados: são parte do build reproduzível
 !p0/src/contracts/validators.generated.js
 !p0/src/contracts/validators.generated.d.ts
